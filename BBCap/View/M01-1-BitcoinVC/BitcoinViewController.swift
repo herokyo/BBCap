@@ -7,29 +7,40 @@
 //
 
 import UIKit
+import SwifterSwift
 
-class BitcoinViewController: UIViewController {
+final class BitcoinViewController: ViewController {
+
+    @IBOutlet private weak var navigationView: UIView!
+    @IBOutlet private weak var currentCurrencyLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configNavigationStatusBarView()
+        configNavigationView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    private func configNavigationStatusBarView() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = Config.gradientColors
+        gradientLayer.frame = Config.statusBarFrame
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func configNavigationView() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = navigationView.bounds
+        gradientLayer.colors = Config.gradientColors
+        navigationView.layer.insertSublayer(gradientLayer, at: 0)
     }
-    */
-
 }
+
+// MARK: - Config
+struct Config {
+    static let bottomColor: UIColor! = UIColor(red: 17, green: 22, blue: 22)
+    static let topColor: UIColor! = UIColor(red: 24, green: 19, blue: 32)
+    static let gradientColors: [CGColor] = [Config.bottomColor.cgColor, Config.topColor.cgColor]
+    static let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+    static let statusBarFrame: CGRect = CGRect(x: 0, y: 0, width: 375, height: Config.statusBarHeight)
+}
+
