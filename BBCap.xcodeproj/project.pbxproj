@@ -37,6 +37,8 @@
 		F1C6352C1EF141F300D0A1A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C6352B1EF141F300D0A1A0 /* LaunchScreen.storyboard */; };
 		FED62EEF209D726B0070ABDE /* BitcoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EED209D726B0070ABDE /* BitcoinViewController.swift */; };
 		FED62EF0209D726B0070ABDE /* BitcoinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED62EEE209D726B0070ABDE /* BitcoinViewController.xib */; };
+		FED62EF4209DE96F0070ABDE /* UILabelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EF3209DE96F0070ABDE /* UILabelExt.swift */; };
+		FED62EF6209DE9C30070ABDE /* Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EF5209DE9C30070ABDE /* Ratio.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		F1C6352B1EF141F300D0A1A0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FED62EED209D726B0070ABDE /* BitcoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinViewController.swift; sourceTree = "<group>"; };
 		FED62EEE209D726B0070ABDE /* BitcoinViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BitcoinViewController.xib; sourceTree = "<group>"; };
+		FED62EF3209DE96F0070ABDE /* UILabelExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExt.swift; sourceTree = "<group>"; };
+		FED62EF5209DE9C30070ABDE /* Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratio.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +290,7 @@
 		ECF23AA31E9B8586008C23C1 /* Schema */ = {
 			isa = PBXGroup;
 			children = (
+				FED62EF5209DE9C30070ABDE /* Ratio.swift */,
 			);
 			path = Schema;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 				ECF23AC21E9B9264008C23C1 /* StringExt.swift */,
 				ECEC0C591ED44D4100F6760A /* UIViewControllerExt.swift */,
 				EC6FD3091EF8B71200CB6642 /* DefaultsExt.swift */,
+				FED62EF3209DE96F0070ABDE /* UILabelExt.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -610,8 +616,10 @@
 				ECF23AC31E9B9264008C23C1 /* StringExt.swift in Sources */,
 				ECEC0C5E1ED44D7700F6760A /* MapperExt.swift in Sources */,
 				EC5337B71EF78CD800ACE038 /* App.swift in Sources */,
+				FED62EF4209DE96F0070ABDE /* UILabelExt.swift in Sources */,
 				ECC5B2CD1EF906CA001A97BC /* ViewController.swift in Sources */,
 				FED62EEF209D726B0070ABDE /* BitcoinViewController.swift in Sources */,
+				FED62EF6209DE9C30070ABDE /* Ratio.swift in Sources */,
 				EC5337C31EF793B100ACE038 /* CollectionCell.swift in Sources */,
 				ECF23ABA1E9B89B2008C23C1 /* RequestSerializer.swift in Sources */,
 				ECC5B2CB1EF90495001A97BC /* Button.swift in Sources */,
