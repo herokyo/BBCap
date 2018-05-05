@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22334D80209376E900F7E1A4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22334D7F209376E900F7E1A4 /* Default-568h@2x.png */; };
+		57E497D821F650E126AD586C /* Pods_BBCap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E9C3B2D9F3914160F6E978 /* Pods_BBCap.framework */; };
+		6E1AEE880A5F5145BCAA9FDF /* Pods_BBCap_BBCapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0AAB766BC2EED83274D0DA /* Pods_BBCap_BBCapTests.framework */; };
 		EC0105521E8F8AE000CE013D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC0105401E8F8ADF00CE013D /* Assets.xcassets */; };
 		EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0105441E8F8ADF00CE013D /* AppDelegate.swift */; };
 		EC2C488D1EAF011C00B22F4B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C488C1EAF011C00B22F4B /* Utils.swift */; };
@@ -34,6 +35,8 @@
 		ECF23ABE1E9B8A6A008C23C1 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23ABD1E9B8A6A008C23C1 /* Error.swift */; };
 		ECF23AC31E9B9264008C23C1 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AC21E9B9264008C23C1 /* StringExt.swift */; };
 		F1C6352C1EF141F300D0A1A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C6352B1EF141F300D0A1A0 /* LaunchScreen.storyboard */; };
+		FED62EEF209D726B0070ABDE /* BitcoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EED209D726B0070ABDE /* BitcoinViewController.swift */; };
+		FED62EF0209D726B0070ABDE /* BitcoinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED62EEE209D726B0070ABDE /* BitcoinViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,10 +63,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		22334D7F209376E900F7E1A4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2649F5F6F87AEE8D068FE6BC /* Pods-BBCap-BBCapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBCap-BBCapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BBCap-BBCapTests/Pods-BBCap-BBCapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		40E9C3B2D9F3914160F6E978 /* Pods_BBCap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BBCap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74BCDA5E3E13E3D93995831F /* Pods-BBCap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBCap.release.xcconfig"; path = "Pods/Target Support Files/Pods-BBCap/Pods-BBCap.release.xcconfig"; sourceTree = "<group>"; };
 		75C26C3F00634F7753D874C5 /* Pods-BBCap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBCap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BBCap/Pods-BBCap.debug.xcconfig"; sourceTree = "<group>"; };
+		BF0AAB766BC2EED83274D0DA /* Pods_BBCap_BBCapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BBCap_BBCapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BAF8593FF6B11A7542C9D0 /* Pods-BBCap-BBCapTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBCap-BBCapTests.staging.xcconfig"; path = "Pods/Target Support Files/Pods-BBCap-BBCapTests/Pods-BBCap-BBCapTests.staging.xcconfig"; sourceTree = "<group>"; };
 		C67210EC0CCE469826105D1B /* Pods-BBCap-BBCapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBCap-BBCapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BBCap-BBCapTests/Pods-BBCap-BBCapTests.release.xcconfig"; sourceTree = "<group>"; };
 		EB741642CD7BB86408F91AAB /* Pods-BBCap.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBCap.staging.xcconfig"; path = "Pods/Target Support Files/Pods-BBCap/Pods-BBCap.staging.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 		ECF23ABD1E9B8A6A008C23C1 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		ECF23AC21E9B9264008C23C1 /* StringExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		F1C6352B1EF141F300D0A1A0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FED62EED209D726B0070ABDE /* BitcoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinViewController.swift; sourceTree = "<group>"; };
+		FED62EEE209D726B0070ABDE /* BitcoinViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BitcoinViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57E497D821F650E126AD586C /* Pods_BBCap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E1AEE880A5F5145BCAA9FDF /* Pods_BBCap_BBCapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +141,8 @@
 		E7A23BB3FDC7E19F0663DF69 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				40E9C3B2D9F3914160F6E978 /* Pods_BBCap.framework */,
+				BF0AAB766BC2EED83274D0DA /* Pods_BBCap_BBCapTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -142,7 +152,6 @@
 			children = (
 				EC01053D1E8F8ADF00CE013D /* Define */,
 				EC0105431E8F8ADF00CE013D /* View */,
-				EC01054B1E8F8AE000CE013D /* ViewModel */,
 				ECF23A951E9B8503008C23C1 /* Model */,
 				ECF23AC01E9B9253008C23C1 /* Library */,
 				EC01053F1E8F8ADF00CE013D /* Resources */,
@@ -182,18 +191,12 @@
 		EC0105431E8F8ADF00CE013D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FED62EEC209D71F30070ABDE /* M01-1-BitcoinVC */,
 				EC0105441E8F8ADF00CE013D /* AppDelegate.swift */,
 				EC5337BF1EF7933A00ACE038 /* Base */,
 				F1C6352A1EF141F300D0A1A0 /* Storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		EC01054B1E8F8AE000CE013D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		EC01055B1E8F8AF000CE013D /* MyAppTests */ = {
@@ -254,7 +257,6 @@
 		ECCCCB0F1E7A40D00073D923 = {
 			isa = PBXGroup;
 			children = (
-				22334D7F209376E900F7E1A4 /* Default-568h@2x.png */,
 				EC0105381E8F8ADF00CE013D /* BBCap */,
 				EC01055B1E8F8AF000CE013D /* MyAppTests */,
 				ECCCCB191E7A40D00073D923 /* Products */,
@@ -336,6 +338,15 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		FED62EEC209D71F30070ABDE /* M01-1-BitcoinVC */ = {
+			isa = PBXGroup;
+			children = (
+				FED62EED209D726B0070ABDE /* BitcoinViewController.swift */,
+				FED62EEE209D726B0070ABDE /* BitcoinViewController.xib */,
+			);
+			path = "M01-1-BitcoinVC";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -350,6 +361,7 @@
 				ECCCCB161E7A40D00073D923 /* Resources */,
 				EC01052F1E8F895300CE013D /* Embed Frameworks */,
 				79CBD9B0F57401E1D3406AE2 /* [CP] Embed Pods Frameworks */,
+				DD6072EC3BDAA567430E4EC2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -369,6 +381,7 @@
 				ECCCCB291E7A40D10073D923 /* Frameworks */,
 				ECCCCB2A1E7A40D10073D923 /* Resources */,
 				48A7389C5C639B0D512174B4 /* [CP] Embed Pods Frameworks */,
+				17F93B310A53FC5663992E9F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -426,7 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC0105521E8F8AE000CE013D /* Assets.xcassets in Resources */,
-				22334D80209376E900F7E1A4 /* Default-568h@2x.png in Resources */,
+				FED62EF0209D726B0070ABDE /* BitcoinViewController.xib in Resources */,
 				EC5337BA1EF78E4D00ACE038 /* Localizable.strings in Resources */,
 				F1C6352C1EF141F300D0A1A0 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -442,6 +455,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		17F93B310A53FC5663992E9F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BBCap-BBCapTests/Pods-BBCap-BBCapTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		48A7389C5C639B0D512174B4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,19 +479,23 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BBCap-BBCapTests/Pods-BBCap-BBCapTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/MVVM-Swift/MVVM.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftUtils/SwiftUtils.framework",
+				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MVVM.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftUtils.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -479,19 +511,23 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BBCap/Pods-BBCap-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/MVVM-Swift/MVVM.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftUtils/SwiftUtils.framework",
+				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MVVM.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftUtils.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -534,6 +570,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DD6072EC3BDAA567430E4EC2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BBCap/Pods-BBCap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		EC8C6FF51ECAF27D00C52F7A /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -560,6 +611,7 @@
 				ECEC0C5E1ED44D7700F6760A /* MapperExt.swift in Sources */,
 				EC5337B71EF78CD800ACE038 /* App.swift in Sources */,
 				ECC5B2CD1EF906CA001A97BC /* ViewController.swift in Sources */,
+				FED62EEF209D726B0070ABDE /* BitcoinViewController.swift in Sources */,
 				EC5337C31EF793B100ACE038 /* CollectionCell.swift in Sources */,
 				ECF23ABA1E9B89B2008C23C1 /* RequestSerializer.swift in Sources */,
 				ECC5B2CB1EF90495001A97BC /* Button.swift in Sources */,

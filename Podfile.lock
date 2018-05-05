@@ -2,49 +2,59 @@ PODS:
   - Alamofire (4.6.0)
   - AlamofireNetworkActivityIndicator (2.2.0):
     - Alamofire (~> 4.5)
+  - Charts (3.1.0):
+    - Charts/Core (= 3.1.0)
+  - Charts/Core (3.1.0)
   - Crashlytics (3.10.1):
     - Fabric (~> 1.7.5)
   - Fabric (1.7.6)
   - MVVM-Swift (1.1.0)
   - ObjectMapper (3.1.0)
   - SwiftDate (4.5.0)
+  - SwifterSwift (4.2.0):
+    - SwifterSwift/AppKit (= 4.2.0)
+    - SwifterSwift/CoreGraphics (= 4.2.0)
+    - SwifterSwift/CoreLocation (= 4.2.0)
+    - SwifterSwift/Foundation (= 4.2.0)
+    - SwifterSwift/MapKit (= 4.2.0)
+    - SwifterSwift/SwiftStdlib (= 4.2.0)
+    - SwifterSwift/UIKit (= 4.2.0)
+  - SwifterSwift/AppKit (4.2.0)
+  - SwifterSwift/CoreGraphics (4.2.0)
+  - SwifterSwift/CoreLocation (4.2.0)
+  - SwifterSwift/Foundation (4.2.0)
+  - SwifterSwift/MapKit (4.2.0)
+  - SwifterSwift/SwiftStdlib (4.2.0)
+  - SwifterSwift/UIKit (4.2.0)
   - SwiftLint (0.25.0)
   - SwiftUtils (4.0.1)
 
 DEPENDENCIES:
   - Alamofire (= 4.6.0)
   - AlamofireNetworkActivityIndicator (= 2.2.0)
+  - Charts (= 3.1.0)
   - Crashlytics
   - Fabric
   - MVVM-Swift (= 1.1.0)
   - ObjectMapper (= 3.1.0)
   - SwiftDate (= 4.5.0)
+  - SwifterSwift (= 4.2.0)
   - SwiftLint (= 0.25.0)
   - SwiftUtils (= 4.0.1)
-
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Alamofire
-    - AlamofireNetworkActivityIndicator
-    - Crashlytics
-    - Fabric
-    - MVVM-Swift
-    - ObjectMapper
-    - SwiftDate
-    - SwiftLint
-    - SwiftUtils
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
+  Charts: 0b0c96f6118b6ce63f11adbcaa3b31045ee4d772
   Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
   Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
   MVVM-Swift: 54749cc12bb30af41632f30a2c576a18bf9e4bc8
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   SwiftDate: 17dd829c004a2d60432ef63ffcdb26ca2eb97a60
+  SwifterSwift: 1d101dcfb0c3123226900f3b4d220d57fb60d546
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   SwiftUtils: b009d391fb2e285392f114238f8b55d2750b80f0
 
-PODFILE CHECKSUM: 84889cff002c884147f9b22cbb3049367565ab0f
+PODFILE CHECKSUM: 4c338dac21f019bec74dde2ecbcbb358b1b74277
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.4.0

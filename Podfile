@@ -39,6 +39,8 @@ target 'BBCap' do
     # Crash reporting & beta deployment
     pod 'Fabric'
     pod 'Crashlytics'
+    pod 'Charts', '3.1.0'
+    pod 'SwifterSwift', '4.2.0'
 
 target 'BBCapTests' do
     inherit! :complete
