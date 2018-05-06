@@ -35,10 +35,11 @@
 		ECF23ABE1E9B8A6A008C23C1 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23ABD1E9B8A6A008C23C1 /* Error.swift */; };
 		ECF23AC31E9B9264008C23C1 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AC21E9B9264008C23C1 /* StringExt.swift */; };
 		F1C6352C1EF141F300D0A1A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C6352B1EF141F300D0A1A0 /* LaunchScreen.storyboard */; };
-		FED62EEF209D726B0070ABDE /* BitcoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EED209D726B0070ABDE /* BitcoinViewController.swift */; };
-		FED62EF0209D726B0070ABDE /* BitcoinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED62EEE209D726B0070ABDE /* BitcoinViewController.xib */; };
+		FED62EEF209D726B0070ABDE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EED209D726B0070ABDE /* DetailViewController.swift */; };
+		FED62EF0209D726B0070ABDE /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED62EEE209D726B0070ABDE /* DetailViewController.xib */; };
 		FED62EF4209DE96F0070ABDE /* UILabelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EF3209DE96F0070ABDE /* UILabelExt.swift */; };
 		FED62EF6209DE9C30070ABDE /* Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EF5209DE9C30070ABDE /* Ratio.swift */; };
+		FED62EFB209E25360070ABDE /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EFA209E25360070ABDE /* DayAxisValueFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,10 +104,11 @@
 		ECF23ABD1E9B8A6A008C23C1 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		ECF23AC21E9B9264008C23C1 /* StringExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		F1C6352B1EF141F300D0A1A0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FED62EED209D726B0070ABDE /* BitcoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinViewController.swift; sourceTree = "<group>"; };
-		FED62EEE209D726B0070ABDE /* BitcoinViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BitcoinViewController.xib; sourceTree = "<group>"; };
+		FED62EED209D726B0070ABDE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FED62EEE209D726B0070ABDE /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		FED62EF3209DE96F0070ABDE /* UILabelExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExt.swift; sourceTree = "<group>"; };
 		FED62EF5209DE9C30070ABDE /* Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratio.swift; sourceTree = "<group>"; };
+		FED62EFA209E25360070ABDE /* DayAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayAxisValueFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,9 +197,10 @@
 		EC0105431E8F8ADF00CE013D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FED62EEC209D71F30070ABDE /* M01-1-BitcoinVC */,
 				EC0105441E8F8ADF00CE013D /* AppDelegate.swift */,
 				EC5337BF1EF7933A00ACE038 /* Base */,
+				FED62EF7209E25070070ABDE /* Control */,
+				FED62EEC209D71F30070ABDE /* M01-1-DetailVC */,
 				F1C6352A1EF141F300D0A1A0 /* Storyboard */,
 			);
 			path = View;
@@ -344,13 +347,22 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		FED62EEC209D71F30070ABDE /* M01-1-BitcoinVC */ = {
+		FED62EEC209D71F30070ABDE /* M01-1-DetailVC */ = {
 			isa = PBXGroup;
 			children = (
-				FED62EED209D726B0070ABDE /* BitcoinViewController.swift */,
-				FED62EEE209D726B0070ABDE /* BitcoinViewController.xib */,
+				FED62EED209D726B0070ABDE /* DetailViewController.swift */,
+				FED62EEE209D726B0070ABDE /* DetailViewController.xib */,
 			);
+			name = "M01-1-DetailVC";
 			path = "M01-1-BitcoinVC";
+			sourceTree = "<group>";
+		};
+		FED62EF7209E25070070ABDE /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				FED62EFA209E25360070ABDE /* DayAxisValueFormatter.swift */,
+			);
+			path = Control;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,7 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC0105521E8F8AE000CE013D /* Assets.xcassets in Resources */,
-				FED62EF0209D726B0070ABDE /* BitcoinViewController.xib in Resources */,
+				FED62EF0209D726B0070ABDE /* DetailViewController.xib in Resources */,
 				EC5337BA1EF78E4D00ACE038 /* Localizable.strings in Resources */,
 				F1C6352C1EF141F300D0A1A0 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -618,10 +630,11 @@
 				EC5337B71EF78CD800ACE038 /* App.swift in Sources */,
 				FED62EF4209DE96F0070ABDE /* UILabelExt.swift in Sources */,
 				ECC5B2CD1EF906CA001A97BC /* ViewController.swift in Sources */,
-				FED62EEF209D726B0070ABDE /* BitcoinViewController.swift in Sources */,
+				FED62EEF209D726B0070ABDE /* DetailViewController.swift in Sources */,
 				FED62EF6209DE9C30070ABDE /* Ratio.swift in Sources */,
 				EC5337C31EF793B100ACE038 /* CollectionCell.swift in Sources */,
 				ECF23ABA1E9B89B2008C23C1 /* RequestSerializer.swift in Sources */,
+				FED62EFB209E25360070ABDE /* DayAxisValueFormatter.swift in Sources */,
 				ECC5B2CB1EF90495001A97BC /* Button.swift in Sources */,
 				EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */,
 				EC6FD30A1EF8B71200CB6642 /* DefaultsExt.swift in Sources */,

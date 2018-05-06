@@ -41,7 +41,7 @@ extension AppDelegate {
     private func configWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
         guard let window = window else { return }
-        let vc = BitcoinViewController()
+        let vc = DetailViewController()
         let navigationController = UINavigationController(rootViewController: vc)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
