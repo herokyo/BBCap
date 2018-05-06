@@ -33,10 +33,15 @@ final class DetailViewControllerTests: QuickSpec {
                     expect(viewController.dayPercentLabel.frame) == CGRect(x: 39, y: 0, width: 55.5, height: 12)
                     expect(viewController.weekPercentLabel.frame) == CGRect(x: 50.5, y: 0.0, width: 64.5, height: 12)
                     expect(viewController.lineChartView.frame) == CGRect(x: 0, y: 136, width: 375, height: 234)
-                    expect(viewController.volumeViews[0].frame) == CGRect(x: 0, y: 406, width: 375, height: 34)
-                    expect(viewController.volumeViews[1].frame) == CGRect(x: 0, y: 440, width: 375, height: 34)
-                    expect(viewController.volumeViews[2].frame) == CGRect(x: 0, y: 474, width: 375, height: 34)
-                    expect(viewController.volumeViews[3].frame) == CGRect(x: 0, y: 508, width: 375, height: 34)
+                    viewController.volumeViews.forEach {
+                        expect($0.frame.origin.x) == 0
+                        expect($0.frame.width) == 375
+                        expect($0.frame.size.height).to(beCloseTo(34, within: 0.5))
+                    }
+                    expect(viewController.volumeViews[0].frame.origin.y).to(beCloseTo(406, within: 0.5))
+                    expect(viewController.volumeViews[1].frame.origin.y).to(beCloseTo(440, within: 0.5))
+                    expect(viewController.volumeViews[2].frame.origin.y).to(beCloseTo(474, within: 0.5))
+                    expect(viewController.volumeViews[3].frame.origin.y).to(beCloseTo(508, within: 0.5))
                     expect(viewController.addAlertButton.frame) == CGRect(x: 10, y: 367, width: 167.5, height: 33)
                     expect(viewController.addToPortfolioButton.frame) == CGRect(x: 197.5, y: 367, width: 167.5, height: 33)
                 }
