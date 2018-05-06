@@ -1,5 +1,5 @@
 //
-//  BitcoinViewController.swift
+//  DetailViewController.swift
 //  BBCap
 //
 //  Created by Lam Le V. on 5/5/18.

@@ -62,14 +62,6 @@
                         <constraint firstAttribute="bottom" secondItem="KCA-Gc-Quy" secondAttribute="bottom" constant="12" id="quV-IG-vIA"/>
                         <constraint firstAttribute="bottom" secondItem="jHt-ph-RPX" secondAttribute="bottom" id="ryt-kw-brK"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                            <color key="value" red="0.094117647058823528" green="0.074509803921568626" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                            <color key="value" red="0.066666666666666666" green="0.086274509803921567" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cYT-Ue-chm" userLabel="Currency View">
                     <rect key="frame" x="0.0" y="74" width="375" height="32"/>

@@ -11,7 +11,7 @@ import Foundation
 
 extension ApiManager {
     @discardableResult
-    func request(method: HTTPMethod,
+    func request(method: HTTPMethod = .post,
                  urlString: URLStringConvertible,
                  parameters: [String: Any]? = nil,
                  headers: [String: String]? = nil,
