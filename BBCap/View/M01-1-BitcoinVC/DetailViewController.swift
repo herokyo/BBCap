@@ -1,5 +1,5 @@
 //
-//  BitcoinViewController.swift
+//  DetailViewController.swift
 //  BBCap
 //
 //  Created by Lam Le V. on 5/5/18.
@@ -9,7 +9,7 @@
 import UIKit
 import SwifterSwift
 
-final class BitcoinViewController: ViewController {
+final class DetailViewController: ViewController {
 
     @IBOutlet private weak var navigationView: UIView!
     @IBOutlet private weak var currentCurrencyLabel: UILabel!
@@ -39,7 +39,7 @@ final class BitcoinViewController: ViewController {
 }
 
 // MARK: - Config
-extension BitcoinViewController {
+extension DetailViewController {
 
     struct Config {
         static let bottomColor: UIColor! = UIColor(red: 17, green: 22, blue: 22)
