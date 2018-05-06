@@ -24,7 +24,7 @@ extension SignedNumeric {
         return format(style: .currency, fraction: fraction)
     }
 
-    func formatDecimal(fraction: Int = 2) -> String {
+    func formatDecimal(fraction: Int = 0) -> String {
         return format(style: .decimal, fraction: fraction)
     }
 }
