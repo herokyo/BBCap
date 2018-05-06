@@ -41,7 +41,7 @@
 		FE69721D209F2A5C00C8EA68 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE69721B209F2A5C00C8EA68 /* DetailViewController.xib */; };
 		FED62EF4209DE96F0070ABDE /* UILabelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EF3209DE96F0070ABDE /* UILabelExt.swift */; };
 		FED62EF6209DE9C30070ABDE /* Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EF5209DE9C30070ABDE /* Ratio.swift */; };
-		FED62EFB209E25360070ABDE /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EFA209E25360070ABDE /* DayAxisValueFormatter.swift */; };
+		FED62EFB209E25360070ABDE /* TimeAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EFA209E25360070ABDE /* TimeAxisValueFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +112,7 @@
 		FE69721B209F2A5C00C8EA68 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		FED62EF3209DE96F0070ABDE /* UILabelExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExt.swift; sourceTree = "<group>"; };
 		FED62EF5209DE9C30070ABDE /* Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratio.swift; sourceTree = "<group>"; };
-		FED62EFA209E25360070ABDE /* DayAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayAxisValueFormatter.swift; sourceTree = "<group>"; };
+		FED62EFA209E25360070ABDE /* TimeAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAxisValueFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,10 +238,10 @@
 		EC0105431E8F8ADF00CE013D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FE697219209F2A5C00C8EA68 /* M01-1-DetailVC */,
 				EC0105441E8F8ADF00CE013D /* AppDelegate.swift */,
 				EC5337BF1EF7933A00ACE038 /* Base */,
 				FED62EF7209E25070070ABDE /* Control */,
+				FE697219209F2A5C00C8EA68 /* M01-1-DetailVC */,
 				F1C6352A1EF141F300D0A1A0 /* Storyboard */,
 			);
 			path = View;
@@ -399,7 +399,7 @@
 		FED62EF7209E25070070ABDE /* Control */ = {
 			isa = PBXGroup;
 			children = (
-				FED62EFA209E25360070ABDE /* DayAxisValueFormatter.swift */,
+				FED62EFA209E25360070ABDE /* TimeAxisValueFormatter.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -709,7 +709,7 @@
 				FED62EF6209DE9C30070ABDE /* Ratio.swift in Sources */,
 				EC5337C31EF793B100ACE038 /* CollectionCell.swift in Sources */,
 				ECF23ABA1E9B89B2008C23C1 /* RequestSerializer.swift in Sources */,
-				FED62EFB209E25360070ABDE /* DayAxisValueFormatter.swift in Sources */,
+				FED62EFB209E25360070ABDE /* TimeAxisValueFormatter.swift in Sources */,
 				ECC5B2CB1EF90495001A97BC /* Button.swift in Sources */,
 				EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */,
 				EC6FD30A1EF8B71200CB6642 /* DefaultsExt.swift in Sources */,

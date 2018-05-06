@@ -1,19 +1,21 @@
 //
-//  DayAxisValueFormatter.swift
-//  ChartsDemo-iOS
+//  TimeAxisValueFormatter.swift
+//  BBCap
 //
-//  Created by Jacob Christie on 2017-07-09.
-//  Copyright © 2017 jc. All rights reserved.
+//  Created by Lam Le V. on 5/5/18.
+//  Copyright © 2018 Asian Tech Co., Ltd. All rights reserved.
 //
+
 
 import Foundation
 import Charts
 
-public class DayAxisValueFormatter: NSObject, IAxisValueFormatter {
+public class TimeAxisValueFormatter: IAxisValueFormatter {
 
     // Dummy
     let days: [String] = ["Day1", "Day2", "Day3", "Day4", "Day5", "Day6", "Day7", "Day8", "Day9", ""]
 
+    // TODO : - Use data in chart later
     weak var chart: LineChartView?
 
     init(chart: LineChartView) {

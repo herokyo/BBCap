@@ -68,7 +68,7 @@ final class DetailViewController: ViewController {
         xAxis.axisMaximum = 100
         xAxis.labelCount = 5
         xAxis.axisMinimum = 1.0
-        xAxis.valueFormatter = DayAxisValueFormatter(chart: lineChartView)
+        xAxis.valueFormatter = TimeAxisValueFormatter(chart: lineChartView)
         lineChartView.legend.form = .line
 
         // Chart view content inset
