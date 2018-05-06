@@ -18,12 +18,20 @@ final class DetailViewController: ViewController {
     @IBOutlet private weak var dayPercentLabel: UILabel!
     @IBOutlet private weak var weekPercentLabel: UILabel!
     @IBOutlet private weak var lineChartView: LineChartView!
+    @IBOutlet private var volumeViews: [VolumeView]!
+
+    var viewModel = DetailViewModel() {
+        didSet {
+            updateView()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavigationStatusBarView()
         configNavigationView()
         configChartView()
+        updateView()
     }
 
     // MARK: - Status bar
@@ -65,7 +73,6 @@ final class DetailViewController: ViewController {
         xAxis.drawGridLinesEnabled = false
         xAxis.axisLineColor = .clear
         xAxis.yOffset = 7
-        xAxis.axisMaximum = 100
         xAxis.labelCount = 5
         xAxis.axisMinimum = 1.0
         xAxis.valueFormatter = TimeAxisValueFormatter(chart: lineChartView)
@@ -76,6 +83,14 @@ final class DetailViewController: ViewController {
         lineChartView.setExtraOffsets(left: 0, top: 4, right: 10, bottom: -17)
 
         setDataCount()
+    }
+
+    // MARK: - Update view
+    private func updateView() {
+        guard isViewLoaded else { return }
+        volumeViews.forEach {
+            $0.viewModel = viewModel.volumeViewModel(withTag: $0.tag)
+        }
     }
 
     private func setDataCount() {
@@ -97,6 +112,20 @@ final class DetailViewController: ViewController {
         set1.drawFilledEnabled = true
         let data = LineChartData(dataSet: set1)
         lineChartView.data = data
+    }
+
+    // MARK: - IBAction
+
+    @IBAction private func addAlertButtonTouchUpInside(_ button: UIButton) {
+        // TODO: - Handle later
+    }
+
+    @IBAction private func addToPortfolioButtonTouchUpInside(_ button: UIButton) {
+        // TODO: - Handle later
+    }
+
+    @IBAction private func backButtonTouchUpInside(_ button: UIButton) {
+        navigationController?.popViewController()
     }
 }
 
