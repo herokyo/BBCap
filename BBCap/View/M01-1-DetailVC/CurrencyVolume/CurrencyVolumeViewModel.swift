@@ -1,5 +1,5 @@
 //
-//  VolumeViewModel.swift
+//  CurrencyVolumeViewModel.swift
 //  BBCap
 //
 //  Created by Lam Le V. on 5/6/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class VolumeViewViewModel {
+final class CurrencyVolumeViewModel {
 
     let volumeType: DetailViewModel.VolumeType?
 

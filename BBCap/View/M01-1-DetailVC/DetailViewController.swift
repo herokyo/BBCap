@@ -12,13 +12,16 @@ import Charts
 
 final class DetailViewController: ViewController {
 
-    @IBOutlet private weak var navigationView: UIView!
-    @IBOutlet private weak var currentCurrencyLabel: UILabel!
-    @IBOutlet private weak var hourPercentLabel: UILabel!
-    @IBOutlet private weak var dayPercentLabel: UILabel!
-    @IBOutlet private weak var weekPercentLabel: UILabel!
-    @IBOutlet private weak var lineChartView: LineChartView!
-    @IBOutlet private var volumeViews: [VolumeView]!
+    // Public to testing view frame
+    @IBOutlet weak var navigationView: UIView!
+    @IBOutlet weak var currentCurrencyLabel: UILabel!
+    @IBOutlet weak var hourPercentLabel: UILabel!
+    @IBOutlet weak var dayPercentLabel: UILabel!
+    @IBOutlet weak var weekPercentLabel: UILabel!
+    @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet weak var addAlertButton: UIButton!
+    @IBOutlet weak var addToPortfolioButton: UIButton!
+    @IBOutlet var volumeViews: [CurrencyVolumeView]!
 
     var viewModel = DetailViewModel() {
         didSet {

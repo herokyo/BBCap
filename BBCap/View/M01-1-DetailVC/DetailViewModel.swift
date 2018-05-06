@@ -44,8 +44,8 @@ final class DetailViewModel {
         }
     }
 
-    func volumeViewModel(withTag tag: Int) -> VolumeViewViewModel {
+    func volumeViewModel(withTag tag: Int) -> CurrencyVolumeViewModel {
         let volumeType = VolumeType(rawValue: tag)
-        return VolumeViewViewModel(volumeType: volumeType)
+        return CurrencyVolumeViewModel(volumeType: volumeType)
     }
 }

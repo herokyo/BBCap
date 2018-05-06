@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -14,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="BBCap" customModuleProvider="target">
             <connections>
+                <outlet property="addAlertButton" destination="2cF-6a-1nb" id="jiG-4A-btw"/>
+                <outlet property="addToPortfolioButton" destination="JWb-zg-Bbh" id="k25-8S-Wqe"/>
                 <outlet property="currentCurrencyLabel" destination="apj-hQ-5s7" id="J1P-AU-cMJ"/>
                 <outlet property="dayPercentLabel" destination="Elk-xB-pGd" id="Um0-Jw-ZRG"/>
                 <outlet property="hourPercentLabel" destination="mi6-RE-lUI" id="xvI-k2-QcJ"/>
@@ -134,7 +132,7 @@
                     <rect key="frame" x="0.0" y="106" width="375" height="30"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Osj-2u-P91" userLabel="Hour Percent View">
-                            <rect key="frame" x="0.0" y="10" width="125" height="12"/>
+                            <rect key="frame" x="0.0" y="9" width="125" height="12"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1H:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Gdx-F9-rV0">
                                     <rect key="frame" x="10" y="0.0" width="24" height="12"/>
@@ -176,7 +174,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJt-dF-vwC" userLabel="Day Percent View">
-                            <rect key="frame" x="140.5" y="10" width="94.5" height="12"/>
+                            <rect key="frame" x="140.5" y="9" width="94.5" height="12"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24H:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lFh-oo-6JY">
                                     <rect key="frame" x="0.0" y="0.0" width="36" height="12"/>
@@ -216,7 +214,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ni2-gP-Ylf" userLabel="Week Percent View">
-                            <rect key="frame" x="250" y="10" width="125" height="12"/>
+                            <rect key="frame" x="250" y="9" width="125" height="12"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1W:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="K5S-wp-lgu">
                                     <rect key="frame" x="20.5" y="0.0" width="26" height="12"/>
@@ -317,7 +315,7 @@
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="3"/>
+                            <real key="value" value="6"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -332,29 +330,29 @@
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="3"/>
+                            <real key="value" value="6"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="addToPortfolioButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="zzU-rU-306"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1M8-Ag-WfZ" userLabel="Cap View" customClass="VolumeView" customModule="BBCap" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1M8-Ag-WfZ" userLabel="Cap View" customClass="CurrencyVolumeView" customModule="BBCap" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="406" width="375" height="34"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="LYH-M4-kQR"/>
                     </constraints>
                 </view>
-                <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RO-S6-qKa" userLabel="Available Supply" customClass="VolumeView" customModule="BBCap" customModuleProvider="target">
+                <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RO-S6-qKa" userLabel="Available Supply" customClass="CurrencyVolumeView" customModule="BBCap" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="508" width="375" height="34"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nvr-q2-dLk" userLabel="Total Supply View" customClass="VolumeView" customModule="BBCap" customModuleProvider="target">
+                <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nvr-q2-dLk" userLabel="Total Supply View" customClass="CurrencyVolumeView" customModule="BBCap" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="474" width="375" height="34"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oue-Wt-jBS" userLabel="Volume 24h View" customClass="VolumeView" customModule="BBCap" customModuleProvider="target">
+                <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oue-Wt-jBS" userLabel="Volume 24h View" customClass="CurrencyVolumeView" customModule="BBCap" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="440" width="375" height="34"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>

@@ -1,5 +1,5 @@
 //
-//  VolumeView.swift
+//  CurrencyVolumeView.swift
 //  BBCap
 //
 //  Created by Lam Le V. on 5/6/18.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class VolumeView: BBView {
+class CurrencyVolumeView: BBView {
 
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var currencyLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var currencyLabel: UILabel!
 
-    var viewModel = VolumeViewViewModel() {
+    var viewModel = CurrencyVolumeViewModel() {
         didSet {
             titleLabel.text = viewModel.title
             currencyLabel.text = viewModel.currency
