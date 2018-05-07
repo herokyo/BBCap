@@ -36,12 +36,12 @@ final class DetailViewControllerTests: QuickSpec {
                     viewController.volumeViews.forEach {
                         expect($0.frame.origin.x) == 0
                         expect($0.frame.width) == 375
-                        expect($0.frame.size.height).to(beCloseTo(34, within: 0.5))
+                        expect($0.frame.size.height).to(beCloseTo(34.0, within: 0.51))
                     }
-                    expect(viewController.volumeViews[0].frame.origin.y).to(beCloseTo(406, within: 0.5))
-                    expect(viewController.volumeViews[1].frame.origin.y).to(beCloseTo(440, within: 0.5))
-                    expect(viewController.volumeViews[2].frame.origin.y).to(beCloseTo(474, within: 0.5))
-                    expect(viewController.volumeViews[3].frame.origin.y).to(beCloseTo(508, within: 0.5))
+                    expect(viewController.volumeViews[0].frame.origin.y).to(beCloseTo(406, within: 0.51))
+                    expect(viewController.volumeViews[1].frame.origin.y).to(beCloseTo(440, within: 0.51))
+                    expect(viewController.volumeViews[2].frame.origin.y).to(beCloseTo(474, within: 0.51))
+                    expect(viewController.volumeViews[3].frame.origin.y).to(beCloseTo(508, within: 0.51))
                     expect(viewController.addAlertButton.frame) == CGRect(x: 10, y: 367, width: 167.5, height: 33)
                     expect(viewController.addToPortfolioButton.frame) == CGRect(x: 197.5, y: 367, width: 167.5, height: 33)
                 }
