@@ -25,13 +25,25 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         configNetwork()
+        configWindow()
         return true
     }
 }
 
 extension AppDelegate {
+
     fileprivate func configNetwork() {
         networkIndicator.isEnabled = true
         networkIndicator.startDelay = 0
+    }
+
+    // MARK: - Config window
+    private func configWindow() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        guard let window = window else { return }
+        let vc = DetailViewController()
+        let navigationController = UINavigationController(rootViewController: vc)
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
     }
 }

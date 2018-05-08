@@ -6,16 +6,18 @@
 //  Copyright © 2018 Asian Tech Co., Ltd. All rights reserved.
 //
 
-import Foundation
-
 /**
  This file defines all localizable strings which are used in this application.
  Please localize defined strings in `Resources/Localizable.strings`.
  */
 
+import Foundation
+import SwifterSwift
+
 extension App {
     struct String {
-        static let error = "ERROR".localized()
-        static let ok = "OK".localized()
+        // TODO: - Ambigous localized(), I think because confuse between swifter swift and swiftutils, we check later
+        static let error = "ERROR".localized("")
+        static let ok = "OK".localized("")
     }
 }

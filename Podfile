@@ -22,6 +22,7 @@ target 'BBCap' do
     pod 'SwiftLint', '0.25.0' # A tool to enforce Swift style and conventions.
     pod 'SwiftUtils', '4.0.1' # Swift shorthand.
     pod 'SwifterSwift', '4.2.0'
+    pod 'Charts', '3.1.0'
 
 target 'BBCapTests' do
     inherit! :complete
