@@ -11,10 +11,12 @@ target 'BBCap' do
 
     # Architect
     pod 'MVVM-Swift', '1.1.0' # MVVM Architect for iOS Application.
+    pod 'LGSideMenuController'
+    pod 'Font-Awesome-Swift', '~> 1.7.2'
 
     # UI
     # pod 'SVProgressHUD', '2.2.5' # A clean and lightweight progress HUD for your iOS and tvOS app.
-    # pod 'IQKeyboardManagerSwift', '5.0.7' # Codeless drop-in universal library allows to prevent issues of keyboard sliding up and cover UITextField/UITextView. Neither need to write any code nor any setup required and much more.
+    pod 'IQKeyboardManagerSwift' # Codeless drop-in universal library allows to prevent issues of keyboard sliding up and cover UITextField/UITextView. Neither need to write any code nor any setup required and much more.
     # pod 'LGSideMenuController', '2.1.1' # iOS view controller, shows left and right views by pressing button or gesture.
 
     # Data

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 import AlamofireNetworkActivityIndicator
 
 let networkIndicator = NetworkActivityIndicatorManager.shared
@@ -25,11 +26,22 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         configNetwork()
+        configIQKeyboard()
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        if let window = window {
+//            window.rootViewController = MenuVC.vc()
+//            window.makeKeyAndVisible()
+//        }
         return true
     }
 }
 
 extension AppDelegate {
+
+    fileprivate func configIQKeyboard() {
+        IQKeyboardManager.sharedManager().enable = true
+    }
+
     fileprivate func configNetwork() {
         networkIndicator.isEnabled = true
         networkIndicator.startDelay = 0
