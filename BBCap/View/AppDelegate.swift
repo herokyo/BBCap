@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireNetworkActivityIndicator
+import IQKeyboardManagerSwift
 
 let networkIndicator = NetworkActivityIndicatorManager.shared
 
@@ -25,7 +26,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         configNetwork()
-        configWindow(type: .addTransactionVC)
+        configIQKeyBoardManager()
+        configWindow(type: .createNewAlertVC)
         return true
     }
 }
@@ -47,10 +49,16 @@ extension AppDelegate {
             vc = AddTransactionViewController()
         case .detailVC:
             vc = DetailViewController()
+        case .createNewAlertVC:
+            vc = CreateAlertViewController()
         }
         let navigationController = UINavigationController(rootViewController: vc)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
+    }
+
+    private func configIQKeyBoardManager() {
+        IQKeyboardManager.shared.enable = true
     }
 }
 
@@ -60,5 +68,6 @@ extension AppDelegate {
     enum VCType {
         case detailVC
         case addTransactionVC
+        case createNewAlertVC
     }
 }
