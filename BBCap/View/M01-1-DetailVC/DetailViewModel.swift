@@ -33,9 +33,9 @@ final class DetailViewModel {
         var currency: String {
             switch self {
             case .cap:
-                return 162_337_461_956.formatCurrency()
+                return 162_337_461.956.formatCurrency(fraction: 3)
             case .volume24h:
-                return 10_449_900_000.formatCurrency()
+                return 10_449_900.000.formatCurrency(fraction: 3)
             case .availableSupply:
                 return 16_997_637.formatDecimal() + " BTC"
             case .totalSupply:

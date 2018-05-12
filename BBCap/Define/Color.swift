@@ -20,6 +20,10 @@ extension App {
         static let tableFooterView = UIColor.red
         static let tableCellTextLabel = UIColor.yellow
 
+        // BB color
+        static let bbGreenColor: UIColor! = UIColor(red: 0, green: 224, blue: 151)
+        static let bbBlackColor: UIColor! = UIColor(red: 24, green: 19, blue: 32)
+
         static func button(state: UIControlState) -> UIColor {
             switch state {
             case UIControlState.normal: return .blue

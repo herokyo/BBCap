@@ -103,7 +103,7 @@ final class DetailViewController: ViewController {
         }
         let set1 = LineChartDataSet(values: values, label: "")
         set1.drawIconsEnabled = false
-        set1.setColor(Config.chartGreenColor)
+        set1.setColor(App.Color.bbGreenColor)
         set1.drawCirclesEnabled = false
         set1.lineWidth = 2
         set1.drawValuesEnabled = false
@@ -144,10 +144,9 @@ extension ViewController: ChartViewDelegate {
 extension DetailViewController {
 
     struct Config {
-        static let topColor: UIColor! = UIColor(red: 24, green: 19, blue: 32)
+        static let topColor: UIColor = App.Color.bbBlackColor
         static let bottomColor: UIColor! = UIColor(red: 17, green: 22, blue: 22)
         static let chartFillColor: UIColor! = UIColor(red: 16, green: 97, blue: 86)
-        static let chartGreenColor: UIColor! = UIColor(red: 0, green: 216, blue: 159)
         static let gradientColors: [CGColor] = [Config.bottomColor.cgColor, Config.topColor.cgColor]
         static let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
         static let statusBarFrame: CGRect = CGRect(x: 0, y: 0, width: 375, height: Config.statusBarHeight)

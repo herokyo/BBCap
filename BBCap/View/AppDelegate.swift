@@ -25,7 +25,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         configNetwork()
-        configWindow()
+        configWindow(type: .addTransactionVC)
         return true
     }
 }
@@ -38,12 +38,27 @@ extension AppDelegate {
     }
 
     // MARK: - Config window
-    private func configWindow() {
+    private func configWindow(type: VCType = .detailVC) {
         window = UIWindow(frame: UIScreen.main.bounds)
         guard let window = window else { return }
-        let vc = DetailViewController()
+        var vc: ViewController!
+        switch type {
+        case .addTransactionVC:
+            vc = AddTransactionViewController()
+        case .detailVC:
+            vc = DetailViewController()
+        }
         let navigationController = UINavigationController(rootViewController: vc)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
+    }
+}
+
+// TODO: - Will remove later
+extension AppDelegate {
+
+    enum VCType {
+        case detailVC
+        case addTransactionVC
     }
 }
