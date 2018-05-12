@@ -5,6 +5,7 @@ PODS:
   - Charts (3.1.0):
     - Charts/Core (= 3.1.0)
   - Charts/Core (3.1.0)
+  - IQKeyboardManagerSwift (6.0.2)
   - MVVM-Swift (1.1.0)
   - Nimble (7.1.1)
   - ObjectMapper (3.1.0)
@@ -46,6 +47,7 @@ DEPENDENCIES:
   - Alamofire (= 4.6.0)
   - AlamofireNetworkActivityIndicator (= 2.2.0)
   - Charts (= 3.1.0)
+  - IQKeyboardManagerSwift
   - MVVM-Swift (= 1.1.0)
   - Nimble (= 7.1.1)
   - ObjectMapper (= 3.1.0)
@@ -60,6 +62,7 @@ SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
   Charts: 0b0c96f6118b6ce63f11adbcaa3b31045ee4d772
+  IQKeyboardManagerSwift: 59d4b0e140bc546c3c76ae5bb35b3dafd10b8172
   MVVM-Swift: 54749cc12bb30af41632f30a2c576a18bf9e4bc8
   Nimble: 391f07782af4b37914f9bd7b2ffbb952731b8202
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
@@ -69,6 +72,6 @@ SPEC CHECKSUMS:
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   SwiftUtils: b009d391fb2e285392f114238f8b55d2750b80f0
 
-PODFILE CHECKSUM: a536f7e301f44ef83ce226d70cac1f962ae2f5e4
+PODFILE CHECKSUM: 551e1f15b30a4bbedd2158b3d2d80bccde2fe68c
 
 COCOAPODS: 1.4.0
