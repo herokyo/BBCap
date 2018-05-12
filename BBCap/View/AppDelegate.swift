@@ -13,7 +13,7 @@ let networkIndicator = NetworkActivityIndicatorManager.shared
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
-
+fdsfadsfdff
     var window: UIWindow?
 
     static let shared: AppDelegate = {
