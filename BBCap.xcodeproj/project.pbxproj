@@ -37,7 +37,6 @@
 		ECF23AC31E9B9264008C23C1 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AC21E9B9264008C23C1 /* StringExt.swift */; };
 		F1C6352C1EF141F300D0A1A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C6352B1EF141F300D0A1A0 /* LaunchScreen.storyboard */; };
 		FE3912CF20A5DD4500F31516 /* UITextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3912CE20A5DD4500F31516 /* UITextFieldExt.swift */; };
-		FE3912D220A60B9600F31516 /* AddTransactionViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3912D120A60B9600F31516 /* AddTransactionViewControllerTests.swift */; };
 		FE452C5820A48AFB00FAD103 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE452C5620A48AFB00FAD103 /* AddTransactionViewController.swift */; };
 		FE452C5920A48AFB00FAD103 /* AddTransactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE452C5720A48AFB00FAD103 /* AddTransactionViewController.xib */; };
 		FE69721C209F2A5C00C8EA68 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE69721A209F2A5C00C8EA68 /* DetailViewController.swift */; };
@@ -119,7 +118,6 @@
 		ECF23AC21E9B9264008C23C1 /* StringExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		F1C6352B1EF141F300D0A1A0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE3912CE20A5DD4500F31516 /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
-		FE3912D120A60B9600F31516 /* AddTransactionViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewControllerTests.swift; sourceTree = "<group>"; };
 		FE452C5620A48AFB00FAD103 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		FE452C5720A48AFB00FAD103 /* AddTransactionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTransactionViewController.xib; sourceTree = "<group>"; };
 		FE69721A209F2A5C00C8EA68 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -297,7 +295,6 @@
 		ECC3B1B51EC1701A001345C6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FE3912D020A60B7500F31516 /* M01-1-1-AddTransactionVC */,
 				FE69722E209F667F00C8EA68 /* M01-1-DetailVC */,
 			);
 			path = View;
@@ -395,14 +392,6 @@
 				F1C6352B1EF141F300D0A1A0 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		FE3912D020A60B7500F31516 /* M01-1-1-AddTransactionVC */ = {
-			isa = PBXGroup;
-			children = (
-				FE3912D120A60B9600F31516 /* AddTransactionViewControllerTests.swift */,
-			);
-			path = "M01-1-1-AddTransactionVC";
 			sourceTree = "<group>";
 		};
 		FE452C5420A48AC600FAD103 /* M01-1-1-AddTransactionVC */ = {
@@ -821,7 +810,6 @@
 				BC3269DA20941F900027A005 /* DataExt.swift in Sources */,
 				BC3269DC209424520027A005 /* Constant.swift in Sources */,
 				FE697230209F669C00C8EA68 /* DetailViewControllerTests.swift in Sources */,
-				FE3912D220A60B9600F31516 /* AddTransactionViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

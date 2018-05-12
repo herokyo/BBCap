@@ -11,7 +11,7 @@ import SwifterSwift
 
 final class AddTransactionViewController: ViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var quantityTextField: UITextField!
     @IBOutlet private weak var priceTextField: UITextField!
     @IBOutlet private weak var dateTextField: UITextField!
