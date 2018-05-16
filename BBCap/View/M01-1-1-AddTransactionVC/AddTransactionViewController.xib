@@ -25,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wl-V0-0kH" userLabel="Status Bar View">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wl-V0-0kH" userLabel="Status Bar View" customClass="StatusBarView" customModule="BBCap" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                     <color key="backgroundColor" red="0.058823529411764705" green="0.043137254901960784" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
@@ -340,7 +340,6 @@
                 <constraint firstItem="jfz-tv-vqJ" firstAttribute="height" secondItem="PbA-N5-JcT" secondAttribute="height" id="4dj-do-E0u"/>
                 <constraint firstItem="o2A-zz-Zqh" firstAttribute="width" secondItem="dg5-es-BU7" secondAttribute="width" id="5ln-HS-Uad"/>
                 <constraint firstItem="Lw8-PQ-KxO" firstAttribute="top" secondItem="6wl-V0-0kH" secondAttribute="bottom" id="8nu-PO-lnU"/>
-                <constraint firstItem="Lw8-PQ-KxO" firstAttribute="top" secondItem="Ian-sm-OVa" secondAttribute="top" id="BZe-VX-557"/>
                 <constraint firstItem="KDe-gN-grX" firstAttribute="height" secondItem="HJK-8g-XLg" secondAttribute="height" id="CjZ-lO-vBn"/>
                 <constraint firstAttribute="trailing" secondItem="jfz-tv-vqJ" secondAttribute="trailing" id="DX1-yb-QqT"/>
                 <constraint firstItem="jfz-tv-vqJ" firstAttribute="top" secondItem="PbA-N5-JcT" secondAttribute="bottom" id="Epb-Vi-mnd"/>
@@ -372,6 +371,7 @@
                 <constraint firstItem="Grt-g9-dNK" firstAttribute="centerX" secondItem="Ian-sm-OVa" secondAttribute="centerX" id="whD-kA-G5T"/>
                 <constraint firstItem="PbA-N5-JcT" firstAttribute="top" secondItem="Gbd-73-35p" secondAttribute="bottom" id="xgT-bh-g2t"/>
                 <constraint firstItem="Dcz-DC-Ht1" firstAttribute="leading" secondItem="jPO-1B-JCL" secondAttribute="leading" id="xhL-Bu-f42"/>
+                <constraint firstItem="Lw8-PQ-KxO" firstAttribute="top" secondItem="gfG-bu-N03" secondAttribute="top" priority="999" constant="20" id="zny-L2-4Z2"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Ian-sm-OVa"/>
             <userDefinedRuntimeAttributes>
