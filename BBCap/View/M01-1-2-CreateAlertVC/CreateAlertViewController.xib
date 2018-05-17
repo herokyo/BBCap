@@ -24,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7EG-wE-6jC" userLabel="Status Bar View">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7EG-wE-6jC" userLabel="Status Bar View" customClass="StatusBarView" customModule="BBCap" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                     <color key="backgroundColor" red="0.058823529409999999" green="0.043137254899999998" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
@@ -251,12 +251,13 @@
                 <constraint firstAttribute="trailing" secondItem="7EG-wE-6jC" secondAttribute="trailing" id="Erc-MG-0b7"/>
                 <constraint firstItem="Npq-3U-ohm" firstAttribute="top" secondItem="9d4-hR-XS0" secondAttribute="bottom" id="KRN-Y5-yRu"/>
                 <constraint firstItem="7EG-wE-6jC" firstAttribute="leading" secondItem="VGS-by-NjJ" secondAttribute="leading" id="Nhe-YN-wHB"/>
+                <constraint firstItem="7EG-wE-6jC" firstAttribute="top" secondItem="VGS-by-NjJ" secondAttribute="top" id="Pif-3m-5sN"/>
                 <constraint firstItem="dMV-oc-QhH" firstAttribute="trailing" secondItem="Npq-3U-ohm" secondAttribute="trailing" id="Q4G-aW-NbA"/>
                 <constraint firstAttribute="trailing" secondItem="9d4-hR-XS0" secondAttribute="trailing" id="SI6-hT-cu9"/>
                 <constraint firstItem="x4r-sb-wtf" firstAttribute="leading" secondItem="VGS-by-NjJ" secondAttribute="leading" id="WUN-NP-ch6"/>
                 <constraint firstItem="Npq-3U-ohm" firstAttribute="height" secondItem="9d4-hR-XS0" secondAttribute="height" id="XJb-T9-8Cb"/>
                 <constraint firstItem="9d4-hR-XS0" firstAttribute="leading" secondItem="dMV-oc-QhH" secondAttribute="leading" id="Xa2-Sf-LKe"/>
-                <constraint firstItem="7EG-wE-6jC" firstAttribute="top" secondItem="VGS-by-NjJ" secondAttribute="top" id="YoY-uB-xGM"/>
+                <constraint firstItem="x4r-sb-wtf" firstAttribute="top" secondItem="VGS-by-NjJ" secondAttribute="top" priority="999" constant="20" id="Xio-n3-olw"/>
                 <constraint firstItem="NSM-Du-0ht" firstAttribute="leading" secondItem="dMV-oc-QhH" secondAttribute="leading" id="Z61-VN-WYq"/>
                 <constraint firstItem="x4r-sb-wtf" firstAttribute="top" secondItem="7EG-wE-6jC" secondAttribute="bottom" id="cJ0-ae-amb"/>
                 <constraint firstItem="9d4-hR-XS0" firstAttribute="top" secondItem="NSM-Du-0ht" secondAttribute="bottom" id="hlC-wP-WmX"/>
@@ -265,7 +266,6 @@
                 <constraint firstItem="vsc-J9-8Jz" firstAttribute="leading" secondItem="xvY-1L-ciG" secondAttribute="leading" id="qge-oA-i8C"/>
                 <constraint firstAttribute="trailing" secondItem="x4r-sb-wtf" secondAttribute="trailing" id="rJN-m7-FOU"/>
                 <constraint firstItem="iZG-Iz-FLj" firstAttribute="centerX" secondItem="dMV-oc-QhH" secondAttribute="centerX" id="u5r-Of-210"/>
-                <constraint firstItem="x4r-sb-wtf" firstAttribute="top" secondItem="dMV-oc-QhH" secondAttribute="top" id="ude-cY-lgG"/>
                 <constraint firstItem="QYo-08-FN0" firstAttribute="trailing" secondItem="e1w-NS-PCb" secondAttribute="trailing" id="w5D-ay-t99"/>
                 <constraint firstItem="NSM-Du-0ht" firstAttribute="top" secondItem="x4r-sb-wtf" secondAttribute="bottom" id="xYH-Es-68u"/>
             </constraints>

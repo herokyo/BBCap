@@ -48,6 +48,8 @@ final class CreateAlertViewController: ViewController {
     }
 
     @IBAction private func saveAlertButtonTouchUpInside(_ button: UIButton) {
+        let vc = AddTransactionViewController()
+        navigationController?.pushViewController(vc)
     }
 }
 
