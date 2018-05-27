@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import SwiftUtils
 
 extension UIViewController {
+
     func alert(error: Error) {
         alert(title: "ERROR", msg: error.localizedDescription, buttons: ["OK"], handler: nil)
     }

@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import IQKeyboardManagerSwift
 import AlamofireNetworkActivityIndicator
+import IQKeyboardManagerSwift
 
 let networkIndicator = NetworkActivityIndicatorManager.shared
 
@@ -26,24 +26,48 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         configNetwork()
-        configIQKeyboard()
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//        if let window = window {
-//            window.rootViewController = MenuVC.vc()
-//            window.makeKeyAndVisible()
-//        }
+        configIQKeyBoardManager()
+        configWindow(type: .createNewAlertVC)
         return true
     }
 }
 
 extension AppDelegate {
 
-    fileprivate func configIQKeyboard() {
-        IQKeyboardManager.sharedManager().enable = true
-    }
-
     fileprivate func configNetwork() {
         networkIndicator.isEnabled = true
         networkIndicator.startDelay = 0
+    }
+
+    // MARK: - Config window
+    private func configWindow(type: VCType = .detailVC) {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        guard let window = window else { return }
+        var vc: ViewController!
+        switch type {
+        case .addTransactionVC:
+            vc = AddTransactionViewController()
+        case .detailVC:
+            vc = DetailViewController()
+        case .createNewAlertVC:
+            vc = CreateAlertViewController()
+        }
+        let navigationController = UINavigationController(rootViewController: vc)
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+    }
+
+    private func configIQKeyBoardManager() {
+        IQKeyboardManager.shared.enable = true
+    }
+}
+
+// TODO: - Will remove later
+extension AppDelegate {
+
+    enum VCType {
+        case detailVC
+        case addTransactionVC
+        case createNewAlertVC
     }
 }

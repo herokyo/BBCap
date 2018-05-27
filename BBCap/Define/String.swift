@@ -12,11 +12,12 @@
  */
 
 import Foundation
-import SwiftUtils
+import SwifterSwift
 
 extension App {
     struct String {
-        static let error = "ERROR".localized()
-        static let ok = "OK".localized()
+        // TODO: - Ambigous localized(), I think because confuse between swifter swift and swiftutils, we check later
+        static let error = "ERROR".localized("")
+        static let ok = "OK".localized("")
     }
 }
