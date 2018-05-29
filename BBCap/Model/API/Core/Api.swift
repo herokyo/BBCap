@@ -9,6 +9,7 @@
 import Foundation
 
 final class Api {
+
     struct Path {
         #if DEBUG
             static let baseURL = "https://dev-asiantech.vn"
@@ -17,6 +18,17 @@ final class Api {
         #else
             static let baseURL = "https://pro-asiantech.vn"
         #endif
+
+        static let v1 = "path" / "v1"
+    }
+}
+
+// User app
+extension Api.Path {
+
+    struct Users {
+
+        static let path = baseURL / v1 / "users"
     }
 }
 
