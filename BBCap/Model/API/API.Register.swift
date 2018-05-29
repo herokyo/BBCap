@@ -1,5 +1,5 @@
 //
-//  API.Users.swift
+//  API.Register.swift
 //  BBCap
 //
 //  Created by Lam Le V. on 5/29/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol UsersProtocol {
+protocol RegisterProtocol {
     associatedtype Element
     var uuid: String { get }
     var deviceType: Int { get }
@@ -17,10 +17,10 @@ protocol UsersProtocol {
 }
 
 extension Api {
-    struct Users {}
+    struct Register {}
 }
 
-extension Api.Users: UsersProtocol {
+extension Api.Register: RegisterProtocol {
 
     typealias Element = String
 
