@@ -12,7 +12,7 @@
 		8565AB4487D42A3CCDE80200 /* Pods_BBCap_BBCapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AAC03CF0945B98E69CC88E /* Pods_BBCap_BBCapTests.framework */; };
 		9F2F398CB5A66B8421002677 /* Pods_BBCap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9B565BBCA0F18627DF54C9 /* Pods_BBCap.framework */; };
 		BC3269DA20941F900027A005 /* DataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3269D820941DF90027A005 /* DataExt.swift */; };
-		BC3269DB20941F970027A005 /* JsonFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = BC3269D620941DC70027A005 /* JsonFailure.json */; };
+		BC3269DB20941F970027A005 /* ErrorResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BC3269D620941DC70027A005 /* ErrorResponse.json */; };
 		BC3269DC209424520027A005 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3269D1209402A40027A005 /* Constant.swift */; };
 		BC627BDA2093916F007D3B78 /* ApiManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC627BD92093916F007D3B78 /* ApiManagerTests.swift */; };
 		EC0105521E8F8AE000CE013D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC0105401E8F8ADF00CE013D /* Assets.xcassets */; };
@@ -88,7 +88,7 @@
 		75C26C3F00634F7753D874C5 /* Pods-BBCap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBCap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BBCap/Pods-BBCap.debug.xcconfig"; sourceTree = "<group>"; };
 		AD9B565BBCA0F18627DF54C9 /* Pods_BBCap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BBCap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3269D1209402A40027A005 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		BC3269D620941DC70027A005 /* JsonFailure.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JsonFailure.json; sourceTree = "<group>"; };
+		BC3269D620941DC70027A005 /* ErrorResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ErrorResponse.json; sourceTree = "<group>"; };
 		BC3269D820941DF90027A005 /* DataExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExt.swift; sourceTree = "<group>"; };
 		BC627BD92093916F007D3B78 /* ApiManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerTests.swift; sourceTree = "<group>"; };
 		BF0AAB766BC2EED83274D0DA /* Pods_BBCap_BBCapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BBCap_BBCapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,7 +190,7 @@
 		BC3269D320941D5F0027A005 /* FakeData */ = {
 			isa = PBXGroup;
 			children = (
-				BC3269D620941DC70027A005 /* JsonFailure.json */,
+				BC3269D620941DC70027A005 /* ErrorResponse.json */,
 			);
 			path = FakeData;
 			sourceTree = "<group>";
@@ -587,7 +587,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC3269DB20941F970027A005 /* JsonFailure.json in Resources */,
+				BC3269DB20941F970027A005 /* ErrorResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
