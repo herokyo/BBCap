@@ -29,7 +29,6 @@
 		ECC5B2CD1EF906CA001A97BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B2CC1EF906CA001A97BC /* ViewController.swift */; };
 		ECEC0C581ED44C5D00F6760A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC0C571ED44C5D00F6760A /* String.swift */; };
 		ECEC0C5A1ED44D4100F6760A /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC0C591ED44D4100F6760A /* UIViewControllerExt.swift */; };
-		ECEC0C5E1ED44D7700F6760A /* MapperExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC0C5D1ED44D7700F6760A /* MapperExt.swift */; };
 		ECF23AB41E9B869B008C23C1 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AB11E9B869B008C23C1 /* ApiManager.swift */; };
 		ECF23ABA1E9B89B2008C23C1 /* RequestSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AB71E9B89B2008C23C1 /* RequestSerializer.swift */; };
 		ECF23ABB1E9B89B2008C23C1 /* ResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AB81E9B89B2008C23C1 /* ResponseSerializer.swift */; };
@@ -37,6 +36,7 @@
 		ECF23AC31E9B9264008C23C1 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AC21E9B9264008C23C1 /* StringExt.swift */; };
 		F1C6352C1EF141F300D0A1A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C6352B1EF141F300D0A1A0 /* LaunchScreen.storyboard */; };
 		FE01F20220AC7293004494E1 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE01F20120AC7293004494E1 /* StatusBarView.swift */; };
+		FE1F3DB220BCE41D0013D1C8 /* API.Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F3DB120BCE41D0013D1C8 /* API.Users.swift */; };
 		FE3912CF20A5DD4500F31516 /* UITextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3912CE20A5DD4500F31516 /* UITextFieldExt.swift */; };
 		FE452C5820A48AFB00FAD103 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE452C5620A48AFB00FAD103 /* AddTransactionViewController.swift */; };
 		FE452C5920A48AFB00FAD103 /* AddTransactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE452C5720A48AFB00FAD103 /* AddTransactionViewController.xib */; };
@@ -114,7 +114,6 @@
 		ECCCCB2C1E7A40D10073D923 /* BBCapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBCapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECEC0C571ED44C5D00F6760A /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		ECEC0C591ED44D4100F6760A /* UIViewControllerExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
-		ECEC0C5D1ED44D7700F6760A /* MapperExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapperExt.swift; sourceTree = "<group>"; };
 		ECF23AB11E9B869B008C23C1 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		ECF23AB71E9B89B2008C23C1 /* RequestSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSerializer.swift; sourceTree = "<group>"; };
 		ECF23AB81E9B89B2008C23C1 /* ResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerializer.swift; sourceTree = "<group>"; };
@@ -122,6 +121,7 @@
 		ECF23AC21E9B9264008C23C1 /* StringExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		F1C6352B1EF141F300D0A1A0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE01F20120AC7293004494E1 /* StatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
+		FE1F3DB120BCE41D0013D1C8 /* API.Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.Users.swift; sourceTree = "<group>"; };
 		FE3912CE20A5DD4500F31516 /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
 		FE452C5620A48AFB00FAD103 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		FE452C5720A48AFB00FAD103 /* AddTransactionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTransactionViewController.xib; sourceTree = "<group>"; };
@@ -357,6 +357,7 @@
 		ECF23AAF1E9B869B008C23C1 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				FE1F3DB120BCE41D0013D1C8 /* API.Users.swift */,
 				ECF23AB01E9B869B008C23C1 /* Core */,
 			);
 			path = API;
@@ -386,7 +387,6 @@
 			isa = PBXGroup;
 			children = (
 				EC6FD3091EF8B71200CB6642 /* DefaultsExt.swift */,
-				ECEC0C5D1ED44D7700F6760A /* MapperExt.swift */,
 				FE69722A209F480100C8EA68 /* SignedNumericExt.swift */,
 				ECF23AC21E9B9264008C23C1 /* StringExt.swift */,
 				FED62EF3209DE96F0070ABDE /* UILabelExt.swift */,
@@ -798,7 +798,6 @@
 				ECF23AC31E9B9264008C23C1 /* StringExt.swift in Sources */,
 				FE01F20220AC7293004494E1 /* StatusBarView.swift in Sources */,
 				FE69721C209F2A5C00C8EA68 /* DetailViewController.swift in Sources */,
-				ECEC0C5E1ED44D7700F6760A /* MapperExt.swift in Sources */,
 				FE452C5820A48AFB00FAD103 /* AddTransactionViewController.swift in Sources */,
 				FE69722B209F480100C8EA68 /* SignedNumericExt.swift in Sources */,
 				EC5337B71EF78CD800ACE038 /* App.swift in Sources */,
@@ -825,6 +824,7 @@
 				ECF23ABB1E9B89B2008C23C1 /* ResponseSerializer.swift in Sources */,
 				ECF23ABE1E9B8A6A008C23C1 /* Error.swift in Sources */,
 				FE697220209F357A00C8EA68 /* CurrencyVolumeView.swift in Sources */,
+				FE1F3DB220BCE41D0013D1C8 /* API.Users.swift in Sources */,
 				EC5337B51EF7845700ACE038 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
