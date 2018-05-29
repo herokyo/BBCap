@@ -19,7 +19,7 @@ final class Api {
             static let baseURL = "https://pro-asiantech.vn"
         #endif
 
-        static let v1 = "path" / "v1"
+        static let v1 = "api" / "v1"
     }
 }
 

@@ -37,6 +37,11 @@
 		F1C6352C1EF141F300D0A1A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C6352B1EF141F300D0A1A0 /* LaunchScreen.storyboard */; };
 		FE01F20220AC7293004494E1 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE01F20120AC7293004494E1 /* StatusBarView.swift */; };
 		FE1F3DB220BCE41D0013D1C8 /* API.Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F3DB120BCE41D0013D1C8 /* API.Users.swift */; };
+		FE1F3DB420BCF9E00013D1C8 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F3DB320BCF9E00013D1C8 /* Token.swift */; };
+		FE1F3DB620BCFC120013D1C8 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F3DB520BCFC120013D1C8 /* Session.swift */; };
+		FE1F3DBA20BD15580013D1C8 /* APIUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F3DB920BD15580013D1C8 /* APIUserTests.swift */; };
+		FE1F3DBB20BD18380013D1C8 /* ApiToken.json in Resources */ = {isa = PBXBuildFile; fileRef = FE1F3DB720BD14640013D1C8 /* ApiToken.json */; };
+		FE1F3DBD20BD35A60013D1C8 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F3DBC20BD35A60013D1C8 /* UserDefaultsKey.swift */; };
 		FE3912CF20A5DD4500F31516 /* UITextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3912CE20A5DD4500F31516 /* UITextFieldExt.swift */; };
 		FE452C5820A48AFB00FAD103 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE452C5620A48AFB00FAD103 /* AddTransactionViewController.swift */; };
 		FE452C5920A48AFB00FAD103 /* AddTransactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE452C5720A48AFB00FAD103 /* AddTransactionViewController.xib */; };
@@ -122,6 +127,11 @@
 		F1C6352B1EF141F300D0A1A0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE01F20120AC7293004494E1 /* StatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
 		FE1F3DB120BCE41D0013D1C8 /* API.Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.Users.swift; sourceTree = "<group>"; };
+		FE1F3DB320BCF9E00013D1C8 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		FE1F3DB520BCFC120013D1C8 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		FE1F3DB720BD14640013D1C8 /* ApiToken.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ApiToken.json; sourceTree = "<group>"; };
+		FE1F3DB920BD15580013D1C8 /* APIUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUserTests.swift; sourceTree = "<group>"; };
+		FE1F3DBC20BD35A60013D1C8 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		FE3912CE20A5DD4500F31516 /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
 		FE452C5620A48AFB00FAD103 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		FE452C5720A48AFB00FAD103 /* AddTransactionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTransactionViewController.xib; sourceTree = "<group>"; };
@@ -191,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				BC3269D620941DC70027A005 /* ErrorResponse.json */,
+				FE1F3DB720BD14640013D1C8 /* ApiToken.json */,
 			);
 			path = FakeData;
 			sourceTree = "<group>";
@@ -207,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				BC627BD92093916F007D3B78 /* ApiManagerTests.swift */,
+				FE1F3DB920BD15580013D1C8 /* APIUserTests.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -239,9 +251,10 @@
 			isa = PBXGroup;
 			children = (
 				EC5337B61EF78CD800ACE038 /* App.swift */,
-				ECEC0C571ED44C5D00F6760A /* String.swift */,
 				EC5337B41EF7845700ACE038 /* Color.swift */,
 				EC5337BD1EF78FEA00ACE038 /* Font.swift */,
+				ECEC0C571ED44C5D00F6760A /* String.swift */,
+				FE1F3DBC20BD35A60013D1C8 /* UserDefaultsKey.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -342,6 +355,7 @@
 			children = (
 				ECF23AAF1E9B869B008C23C1 /* API */,
 				ECF23AA31E9B8586008C23C1 /* Schema */,
+				FE1F3DB520BCFC120013D1C8 /* Session.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -350,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				FED62EF5209DE9C30070ABDE /* Ratio.swift */,
+				FE1F3DB320BCF9E00013D1C8 /* Token.swift */,
 			);
 			path = Schema;
 			sourceTree = "<group>";
@@ -587,6 +602,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE1F3DBB20BD18380013D1C8 /* ApiToken.json in Resources */,
 				BC3269DB20941F970027A005 /* ErrorResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -812,10 +828,13 @@
 				FEAFDEE820A6EA02007A3BA0 /* CreateAlertViewModel.swift in Sources */,
 				FE3912CF20A5DD4500F31516 /* UITextFieldExt.swift in Sources */,
 				FED62EFB209E25360070ABDE /* TimeAxisValueFormatter.swift in Sources */,
+				FE1F3DB620BCFC120013D1C8 /* Session.swift in Sources */,
+				FE1F3DB420BCF9E00013D1C8 /* Token.swift in Sources */,
 				ECC5B2CB1EF90495001A97BC /* Button.swift in Sources */,
 				EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */,
 				EC6FD30A1EF8B71200CB6642 /* DefaultsExt.swift in Sources */,
 				EC332A481EA0A8CB0011DF1E /* Api.swift in Sources */,
+				FE1F3DBD20BD35A60013D1C8 /* UserDefaultsKey.swift in Sources */,
 				ECF23AB41E9B869B008C23C1 /* ApiManager.swift in Sources */,
 				ECEC0C5A1ED44D4100F6760A /* UIViewControllerExt.swift in Sources */,
 				FEAFDEE520A6E197007A3BA0 /* CreateAlertViewController.swift in Sources */,
@@ -836,6 +855,7 @@
 				FE697233209F704F00C8EA68 /* CurrencyVolumeViewTests.swift in Sources */,
 				BC627BDA2093916F007D3B78 /* ApiManagerTests.swift in Sources */,
 				BC3269DA20941F900027A005 /* DataExt.swift in Sources */,
+				FE1F3DBA20BD15580013D1C8 /* APIUserTests.swift in Sources */,
 				BC3269DC209424520027A005 /* Constant.swift in Sources */,
 				FE697230209F669C00C8EA68 /* DetailViewControllerTests.swift in Sources */,
 			);
