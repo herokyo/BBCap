@@ -19,11 +19,11 @@ final class MenuVC: UITableViewController, StoryboardIdentifiable {
         }
 
         var icon: UIImage? {
-            let size = CGSize(size: 34)
-            return [UIImage(icon: FAType.FAHome, size: size),
-                UIImage(icon: FAType.FAUserSecret, size: size),
-                UIImage(icon: FAType.FABold, size: size),
-                UIImage(icon: FAType.FAFeed, size: size)][safe: hashValue]
+            let size = App.Size.icon
+            return [UIImage(icon: FAType.FAHome, size: size, textColor: .white),
+                UIImage(icon: FAType.FAUserSecret, size: size, textColor: .white),
+                UIImage(icon: FAType.FABold, size: size, textColor: .white),
+                UIImage(icon: FAType.FAFeed, size: size, textColor: .white)][safe: hashValue]
         }
     }
 
@@ -50,5 +50,9 @@ final class MenuVC: UITableViewController, StoryboardIdentifiable {
         cell.iconImageView.image = rowType.icon
         cell.titleLabel.text = rowType.title
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        SideMenuController.shared.hideLeftViewAnimated()
     }
 }

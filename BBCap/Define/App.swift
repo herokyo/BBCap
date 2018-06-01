@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct App { }
+struct App {
+    struct Size {}
+}
 
 struct Google {
     static var apiPublicKey: String { return "publicKey" }
