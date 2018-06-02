@@ -121,17 +121,17 @@ final class ApiManagerTests: QuickSpec {
             context("When api has error response and status code is 200") {
 
                 beforeEach {
-                    let data = Data(forResource: "JsonFailure", ofType: "json", on: self)
+                    let data = Data(forResource: "ErrorResponse", ofType: "json", on: self)
                     stub(condition: isPath(Dummy.myWebService)) { _ in
-                        return OHHTTPStubsResponse(data: data, statusCode: 200, headers: nil)
+                        return OHHTTPStubsResponse(data: data, statusCode: 400, headers: nil)
                     }
                 }
 
                 it("Result should return json error") {
                     waitUntil(timeout: timeOut) { done in
                         api.request(urlString: Dummy.myWebService) { result in
-                            expect(result.error?.code) == Api.Error.json.code
-                            expect(result.error?.localizedDescription) == Api.Error.json.localizedDescription
+                            expect(result.error?.code) == 400
+                            expect(result.error?.localizedDescription) == "The error content message"
                             done()
                         }
                     }
