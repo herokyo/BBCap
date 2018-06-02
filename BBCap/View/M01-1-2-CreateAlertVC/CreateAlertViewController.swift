@@ -11,45 +11,29 @@ import SwifterSwift
 
 final class CreateAlertViewController: ViewController {
 
-    @IBOutlet private weak var selectExchangeTextField: UITextField!
-    @IBOutlet private weak var selectMarketTextField: UITextField!
+    @IBOutlet private weak var selectMarketButton: Button!
     @IBOutlet private weak var minusButton: UIButton!
     @IBOutlet private weak var plusButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configTextFields()
-        configButtons()
-        updateView()
+        configView()
     }
 
-    private func configTextFields() {
-        selectExchangeTextField.addPaddingRightIcon(#imageLiteral(resourceName: "img_pen"), padding: Config.padding)
-        selectMarketTextField.addPaddingRightIcon(#imageLiteral(resourceName: "img_pen"), padding: Config.padding)
-    }
-
-    private func configButtons() {
+    private func configView() {
         minusButton.backgroundColor = Config.buttonColor
         plusButton.backgroundColor = Config.buttonColor
-    }
 
-    private func updateView() {
-        // TODO: Dummy Data
         let coinAttributedString = NSAttributedString(string: "BTC", attributes: [.foregroundColor: UIColor.white])
         let dolaAttributedString = NSAttributedString(string: "/USD", attributes: [.foregroundColor: Config.brownColor])
-        selectMarketTextField.attributedText = coinAttributedString + dolaAttributedString
-
-        selectExchangeTextField.text = "CoinMarket"
+        selectMarketButton.setAttributedTitle(coinAttributedString + dolaAttributedString, for: .normal)
     }
 
     // MARK: - IBAction
     @IBAction private func changePriceButtonTouchUpInside(_ button: Button) {
-        // TODO: Handle price later
     }
 
     @IBAction private func saveAlertButtonTouchUpInside(_ button: UIButton) {
-        let vc = AddTransactionViewController()
-        navigationController?.pushViewController(vc)
     }
 
     @IBAction private func backButtonTouchUpInside(_ button: Button) {
