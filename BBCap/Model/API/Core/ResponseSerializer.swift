@@ -32,7 +32,9 @@ extension Request {
         guard 200...299 ~= statusCode else {
 
             var err: NSError!
-            if let status = HTTPStatus(code: statusCode) {
+            if let json = data?.toJSON() as? JSObject, let message = json["message"] as? String {
+                err = NSError(domain: Api.Path.baseURL.host, code: statusCode, message: message)
+            } else if let status = HTTPStatus(code: statusCode) {
                 err = NSError(domain: Api.Path.baseURL.host, status: status)
             } else {
                 err = NSError(domain: Api.Path.baseURL.host,
