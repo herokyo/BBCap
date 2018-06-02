@@ -11,6 +11,7 @@ import SwifterSwift
 import SwiftDate
 
 protocol DetailViewModelDelegate: class {
+    func viewModelShouldUpdatePriceTypeButton(_ viewModel: DetailViewModel)
     func viewModelShouldUpdateDate(_ viewModel: DetailViewModel)
     func viewModelShouldUpdateCurrency(_ viewModel: DetailViewModel)
 }
@@ -30,11 +31,15 @@ final class DetailViewModel {
     }
 
     // TODO: Use for later
-    var priceType: PriceType = .usd
+    var priceType: PriceType = .usd {
+        didSet {
+            delegate?.viewModelShouldUpdatePriceTypeButton(self)
+        }
+    }
 
     var prices: [Double] {
         switch priceType {
-        case .eth:
+        case .eth, .btc:
             return []
         case .usd:
             return currency.priceUSDs.map { $0[1] }
@@ -89,9 +94,39 @@ final class DetailViewModel {
 
 extension DetailViewModel {
 
+    enum PriceTypeError: Error {
+        case invalid
+    }
+
     enum PriceType {
         case usd
+        case btc
         case eth
+
+        var title: String {
+            switch self {
+            case .usd:
+                return "USD"
+            case .btc:
+                return "BTC"
+            case .eth:
+                return "ETH"
+            }
+        }
+
+        static func next(_ title: String?) throws -> PriceType {
+            guard let title = title else { throw PriceTypeError.invalid }
+            switch title {
+            case "USD":
+                return .btc
+            case "BTC":
+                return .eth
+            case "ETH":
+                return .usd
+            default:
+                throw PriceTypeError.invalid
+            }
+        }
     }
 }
 

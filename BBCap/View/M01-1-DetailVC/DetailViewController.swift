@@ -25,10 +25,11 @@ final class DetailViewController: ViewController {
     @IBOutlet weak var todayButton: Button!
     @IBOutlet var volumeViews: [CurrencyVolumeView]!
     @IBOutlet var timeTypeButtons: [Button]!
-    @IBOutlet weak var currencyButton: Button!
+    @IBOutlet weak var priceTypeButton: Button!
 
     // Properties
     private var isLoading = false
+    private var index = 0
 
     var viewModel = DetailViewModel() {
         didSet {
@@ -63,9 +64,9 @@ final class DetailViewController: ViewController {
     }
 
     private func configButtons() {
-        currencyButton.setTitle("USD", for: .normal)
-        currencyButton.setTitleColor(.white, for: UIControlState.normal)
-        currencyButton.titleLabel?.font = .systemFont(ofSize: 16)
+        priceTypeButton.setTitle("USD", for: .normal)
+        priceTypeButton.setTitleColor(.white, for: UIControlState.normal)
+        priceTypeButton.titleLabel?.font = .systemFont(ofSize: 16)
 
         timeTypeButtons.forEach {
             $0.setTitleColor(.white, for: .normal)
@@ -158,6 +159,11 @@ final class DetailViewController: ViewController {
 
     // MARK: - IBAction
 
+    @IBAction private func priceTypeButtonTouchUpInside(_ button: Button) {
+        guard let priceType = try? DetailViewModel.PriceType.next(button.titleForNormal) else { return }
+        viewModel.priceType = priceType
+    }
+
     @IBAction private func addAlertButtonTouchUpInside(_ button: Button) {
         let vc = CreateAlertViewController()
         navigationController?.pushViewController(vc)
@@ -202,6 +208,10 @@ extension DetailViewController: ChartViewDelegate {
 }
 
 extension DetailViewController: DetailViewModelDelegate {
+
+    func viewModelShouldUpdatePriceTypeButton(_ viewModel: DetailViewModel) {
+        priceTypeButton.setTitle(viewModel.priceType.title, for: .normal)
+    }
 
     func viewModelShouldUpdateDate(_ viewModel: DetailViewModel) {
         dateCurrencyLabel.text = viewModel.dateString

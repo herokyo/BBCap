@@ -16,7 +16,6 @@
             <connections>
                 <outlet property="addAlertButton" destination="2cF-6a-1nb" id="jiG-4A-btw"/>
                 <outlet property="addToPortfolioButton" destination="JWb-zg-Bbh" id="k25-8S-Wqe"/>
-                <outlet property="currencyButton" destination="fIU-El-HFN" id="pGd-YN-bbp"/>
                 <outlet property="currencyLabel" destination="smq-HZ-29h" id="ofg-vi-sXS"/>
                 <outlet property="currentCurrencyLabel" destination="apj-hQ-5s7" id="J1P-AU-cMJ"/>
                 <outlet property="dateCurrencyLabel" destination="VI0-lc-0Wn" id="54b-7h-v5n"/>
@@ -24,6 +23,7 @@
                 <outlet property="hourPercentLabel" destination="mi6-RE-lUI" id="xvI-k2-QcJ"/>
                 <outlet property="lineChartView" destination="lSu-Ku-48l" id="idJ-bZ-bz4"/>
                 <outlet property="navigationView" destination="OBR-8g-0au" id="Uad-jZ-0MQ"/>
+                <outlet property="priceTypeButton" destination="fIU-El-HFN" id="pGd-YN-bbp"/>
                 <outlet property="todayButton" destination="cPo-jh-Jvh" id="9lA-lQ-3ss"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weekPercentLabel" destination="CgL-ub-o38" id="JwW-bU-4re"/>
@@ -123,6 +123,9 @@
                             <state key="normal" title="USD">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="priceTypeButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="m2T-q5-8Ut"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9m-3D-bKL">
                             <rect key="frame" x="350" y="0.0" width="25" height="22"/>
