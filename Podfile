@@ -27,6 +27,7 @@ target 'BBCap' do
     pod 'SwifterSwift', '4.2.0'
     pod 'Charts', '3.1.0'
     pod 'IQKeyboardManagerSwift'
+    pod 'SwiftDate', '4.5.0'
 
 target 'BBCapTests' do
     inherit! :complete

@@ -72,6 +72,10 @@
 		FEAFDEE520A6E197007A3BA0 /* CreateAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAFDEE320A6E197007A3BA0 /* CreateAlertViewController.swift */; };
 		FEAFDEE620A6E197007A3BA0 /* CreateAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEAFDEE420A6E197007A3BA0 /* CreateAlertViewController.xib */; };
 		FEAFDEE820A6EA02007A3BA0 /* CreateAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAFDEE720A6EA02007A3BA0 /* CreateAlertViewModel.swift */; };
+		FEB3887120C2DB5D00A46541 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3887020C2DB5D00A46541 /* Currency.swift */; };
+		FEB3887320C2DC4500A46541 /* API.Coinmarket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3887220C2DC4500A46541 /* API.Coinmarket.swift */; };
+		FEB3887520C2DD6300A46541 /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3887420C2DD6300A46541 /* DoubleExt.swift */; };
+		FEB3887820C2E20100A46541 /* DetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3887620C2E1D300A46541 /* DetailViewModelTests.swift */; };
 		FED62EF4209DE96F0070ABDE /* UILabelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EF3209DE96F0070ABDE /* UILabelExt.swift */; };
 		FED62EF6209DE9C30070ABDE /* Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EF5209DE9C30070ABDE /* Ratio.swift */; };
 		FED62EFB209E25360070ABDE /* TimeAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EFA209E25360070ABDE /* TimeAxisValueFormatter.swift */; };
@@ -176,6 +180,10 @@
 		FEAFDEE320A6E197007A3BA0 /* CreateAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertViewController.swift; sourceTree = "<group>"; };
 		FEAFDEE420A6E197007A3BA0 /* CreateAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateAlertViewController.xib; sourceTree = "<group>"; };
 		FEAFDEE720A6EA02007A3BA0 /* CreateAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertViewModel.swift; sourceTree = "<group>"; };
+		FEB3887020C2DB5D00A46541 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		FEB3887220C2DC4500A46541 /* API.Coinmarket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.Coinmarket.swift; sourceTree = "<group>"; };
+		FEB3887420C2DD6300A46541 /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
+		FEB3887620C2E1D300A46541 /* DetailViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewModelTests.swift; sourceTree = "<group>"; };
 		FED62EF3209DE96F0070ABDE /* UILabelExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExt.swift; sourceTree = "<group>"; };
 		FED62EF5209DE9C30070ABDE /* Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratio.swift; sourceTree = "<group>"; };
 		FED62EFA209E25360070ABDE /* TimeAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAxisValueFormatter.swift; sourceTree = "<group>"; };
@@ -315,7 +323,6 @@
 			children = (
 				EC5337B61EF78CD800ACE038 /* App.swift */,
 				22C3A0AF20C0737000602CBC /* Size.swift */,
-				ECEC0C571ED44C5D00F6760A /* String.swift */,
 				EC5337B41EF7845700ACE038 /* Color.swift */,
 				EC5337BD1EF78FEA00ACE038 /* Font.swift */,
 				ECEC0C571ED44C5D00F6760A /* String.swift */,
@@ -434,6 +441,7 @@
 		ECF23AA31E9B8586008C23C1 /* Schema */ = {
 			isa = PBXGroup;
 			children = (
+				FEB3887020C2DB5D00A46541 /* Currency.swift */,
 				FED62EF5209DE9C30070ABDE /* Ratio.swift */,
 			);
 			path = Schema;
@@ -442,6 +450,7 @@
 		ECF23AAF1E9B869B008C23C1 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				FEB3887220C2DC4500A46541 /* API.Coinmarket.swift */,
 				FE1F3DB120BCE41D0013D1C8 /* API.Register.swift */,
 				ECF23AB01E9B869B008C23C1 /* Core */,
 			);
@@ -473,12 +482,13 @@
 			children = (
 				2253865120BFB53900B11E0B /* ColectionExt.swift */,
 				2253865420BFB53900B11E0B /* CustomStringConvertibleExt.swift */,
-				2253865220BFB53900B11E0B /* RawRepresentableExt.swift */,
-				2253865320BFB53900B11E0B /* UIStoryBoardExt.swift */,
 				EC6FD3091EF8B71200CB6642 /* DefaultsExt.swift */,
+				FEB3887420C2DD6300A46541 /* DoubleExt.swift */,
+				2253865220BFB53900B11E0B /* RawRepresentableExt.swift */,
 				FE69722A209F480100C8EA68 /* SignedNumericExt.swift */,
 				ECF23AC21E9B9264008C23C1 /* StringExt.swift */,
 				FED62EF3209DE96F0070ABDE /* UILabelExt.swift */,
+				2253865320BFB53900B11E0B /* UIStoryBoardExt.swift */,
 				FE3912CE20A5DD4500F31516 /* UITextFieldExt.swift */,
 				ECEC0C591ED44D4100F6760A /* UIViewControllerExt.swift */,
 			);
@@ -537,6 +547,7 @@
 			children = (
 				FE697231209F6EB700C8EA68 /* CurrencyVolume */,
 				FE69722F209F669C00C8EA68 /* DetailViewControllerTests.swift */,
+				FEB3887620C2E1D300A46541 /* DetailViewModelTests.swift */,
 			);
 			path = "M01-1-DetailVC";
 			sourceTree = "<group>";
@@ -749,6 +760,7 @@
 				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/MVVM-Swift/MVVM.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftUtils/SwiftUtils.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
@@ -765,6 +777,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MVVM.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftUtils.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
@@ -791,6 +804,7 @@
 				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/MVVM-Swift/MVVM.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftUtils/SwiftUtils.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 			);
@@ -804,6 +818,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MVVM.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftUtils.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 			);
@@ -903,8 +918,8 @@
 				FE01F20220AC7293004494E1 /* StatusBarView.swift in Sources */,
 				2253865620BFB53900B11E0B /* RawRepresentableExt.swift in Sources */,
 				FE69721C209F2A5C00C8EA68 /* DetailViewController.swift in Sources */,
+				FEB3887320C2DC4500A46541 /* API.Coinmarket.swift in Sources */,
 				2253865720BFB53900B11E0B /* UIStoryBoardExt.swift in Sources */,
-				ECEC0C5E1ED44D7700F6760A /* MapperExt.swift in Sources */,
 				FE452C5820A48AFB00FAD103 /* AddTransactionViewController.swift in Sources */,
 				FE69722B209F480100C8EA68 /* SignedNumericExt.swift in Sources */,
 				EC5337B71EF78CD800ACE038 /* App.swift in Sources */,
@@ -912,12 +927,14 @@
 				FE697225209F3C0900C8EA68 /* BBView.swift in Sources */,
 				FE69722D209F4B7200C8EA68 /* CurrencyVolumeViewModel.swift in Sources */,
 				ECC5B2CD1EF906CA001A97BC /* ViewController.swift in Sources */,
+				FEB3887120C2DB5D00A46541 /* Currency.swift in Sources */,
 				FED62EF6209DE9C30070ABDE /* Ratio.swift in Sources */,
 				FE697229209F436A00C8EA68 /* DetailViewModel.swift in Sources */,
 				22C3A0A620BFB97A00602CBC /* SideMenuController.swift in Sources */,
 				22C3A0AE20BFBA2B00602CBC /* HomeVC.swift in Sources */,
 				2253865520BFB53900B11E0B /* ColectionExt.swift in Sources */,
 				EC5337C31EF793B100ACE038 /* CollectionCell.swift in Sources */,
+				FEB3887520C2DD6300A46541 /* DoubleExt.swift in Sources */,
 				ECF23ABA1E9B89B2008C23C1 /* RequestSerializer.swift in Sources */,
 				FEAFDEE820A6EA02007A3BA0 /* CreateAlertViewModel.swift in Sources */,
 				22C3A0B020C0737000602CBC /* Size.swift in Sources */,
@@ -953,6 +970,7 @@
 				FE697233209F704F00C8EA68 /* CurrencyVolumeViewTests.swift in Sources */,
 				BC627BDA2093916F007D3B78 /* ApiManagerTests.swift in Sources */,
 				BC3269DA20941F900027A005 /* DataExt.swift in Sources */,
+				FEB3887820C2E20100A46541 /* DetailViewModelTests.swift in Sources */,
 				FE1F3DBA20BD15580013D1C8 /* APIResigterTests.swift in Sources */,
 				BC3269DC209424520027A005 /* Constant.swift in Sources */,
 				FE697230209F669C00C8EA68 /* DetailViewControllerTests.swift in Sources */,

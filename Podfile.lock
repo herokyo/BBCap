@@ -27,6 +27,7 @@ PODS:
   - OHHTTPStubs/Swift (6.1.0):
     - OHHTTPStubs/Default
   - Quick (1.3.0)
+  - SwiftDate (4.5.0)
   - SwifterSwift (4.2.0):
     - SwifterSwift/AppKit (= 4.2.0)
     - SwifterSwift/CoreGraphics (= 4.2.0)
@@ -58,6 +59,7 @@ DEPENDENCIES:
   - OHHTTPStubs (= 6.1.0)
   - OHHTTPStubs/Swift
   - Quick (= 1.3.0)
+  - SwiftDate (= 4.5.0)
   - SwifterSwift (= 4.2.0)
   - SwiftLint (= 0.25.0)
   - SwiftUtils (= 4.0.1)
@@ -74,10 +76,11 @@ SPEC CHECKSUMS:
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   Quick: 03278013f71aa05fe9ecabc94fbcc6835f1ee76f
+  SwiftDate: 17dd829c004a2d60432ef63ffcdb26ca2eb97a60
   SwifterSwift: 1d101dcfb0c3123226900f3b4d220d57fb60d546
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   SwiftUtils: b009d391fb2e285392f114238f8b55d2750b80f0
 
-PODFILE CHECKSUM: fd635b866ed4d69edd0e9a3e71ba6a4c9492597a
+PODFILE CHECKSUM: c791a81a4296c17303d5f65682cb93dba188cd8d
 
 COCOAPODS: 1.4.0
