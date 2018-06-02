@@ -72,6 +72,7 @@
 		FEAFDEE520A6E197007A3BA0 /* CreateAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAFDEE320A6E197007A3BA0 /* CreateAlertViewController.swift */; };
 		FEAFDEE620A6E197007A3BA0 /* CreateAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEAFDEE420A6E197007A3BA0 /* CreateAlertViewController.xib */; };
 		FEAFDEE820A6EA02007A3BA0 /* CreateAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAFDEE720A6EA02007A3BA0 /* CreateAlertViewModel.swift */; };
+		FEB3887120C2DB5D00A46541 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3887020C2DB5D00A46541 /* Currency.swift */; };
 		FED62EF4209DE96F0070ABDE /* UILabelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EF3209DE96F0070ABDE /* UILabelExt.swift */; };
 		FED62EF6209DE9C30070ABDE /* Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EF5209DE9C30070ABDE /* Ratio.swift */; };
 		FED62EFB209E25360070ABDE /* TimeAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EFA209E25360070ABDE /* TimeAxisValueFormatter.swift */; };
@@ -176,6 +177,7 @@
 		FEAFDEE320A6E197007A3BA0 /* CreateAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertViewController.swift; sourceTree = "<group>"; };
 		FEAFDEE420A6E197007A3BA0 /* CreateAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateAlertViewController.xib; sourceTree = "<group>"; };
 		FEAFDEE720A6EA02007A3BA0 /* CreateAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertViewModel.swift; sourceTree = "<group>"; };
+		FEB3887020C2DB5D00A46541 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		FED62EF3209DE96F0070ABDE /* UILabelExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExt.swift; sourceTree = "<group>"; };
 		FED62EF5209DE9C30070ABDE /* Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratio.swift; sourceTree = "<group>"; };
 		FED62EFA209E25360070ABDE /* TimeAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAxisValueFormatter.swift; sourceTree = "<group>"; };
@@ -315,7 +317,6 @@
 			children = (
 				EC5337B61EF78CD800ACE038 /* App.swift */,
 				22C3A0AF20C0737000602CBC /* Size.swift */,
-				ECEC0C571ED44C5D00F6760A /* String.swift */,
 				EC5337B41EF7845700ACE038 /* Color.swift */,
 				EC5337BD1EF78FEA00ACE038 /* Font.swift */,
 				ECEC0C571ED44C5D00F6760A /* String.swift */,
@@ -434,6 +435,7 @@
 		ECF23AA31E9B8586008C23C1 /* Schema */ = {
 			isa = PBXGroup;
 			children = (
+				FEB3887020C2DB5D00A46541 /* Currency.swift */,
 				FED62EF5209DE9C30070ABDE /* Ratio.swift */,
 			);
 			path = Schema;
@@ -915,6 +917,7 @@
 				FE697225209F3C0900C8EA68 /* BBView.swift in Sources */,
 				FE69722D209F4B7200C8EA68 /* CurrencyVolumeViewModel.swift in Sources */,
 				ECC5B2CD1EF906CA001A97BC /* ViewController.swift in Sources */,
+				FEB3887120C2DB5D00A46541 /* Currency.swift in Sources */,
 				FED62EF6209DE9C30070ABDE /* Ratio.swift in Sources */,
 				FE697229209F436A00C8EA68 /* DetailViewModel.swift in Sources */,
 				22C3A0A620BFB97A00602CBC /* SideMenuController.swift in Sources */,
