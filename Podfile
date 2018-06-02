@@ -14,6 +14,9 @@ target 'BBCap' do
     # UI
     # pod 'SVProgressHUD', '2.2.5' # A clean and lightweight progress HUD for your iOS and tvOS app.
     # Data
+    pod 'LGSideMenuController'
+    pod 'Font-Awesome-Swift', '~> 1.7.2'
+
     pod 'ObjectMapper', '3.1.0' # Simple JSON Object mapping written in Swift.    # Network
     pod 'Alamofire', '4.6.0' # Elegant HTTP Networking in Swift.
     pod 'AlamofireNetworkActivityIndicator', '2.2.0' # Controls the visibility of the network activity indicator on iOS using Alamofire.
