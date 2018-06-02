@@ -9,18 +9,26 @@
 import UIKit
 import Font_Awesome_Swift
 
-class HomeVC: UIViewController, StoryboardIdentifiable {
+final class HomeVC: UIViewController, StoryboardIdentifiable {
 
     @IBOutlet private weak var menuButton: UIButton!
     @IBOutlet private weak var searchButton: UIButton!
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var segmentedControl: UISegmentedControl!
+
+    @IBOutlet var coinButtons: [UIButton]!
+
+    private func configView() {
+        searchBar.delegate = self
+        menuButton.setImage(UIImage(icon: FAType.FANavicon, size: App.Size.icon, textColor: .white), for: .normal)
+        searchButton.setImage(UIImage(icon: .FASearch, size: App.Size.icon, textColor: .white), for: .normal)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        menuButton.setImage(UIImage(icon: FAType.FANavicon, size: App.Size.icon, textColor: .white), for: .normal)
-        searchButton.setImage(UIImage(icon: .FASearch, size: App.Size.icon, textColor: .white), for: .normal)
+        configView()
         configTableView()
     }
 
@@ -36,6 +44,13 @@ class HomeVC: UIViewController, StoryboardIdentifiable {
     @IBAction private func searchButtonTouchUpInside(_ sender: Any?) {
         let isHidden = searchBar.isHidden
         searchBar.isHidden = !isHidden
+        segmentedControl.isHidden = isHidden
+        searchBar.becomeFirstResponder()
+    }
+
+    @IBAction private func coinButtonTouchUpInside(_ button: UIButton) {
+        coinButtons.setSelected(isTrue: false)
+        button.isSelected = true
     }
 }
 
@@ -46,7 +61,8 @@ extension HomeVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell") else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell") as? HomeCell else { fatalError() }
+        cell.data = nil
         return cell
     }
 }
@@ -55,5 +71,17 @@ extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailViewController()
         navigationController?.pushViewController(vc)
+    }
+}
+
+extension HomeVC: UISearchBarDelegate {
+
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.isHidden = true
+        segmentedControl.isHidden = false
+        searchBar.resignFirstResponder()
     }
 }

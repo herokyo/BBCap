@@ -22,6 +22,9 @@
 		22C3A0B020C0737000602CBC /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3A0AF20C0737000602CBC /* Size.swift */; };
 		22C3A0B220C0746200602CBC /* btcCell.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C3A0B120C0746200602CBC /* btcCell.png */; };
 		22C3A0B520C0754C00602CBC /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3A0B420C0754C00602CBC /* HomeCell.swift */; };
+		22C3A0B720C12F4300602CBC /* UIImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3A0B620C12F4300602CBC /* UIImageViewExt.swift */; };
+		22C3A0B920C2E62100602CBC /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3A0B820C2E62100602CBC /* Global.swift */; };
+		22C3A0BB20C2E7B200602CBC /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3A0BA20C2E7B200602CBC /* Coin.swift */; };
 		57E497D821F650E126AD586C /* Pods_BBCap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E9C3B2D9F3914160F6E978 /* Pods_BBCap.framework */; };
 		6E1AEE880A5F5145BCAA9FDF /* Pods_BBCap_BBCapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0AAB766BC2EED83274D0DA /* Pods_BBCap_BBCapTests.framework */; };
 		8565AB4487D42A3CCDE80200 /* Pods_BBCap_BBCapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AAC03CF0945B98E69CC88E /* Pods_BBCap_BBCapTests.framework */; };
@@ -112,6 +115,9 @@
 		22C3A0AF20C0737000602CBC /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		22C3A0B120C0746200602CBC /* btcCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btcCell.png; sourceTree = "<group>"; };
 		22C3A0B420C0754C00602CBC /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		22C3A0B620C12F4300602CBC /* UIImageViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExt.swift; sourceTree = "<group>"; };
+		22C3A0B820C2E62100602CBC /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		22C3A0BA20C2E7B200602CBC /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		2649F5F6F87AEE8D068FE6BC /* Pods-BBCap-BBCapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBCap-BBCapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BBCap-BBCapTests/Pods-BBCap-BBCapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		40E9C3B2D9F3914160F6E978 /* Pods_BBCap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BBCap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74BCDA5E3E13E3D93995831F /* Pods-BBCap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBCap.release.xcconfig"; path = "Pods/Target Support Files/Pods-BBCap/Pods-BBCap.release.xcconfig"; sourceTree = "<group>"; };
@@ -216,8 +222,8 @@
 		22C3A0AC20BFBA2B00602CBC /* M01-0 */ = {
 			isa = PBXGroup;
 			children = (
-				22C3A0B320C0751200602CBC /* Cell */,
 				22C3A0AD20BFBA2B00602CBC /* HomeVC.swift */,
+				22C3A0B320C0751200602CBC /* Cell */,
 			);
 			path = "M01-0";
 			sourceTree = "<group>";
@@ -422,6 +428,8 @@
 			isa = PBXGroup;
 			children = (
 				FED62EF5209DE9C30070ABDE /* Ratio.swift */,
+				22C3A0B820C2E62100602CBC /* Global.swift */,
+				22C3A0BA20C2E7B200602CBC /* Coin.swift */,
 			);
 			path = Schema;
 			sourceTree = "<group>";
@@ -468,6 +476,7 @@
 				FED62EF3209DE96F0070ABDE /* UILabelExt.swift */,
 				FE3912CE20A5DD4500F31516 /* UITextFieldExt.swift */,
 				ECEC0C591ED44D4100F6760A /* UIViewControllerExt.swift */,
+				22C3A0B620C12F4300602CBC /* UIImageViewExt.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -549,8 +558,8 @@
 		FED62EF7209E25070070ABDE /* Control */ = {
 			isa = PBXGroup;
 			children = (
-				FE697223209F3BF800C8EA68 /* BBView */,
 				FED62EFA209E25360070ABDE /* TimeAxisValueFormatter.swift */,
+				FE697223209F3BF800C8EA68 /* BBView */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -729,12 +738,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BBCap-BBCapTests/Pods-BBCap-BBCapTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
+				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/Font-Awesome-Swift/Font_Awesome_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/MVVM-Swift/MVVM.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftUtils/SwiftUtils.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
@@ -745,12 +756,14 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Font_Awesome_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MVVM.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftUtils.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
@@ -771,12 +784,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BBCap/Pods-BBCap-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
+				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/Font-Awesome-Swift/Font_Awesome_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/MVVM-Swift/MVVM.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftUtils/SwiftUtils.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 			);
@@ -784,12 +799,14 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Font_Awesome_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MVVM.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftUtils.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 			);
@@ -891,6 +908,7 @@
 				FE69721C209F2A5C00C8EA68 /* DetailViewController.swift in Sources */,
 				2253865720BFB53900B11E0B /* UIStoryBoardExt.swift in Sources */,
 				ECEC0C5E1ED44D7700F6760A /* MapperExt.swift in Sources */,
+				22C3A0B920C2E62100602CBC /* Global.swift in Sources */,
 				FE452C5820A48AFB00FAD103 /* AddTransactionViewController.swift in Sources */,
 				FE69722B209F480100C8EA68 /* SignedNumericExt.swift in Sources */,
 				EC5337B71EF78CD800ACE038 /* App.swift in Sources */,
@@ -903,6 +921,7 @@
 				22C3A0A620BFB97A00602CBC /* SideMenuController.swift in Sources */,
 				22C3A0AE20BFBA2B00602CBC /* HomeVC.swift in Sources */,
 				2253865520BFB53900B11E0B /* ColectionExt.swift in Sources */,
+				22C3A0B720C12F4300602CBC /* UIImageViewExt.swift in Sources */,
 				EC5337C31EF793B100ACE038 /* CollectionCell.swift in Sources */,
 				ECF23ABA1E9B89B2008C23C1 /* RequestSerializer.swift in Sources */,
 				FEAFDEE820A6EA02007A3BA0 /* CreateAlertViewModel.swift in Sources */,
@@ -917,6 +936,7 @@
 				ECF23AB41E9B869B008C23C1 /* ApiManager.swift in Sources */,
 				2253865820BFB53900B11E0B /* CustomStringConvertibleExt.swift in Sources */,
 				ECEC0C5A1ED44D4100F6760A /* UIViewControllerExt.swift in Sources */,
+				22C3A0BB20C2E7B200602CBC /* Coin.swift in Sources */,
 				FEAFDEE520A6E197007A3BA0 /* CreateAlertViewController.swift in Sources */,
 				ECEC0C581ED44C5D00F6760A /* String.swift in Sources */,
 				EC5337BE1EF78FEA00ACE038 /* Font.swift in Sources */,

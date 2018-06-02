@@ -21,9 +21,13 @@ target 'BBCap' do
     pod 'Alamofire', '4.6.0' # Elegant HTTP Networking in Swift.
     pod 'AlamofireNetworkActivityIndicator', '2.2.0' # Controls the visibility of the network activity indicator on iOS using Alamofire.
 
+#Image
+    pod 'SDWebImage', '4.2'
+
     # Utils
     pod 'SwiftLint', '0.25.0' # A tool to enforce Swift style and conventions.
     pod 'SwiftUtils', '4.0.1' # Swift shorthand.
+    pod 'AsyncSwift', '2.0.4'
     pod 'SwifterSwift', '4.2.0'
     pod 'Charts', '3.1.0'
     pod 'IQKeyboardManagerSwift'

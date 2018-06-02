@@ -6,7 +6,7 @@
 //  Copyright © 2018 Asian Tech Co., Ltd. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension Collection {
 
@@ -17,5 +17,14 @@ extension Collection {
 
     var isNotEmpty: Bool {
         return !isEmpty
+    }
+}
+
+extension Array where Element: UIButton {
+
+    func setSelected(isTrue: Bool) {
+        self.forEach { (button) in
+            button.isSelected = isTrue
+        }
     }
 }
