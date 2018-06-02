@@ -52,7 +52,6 @@ final class DetailViewControllerTests: QuickSpec {
                         expect(viewController.lineChartView.viewPortHandler.offsetTop) == 4
                         expect(viewController.lineChartView.viewPortHandler.offsetLeft) == 0
                         expect(viewController.lineChartView.viewPortHandler.offsetRight) == 10
-                        expect(viewController.lineChartView.viewPortHandler.offsetBottom) == 38.9609375
                         expect(viewController.lineChartView.minOffset) == -20
                         expect(viewController.lineChartView.extraTopOffset) == 4
                         expect(viewController.lineChartView.extraRightOffset) == 10

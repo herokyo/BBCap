@@ -75,6 +75,7 @@
 		FEB3887120C2DB5D00A46541 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3887020C2DB5D00A46541 /* Currency.swift */; };
 		FEB3887320C2DC4500A46541 /* API.Coinmarket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3887220C2DC4500A46541 /* API.Coinmarket.swift */; };
 		FEB3887520C2DD6300A46541 /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3887420C2DD6300A46541 /* DoubleExt.swift */; };
+		FEB3887820C2E20100A46541 /* DetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3887620C2E1D300A46541 /* DetailViewModelTests.swift */; };
 		FED62EF4209DE96F0070ABDE /* UILabelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EF3209DE96F0070ABDE /* UILabelExt.swift */; };
 		FED62EF6209DE9C30070ABDE /* Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EF5209DE9C30070ABDE /* Ratio.swift */; };
 		FED62EFB209E25360070ABDE /* TimeAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EFA209E25360070ABDE /* TimeAxisValueFormatter.swift */; };
@@ -182,6 +183,7 @@
 		FEB3887020C2DB5D00A46541 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		FEB3887220C2DC4500A46541 /* API.Coinmarket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.Coinmarket.swift; sourceTree = "<group>"; };
 		FEB3887420C2DD6300A46541 /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
+		FEB3887620C2E1D300A46541 /* DetailViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewModelTests.swift; sourceTree = "<group>"; };
 		FED62EF3209DE96F0070ABDE /* UILabelExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExt.swift; sourceTree = "<group>"; };
 		FED62EF5209DE9C30070ABDE /* Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratio.swift; sourceTree = "<group>"; };
 		FED62EFA209E25360070ABDE /* TimeAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAxisValueFormatter.swift; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 			children = (
 				FE697231209F6EB700C8EA68 /* CurrencyVolume */,
 				FE69722F209F669C00C8EA68 /* DetailViewControllerTests.swift */,
+				FEB3887620C2E1D300A46541 /* DetailViewModelTests.swift */,
 			);
 			path = "M01-1-DetailVC";
 			sourceTree = "<group>";
@@ -967,6 +970,7 @@
 				FE697233209F704F00C8EA68 /* CurrencyVolumeViewTests.swift in Sources */,
 				BC627BDA2093916F007D3B78 /* ApiManagerTests.swift in Sources */,
 				BC3269DA20941F900027A005 /* DataExt.swift in Sources */,
+				FEB3887820C2E20100A46541 /* DetailViewModelTests.swift in Sources */,
 				FE1F3DBA20BD15580013D1C8 /* APIResigterTests.swift in Sources */,
 				BC3269DC209424520027A005 /* Constant.swift in Sources */,
 				FE697230209F669C00C8EA68 /* DetailViewControllerTests.swift in Sources */,
