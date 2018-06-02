@@ -16,7 +16,7 @@
 import Foundation
 import ObjectMapper
 
-final class Coin: Mappable {
+final class Ticket: Mappable {
 
     var volume24hUsd: String?
     var availableSupply: String?
@@ -35,9 +35,9 @@ final class Coin: Mappable {
     var totalSupply: String?
 
     class func newInstance(map: Map) -> Mappable? {
-        return Coin()
+        return Ticket()
     }
-    required init?(map: Map) { }
+    init?(map: Map) { }
 
     init() { }
 

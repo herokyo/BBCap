@@ -31,6 +31,7 @@ PODS:
   - SDWebImage (4.2.0):
     - SDWebImage/Core (= 4.2.0)
   - SDWebImage/Core (4.2.0)
+  - SwiftDate (4.5.0)
   - SwifterSwift (4.2.0):
     - SwifterSwift/AppKit (= 4.2.0)
     - SwifterSwift/CoreGraphics (= 4.2.0)
@@ -64,6 +65,7 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift
   - Quick (= 1.3.0)
   - SDWebImage (= 4.2)
+  - SwiftDate (= 4.5.0)
   - SwifterSwift (= 4.2.0)
   - SwiftLint (= 0.25.0)
   - SwiftUtils (= 4.0.1)
@@ -82,10 +84,11 @@ SPEC CHECKSUMS:
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   Quick: 03278013f71aa05fe9ecabc94fbcc6835f1ee76f
   SDWebImage: b1189fd85365c18434270a11a5cad13a1e848d53
+  SwiftDate: 17dd829c004a2d60432ef63ffcdb26ca2eb97a60
   SwifterSwift: 1d101dcfb0c3123226900f3b4d220d57fb60d546
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   SwiftUtils: b009d391fb2e285392f114238f8b55d2750b80f0
 
-PODFILE CHECKSUM: f9db3852363e0e4bde8ee02f5cd1c01a45aa5729
+PODFILE CHECKSUM: 3f565278ac29124094d238a1d5321708909bba08
 
 COCOAPODS: 1.4.0

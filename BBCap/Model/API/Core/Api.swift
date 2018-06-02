@@ -7,16 +7,62 @@
 //
 
 import Foundation
+import SwifterSwift
 
 final class Api {
+
     struct Path {
         #if DEBUG
-            static let baseURL = "https://dev-asiantech.vn"
+        static let baseURL = "https://dev-asiantech.vn"
         #elseif STG
-            static let baseURL = "https://stg-asiantech.vn"
+        static let baseURL = "https://stg-asiantech.vn"
         #else
-            static let baseURL = "https://pro-asiantech.vn"
+        static let baseURL = "https://pro-asiantech.vn"
         #endif
+
+        static let v1 = "api" / "v1"
+    }
+
+    struct CoinmarketCap {
+        static let path = "https://graphs2.coinmarketcap.com"
+    }
+}
+
+// User app
+extension Api.Path {
+
+    struct Users {
+
+        static let path = baseURL / v1 / "users"
+    }
+}
+
+extension Api.CoinmarketCap {
+
+    struct Currencies {
+        static let path = Api.CoinmarketCap.path / "currencies"
+    }
+
+    struct Global {
+        static let path = Api.CoinmarketCap.path / "v1/global"
+    }
+
+    struct Tickets {
+        static let path = Api.CoinmarketCap.path / "v1/ticker/?start=0&limit=0"
+    }
+}
+
+extension Api.CoinmarketCap.Currencies {
+
+    struct Bitcoin {
+
+        var startDate: TimeInterval
+        var endDate: TimeInterval
+
+        var path: String {
+            return Api.CoinmarketCap.Currencies.path / "bitcoin" / startDate.int64 / endDate.int64
+        }
+
     }
 }
 
@@ -32,9 +78,11 @@ extension URL: URLStringConvertible {
     var urlString: String { return absoluteString }
 }
 
-extension Int: URLStringConvertible {
+extension URLStringConvertible where Self: SignedInteger {
     var urlString: String { return String(describing: self) }
 }
+
+extension Int64: URLStringConvertible { }
 
 private func / (lhs: URLStringConvertible, rhs: URLStringConvertible) -> String {
     return lhs.urlString + "/" + rhs.urlString

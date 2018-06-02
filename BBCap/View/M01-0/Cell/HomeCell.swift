@@ -36,6 +36,7 @@ class HomeCell: UITableViewCell {
     var data: Data? {
         didSet {
             guard let data = data else { return }
+            indexLabel.text = "\(data.index)"
             iconImageView.setImage(urlString: data.iconPath)
             titleLabel.text = data.title
             capLabel.text = data.cap

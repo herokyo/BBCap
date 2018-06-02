@@ -6,23 +6,26 @@
 //  Copyright © 2018 Asian Tech Co., Ltd. All rights reserved.
 //
 
-import Foundation
 import ObjectMapper
 
-final class Global: Mappable {
+final class GlobalInfo: Mappable {
 
     var activeAssets: Int = 0
     var activeCurrencies: Int = 0
     var activeMarkets: Int = 0
     var bitcoinPercentageOfMarketCap: Float = 0
-    var lastUpdated: Int = 1514764800
-    var total24hVolumeUsd: Int = 0
-    var totalMarketCapUsd: Int = 0
+    var lastUpdated: Int = 1_514_764_800
+    var total24hVolumeUsd: Float = 0
+    var totalMarketCapUsd: Float = -1
+
+    var percent: Float {
+        return (total24hVolumeUsd * 10_000 / totalMarketCapUsd).ceil / 100
+    }
 
     class func newInstance(map: Map) -> Mappable? {
-        return Global()
+        return GlobalInfo()
     }
-    required init?(map: Map) { }
+    init?(map: Map) { }
     init() { }
 
     func mapping(map: Map) {

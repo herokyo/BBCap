@@ -182,7 +182,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nmb-bA-3e3">
-                                                    <rect key="frame" x="15" y="0.0" width="360" height="65"/>
+                                                    <rect key="frame" x="8" y="0.0" width="367" height="65"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGV-t9-UPE">
                                                             <rect key="frame" x="0.0" y="22" width="8" height="21"/>
@@ -191,14 +191,14 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P8q-TG-0nr">
-                                                            <rect key="frame" x="23" y="17" width="31" height="31"/>
+                                                            <rect key="frame" x="30" y="18.5" width="28" height="28"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="31" id="2FA-Qs-Qjr"/>
-                                                                <constraint firstAttribute="height" constant="31" id="Vat-iu-2Bz"/>
+                                                                <constraint firstAttribute="width" constant="28" id="2FA-Qs-Qjr"/>
+                                                                <constraint firstAttribute="height" constant="28" id="Vat-iu-2Bz"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitcoin - BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMr-cy-P8T">
-                                                            <rect key="frame" x="60" y="8" width="91" height="21"/>
+                                                            <rect key="frame" x="67" y="8" width="91" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="jQh-us-hGP"/>
                                                             </constraints>
@@ -207,7 +207,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cap: $162.3B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7VB-bF-fdb">
-                                                            <rect key="frame" x="60" y="36" width="87.5" height="21"/>
+                                                            <rect key="frame" x="67" y="36" width="87.5" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="4kc-Cm-huO"/>
                                                             </constraints>
@@ -216,7 +216,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+4.96%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibU-Rg-DaT">
-                                                            <rect key="frame" x="303.5" y="8" width="49.5" height="21"/>
+                                                            <rect key="frame" x="310.5" y="8" width="49.5" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="TAZ-4a-I3c"/>
                                                             </constraints>
@@ -236,7 +236,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$9,550.59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hY-r7-icS">
-                                                            <rect key="frame" x="215" y="8" width="80" height="21"/>
+                                                            <rect key="frame" x="222" y="8" width="80" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="udX-77-PpC"/>
                                                             </constraints>
@@ -245,7 +245,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume 24h: $10.4B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9G9-gf-b2C">
-                                                            <rect key="frame" x="230" y="41" width="122" height="16"/>
+                                                            <rect key="frame" x="237" y="41" width="122" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -255,20 +255,21 @@
                                                     <constraints>
                                                         <constraint firstItem="7hY-r7-icS" firstAttribute="centerY" secondItem="ibU-Rg-DaT" secondAttribute="centerY" id="3cY-QK-cPj"/>
                                                         <constraint firstItem="uGV-t9-UPE" firstAttribute="leading" secondItem="Nmb-bA-3e3" secondAttribute="leading" id="4wL-X2-RYU"/>
-                                                        <constraint firstItem="P8q-TG-0nr" firstAttribute="leading" secondItem="Nmb-bA-3e3" secondAttribute="leading" constant="23" id="BXb-C1-n4k"/>
                                                         <constraint firstAttribute="trailing" secondItem="ibU-Rg-DaT" secondAttribute="trailing" constant="7" id="ChG-Nb-a5u"/>
                                                         <constraint firstItem="ibU-Rg-DaT" firstAttribute="leading" secondItem="7hY-r7-icS" secondAttribute="trailing" constant="8.5" id="NtO-SB-BoP"/>
                                                         <constraint firstAttribute="trailing" secondItem="9G9-gf-b2C" secondAttribute="trailing" constant="8" id="PhP-ad-lal"/>
                                                         <constraint firstItem="P8q-TG-0nr" firstAttribute="centerY" secondItem="Nmb-bA-3e3" secondAttribute="centerY" id="aee-A9-iYZ"/>
+                                                        <constraint firstItem="P8q-TG-0nr" firstAttribute="leading" secondItem="Nmb-bA-3e3" secondAttribute="leading" constant="30" id="h07-N7-QhE"/>
                                                         <constraint firstItem="uGV-t9-UPE" firstAttribute="centerY" secondItem="Nmb-bA-3e3" secondAttribute="centerY" id="msa-x6-mLs"/>
                                                         <constraint firstItem="ibU-Rg-DaT" firstAttribute="top" secondItem="Nmb-bA-3e3" secondAttribute="top" constant="8" id="oHY-DI-7SC"/>
                                                         <constraint firstAttribute="bottom" secondItem="9G9-gf-b2C" secondAttribute="bottom" constant="8" id="oxf-Up-lOV"/>
+                                                        <constraint firstItem="P8q-TG-0nr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uGV-t9-UPE" secondAttribute="trailing" constant="1" id="vOT-Mp-Ud7"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.13705343010000001" green="0.13247054820000001" blue="0.2026289403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="Nmb-bA-3e3" firstAttribute="leading" secondItem="3k9-5L-of8" secondAttribute="leading" constant="15" id="1Kc-n4-Pl7"/>
+                                                <constraint firstItem="Nmb-bA-3e3" firstAttribute="leading" secondItem="3k9-5L-of8" secondAttribute="leading" constant="8" id="1Kc-n4-Pl7"/>
                                                 <constraint firstAttribute="bottom" secondItem="7VB-bF-fdb" secondAttribute="bottom" constant="7.5" id="1Xt-Mc-au1"/>
                                                 <constraint firstItem="oxz-Sw-2ky" firstAttribute="leading" secondItem="3k9-5L-of8" secondAttribute="leading" id="9mK-HJ-bMC"/>
                                                 <constraint firstAttribute="trailing" secondItem="oxz-Sw-2ky" secondAttribute="trailing" id="FNp-ZK-qva"/>
@@ -404,6 +405,7 @@
                         <outlet property="searchButton" destination="HjV-oy-WUZ" id="WOW-8G-cOQ"/>
                         <outlet property="segmentedControl" destination="57t-C9-D9W" id="JNB-tf-YDG"/>
                         <outlet property="tableView" destination="9SU-4X-Vfm" id="bpo-TG-NyG"/>
+                        <outlet property="titleLabel" destination="YBJ-P0-e9T" id="SNP-MF-iXN"/>
                         <outletCollection property="coinButtons" destination="GaM-O5-6PY" collectionClass="NSMutableArray" id="GMi-WD-F7L"/>
                         <outletCollection property="coinButtons" destination="jiR-US-gN5" collectionClass="NSMutableArray" id="1JA-Yp-l6O"/>
                         <outletCollection property="coinButtons" destination="ins-rb-dpk" collectionClass="NSMutableArray" id="vme-Fe-PTJ"/>

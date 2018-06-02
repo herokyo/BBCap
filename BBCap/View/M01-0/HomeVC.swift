@@ -8,17 +8,35 @@
 
 import UIKit
 import Font_Awesome_Swift
+import Async
 
 final class HomeVC: UIViewController, StoryboardIdentifiable {
 
     @IBOutlet private weak var menuButton: UIButton!
     @IBOutlet private weak var searchButton: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var segmentedControl: UISegmentedControl!
 
     @IBOutlet var coinButtons: [UIButton]!
+
+    var tickets: [Ticket] = [] {
+        didSet {
+            Async.main {
+                self.tableView.reloadData()
+            }
+        }
+    }
+
+    var globalInfo: GlobalInfo! {
+        didSet {
+            Async.main {
+                self.titleLabel.text = "$\(self.globalInfo.totalMarketCapUsd)  (\(self.globalInfo.percent)%)"
+            }
+        }
+    }
 
     private func configView() {
         searchBar.delegate = self
@@ -30,6 +48,30 @@ final class HomeVC: UIViewController, StoryboardIdentifiable {
         super.viewDidLoad()
         configView()
         configTableView()
+        getGlobalInfo()
+        getTickets()
+    }
+
+    private func getGlobalInfo() {
+        Api.CoinmarketCap.getGlobal { [weak self] (result) in
+            switch result {
+            case .success(let global):
+                self?.globalInfo = global
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    private func getTickets() {
+        Api.CoinmarketCap.getTickets { [weak self] (result) in
+            switch result {
+            case .success(let tickets):
+                self?.tickets = tickets
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
     private func configTableView() {
@@ -57,19 +99,27 @@ final class HomeVC: UIViewController, StoryboardIdentifiable {
 extension HomeVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return tickets.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell") as? HomeCell else { fatalError() }
-        cell.data = nil
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell") as? HomeCell, let ticket = tickets[safe: indexPath.row] else { fatalError() }
+        cell.data = HomeCell.Data(index: indexPath.row + 1,
+                                  iconPath: "https://coinmarket.zone/images/64x64/\(ticket.id.or("")).png",
+                                  title: "\(ticket.name.or("")) - \(ticket.symbol.or(""))",
+                                  cap: "Cap: $\(ticket.marketCapUsd.or(""))",
+                                  value: "$\(ticket.priceUsd.or(""))",
+                                  percent: "\(ticket.percentChange1h.or(""))%",
+                                  volumn: "Volume 24h: $\(ticket.volume24hUsd.or(""))")
         return cell
     }
 }
 
 extension HomeVC: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailViewController()
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc)
     }
 }

@@ -11,6 +11,7 @@ import AlamofireNetworkActivityIndicator
 import IQKeyboardManagerSwift
 
 let networkIndicator = NetworkActivityIndicatorManager.shared
+let ud = UserDefaults.standard
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
