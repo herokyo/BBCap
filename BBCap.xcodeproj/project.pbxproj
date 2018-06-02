@@ -73,6 +73,8 @@
 		FEAFDEE620A6E197007A3BA0 /* CreateAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEAFDEE420A6E197007A3BA0 /* CreateAlertViewController.xib */; };
 		FEAFDEE820A6EA02007A3BA0 /* CreateAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAFDEE720A6EA02007A3BA0 /* CreateAlertViewModel.swift */; };
 		FEB3887120C2DB5D00A46541 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3887020C2DB5D00A46541 /* Currency.swift */; };
+		FEB3887320C2DC4500A46541 /* API.Coinmarket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3887220C2DC4500A46541 /* API.Coinmarket.swift */; };
+		FEB3887520C2DD6300A46541 /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3887420C2DD6300A46541 /* DoubleExt.swift */; };
 		FED62EF4209DE96F0070ABDE /* UILabelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EF3209DE96F0070ABDE /* UILabelExt.swift */; };
 		FED62EF6209DE9C30070ABDE /* Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EF5209DE9C30070ABDE /* Ratio.swift */; };
 		FED62EFB209E25360070ABDE /* TimeAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED62EFA209E25360070ABDE /* TimeAxisValueFormatter.swift */; };
@@ -178,6 +180,8 @@
 		FEAFDEE420A6E197007A3BA0 /* CreateAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateAlertViewController.xib; sourceTree = "<group>"; };
 		FEAFDEE720A6EA02007A3BA0 /* CreateAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertViewModel.swift; sourceTree = "<group>"; };
 		FEB3887020C2DB5D00A46541 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		FEB3887220C2DC4500A46541 /* API.Coinmarket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.Coinmarket.swift; sourceTree = "<group>"; };
+		FEB3887420C2DD6300A46541 /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
 		FED62EF3209DE96F0070ABDE /* UILabelExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExt.swift; sourceTree = "<group>"; };
 		FED62EF5209DE9C30070ABDE /* Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratio.swift; sourceTree = "<group>"; };
 		FED62EFA209E25360070ABDE /* TimeAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAxisValueFormatter.swift; sourceTree = "<group>"; };
@@ -444,6 +448,7 @@
 		ECF23AAF1E9B869B008C23C1 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				FEB3887220C2DC4500A46541 /* API.Coinmarket.swift */,
 				FE1F3DB120BCE41D0013D1C8 /* API.Register.swift */,
 				ECF23AB01E9B869B008C23C1 /* Core */,
 			);
@@ -475,12 +480,13 @@
 			children = (
 				2253865120BFB53900B11E0B /* ColectionExt.swift */,
 				2253865420BFB53900B11E0B /* CustomStringConvertibleExt.swift */,
-				2253865220BFB53900B11E0B /* RawRepresentableExt.swift */,
-				2253865320BFB53900B11E0B /* UIStoryBoardExt.swift */,
 				EC6FD3091EF8B71200CB6642 /* DefaultsExt.swift */,
+				FEB3887420C2DD6300A46541 /* DoubleExt.swift */,
+				2253865220BFB53900B11E0B /* RawRepresentableExt.swift */,
 				FE69722A209F480100C8EA68 /* SignedNumericExt.swift */,
 				ECF23AC21E9B9264008C23C1 /* StringExt.swift */,
 				FED62EF3209DE96F0070ABDE /* UILabelExt.swift */,
+				2253865320BFB53900B11E0B /* UIStoryBoardExt.swift */,
 				FE3912CE20A5DD4500F31516 /* UITextFieldExt.swift */,
 				ECEC0C591ED44D4100F6760A /* UIViewControllerExt.swift */,
 			);
@@ -909,6 +915,7 @@
 				FE01F20220AC7293004494E1 /* StatusBarView.swift in Sources */,
 				2253865620BFB53900B11E0B /* RawRepresentableExt.swift in Sources */,
 				FE69721C209F2A5C00C8EA68 /* DetailViewController.swift in Sources */,
+				FEB3887320C2DC4500A46541 /* API.Coinmarket.swift in Sources */,
 				2253865720BFB53900B11E0B /* UIStoryBoardExt.swift in Sources */,
 				FE452C5820A48AFB00FAD103 /* AddTransactionViewController.swift in Sources */,
 				FE69722B209F480100C8EA68 /* SignedNumericExt.swift in Sources */,
@@ -924,6 +931,7 @@
 				22C3A0AE20BFBA2B00602CBC /* HomeVC.swift in Sources */,
 				2253865520BFB53900B11E0B /* ColectionExt.swift in Sources */,
 				EC5337C31EF793B100ACE038 /* CollectionCell.swift in Sources */,
+				FEB3887520C2DD6300A46541 /* DoubleExt.swift in Sources */,
 				ECF23ABA1E9B89B2008C23C1 /* RequestSerializer.swift in Sources */,
 				FEAFDEE820A6EA02007A3BA0 /* CreateAlertViewModel.swift in Sources */,
 				22C3A0B020C0737000602CBC /* Size.swift in Sources */,

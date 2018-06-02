@@ -52,7 +52,7 @@ extension Api.CoinmarketCap.Currencies {
         var endDate: TimeInterval
 
         var path: String {
-            return Api.CoinmarketCap.Currencies.path / "bitcoin" / startDate.int / endDate.int
+            return Api.CoinmarketCap.Currencies.path / "bitcoin" / startDate.int64 / endDate.int64
         }
 
     }
@@ -70,13 +70,11 @@ extension URL: URLStringConvertible {
     var urlString: String { return absoluteString }
 }
 
-extension Int: URLStringConvertible {
+extension URLStringConvertible where Self: SignedInteger {
     var urlString: String { return String(describing: self) }
 }
 
-extension Double: URLStringConvertible {
-    var urlString: String { return String(describing: self) }
-}
+extension Int64: URLStringConvertible { }
 
 private func / (lhs: URLStringConvertible, rhs: URLStringConvertible) -> String {
     return lhs.urlString + "/" + rhs.urlString
@@ -89,4 +87,3 @@ extension String: URLStringConvertible {
 extension CustomStringConvertible where Self: URLStringConvertible {
     var urlString: String { return description }
 }
-

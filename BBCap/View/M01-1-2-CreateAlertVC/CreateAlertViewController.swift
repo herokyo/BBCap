@@ -51,6 +51,10 @@ final class CreateAlertViewController: ViewController {
         let vc = AddTransactionViewController()
         navigationController?.pushViewController(vc)
     }
+
+    @IBAction private func backButtonTouchUpInside(_ button: Button) {
+        navigationController?.popViewController()
+    }
 }
 
 // MARK: - Define

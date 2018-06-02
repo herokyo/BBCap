@@ -52,8 +52,10 @@ extension HomeVC: UITableViewDataSource {
 }
 
 extension HomeVC: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailViewController()
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc)
     }
 }

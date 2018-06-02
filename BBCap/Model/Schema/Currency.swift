@@ -42,4 +42,3 @@ final class Currency: Mappable, CurrencyProtocol {
         volumeUSDs <- map["volume_usd"]
     }
 }
-
