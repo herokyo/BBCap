@@ -7,8 +7,144 @@
 //
 
 import Foundation
+import SwifterSwift
+import SwiftDate
+
+protocol DetailViewModelDelegate: class {
+    func viewModelShouldUpdateDate(_ viewModel: DetailViewModel)
+    func viewModelShouldUpdateCurrency(_ viewModel: DetailViewModel)
+}
 
 final class DetailViewModel {
+
+    var dateString = "" {
+        didSet {
+            delegate?.viewModelShouldUpdateDate(self)
+        }
+    }
+
+    var price = "" {
+        didSet {
+            delegate?.viewModelShouldUpdateCurrency(self)
+        }
+    }
+
+    // TODO: Use for later
+    var priceType: PriceType = .usd
+
+    var prices: [Double] {
+        switch priceType {
+        case .eth:
+            return []
+        case .usd:
+            return currency.priceUSDs.map { $0[1] }
+        }
+    }
+
+    var axisMaximum: Double {
+        return prices.max().unwrapped(or: 0) * 1.05
+    }
+
+    var axisMinimum: Double {
+        return prices.min().unwrapped(or: 0) * 0.95
+    }
+
+    var currency = Currency()
+
+    weak var delegate: DetailViewModelDelegate?
+
+    func volumeViewModel(withTag tag: Int) -> CurrencyVolumeViewModel {
+        let volumeType = VolumeType(rawValue: tag)
+        return CurrencyVolumeViewModel(volumeType: volumeType)
+    }
+
+    // Notiffy for date and currency
+
+    func notifyForDate(entryX: Double) {
+        let timeInterval = currency.priceUSDs[entryX.int][0] / 1_000
+        let date = Date(timeIntervalSince1970: TimeInterval(timeInterval))
+        dateString = date.string(format: DateFormat.custom(Config.dateFormat))
+    }
+
+    func notifyForCurrencyAt(entryY: Double) {
+        price = entryY.formatCurrency(fraction: 2)
+    }
+
+    func notifyForGetCurrency(value: String, completion: @escaping ApiCompletion) {
+        let timeType: TimeType! = TimeType(rawValue: value)
+        Api.CoinmarketCap.getCurrencyBitcoin(type: timeType) { [weak self] result in
+            guard let this = self else { return }
+            switch result {
+            case .success(let value):
+                this.currency = value
+                completion(.success)
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+}
+
+// MARK: Currency Type
+
+extension DetailViewModel {
+
+    enum PriceType {
+        case usd
+        case eth
+    }
+}
+
+// MARK: TimeType
+
+extension DetailViewModel {
+
+    enum TimeType: String {
+        case today = "Today"
+        case oneWeek = "1W"
+        case oneMonth = "1M"
+        case threeMonth = "3M"
+        case sixMonth = "6M"
+        case oneYear = "1Y"
+        case all = "All"
+
+        var currentTimeInterval: Double {
+            return Date().timeIntervalSince1970 * 1_000
+        }
+
+        var pastTimeInterval: Double {
+            switch self {
+            case .all:
+                return 1_420_070_400_000 // Thursday, January 1, 2015 7:00:00 AM GMT+07:00, vietname's timezone
+            default:
+                return currentTimeInterval - duration * 1_000
+            }
+        }
+
+        var duration: Double {
+            switch self {
+            case .today:
+                return 86_400
+            case .oneWeek:
+                return TimeType.today.duration * 7
+            case .oneMonth:
+                return TimeType.today.duration * 30
+            case .threeMonth:
+                return TimeType.oneMonth.duration * 3
+            case .sixMonth:
+                return TimeType.oneMonth.duration * 6
+            case .oneYear:
+                return TimeType.today.duration * 365
+            case .all:
+                return 0
+            }
+        }
+    }
+
+}
+
+// MARK: - Volume type
+extension DetailViewModel {
 
     enum VolumeType: Int {
         case cap
@@ -43,9 +179,10 @@ final class DetailViewModel {
             }
         }
     }
+}
 
-    func volumeViewModel(withTag tag: Int) -> CurrencyVolumeViewModel {
-        let volumeType = VolumeType(rawValue: tag)
-        return CurrencyVolumeViewModel(volumeType: volumeType)
+extension DetailViewModel {
+    struct Config {
+        static let dateFormat = "MMM dd yyyy HH:MM:ss"
     }
 }
