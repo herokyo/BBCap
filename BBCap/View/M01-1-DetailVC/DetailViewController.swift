@@ -12,7 +12,6 @@ import Charts
 
 final class DetailViewController: ViewController {
 
-    // Public to testing view frame
     @IBOutlet weak var navigationView: UIView!
     @IBOutlet weak var currentCurrencyLabel: UILabel!
     @IBOutlet weak var hourPercentLabel: UILabel!
@@ -21,7 +20,15 @@ final class DetailViewController: ViewController {
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var addAlertButton: UIButton!
     @IBOutlet weak var addToPortfolioButton: UIButton!
+    @IBOutlet weak var currencyLabel: UILabel!
+    @IBOutlet weak var dateCurrencyLabel: UILabel!
+    @IBOutlet weak var todayButton: Button!
     @IBOutlet var volumeViews: [CurrencyVolumeView]!
+    @IBOutlet var timeTypeButtons: [Button]!
+    @IBOutlet weak var currencyButton: Button!
+
+    // Properties
+    private var isLoading = false
 
     var viewModel = DetailViewModel() {
         didSet {
@@ -31,8 +38,10 @@ final class DetailViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configViewModel()
         configNavigationStatusBarView()
         configNavigationView()
+        configButtons()
         configChartView()
         updateView()
     }
@@ -53,19 +62,34 @@ final class DetailViewController: ViewController {
         navigationView.layer.insertSublayer(gradientLayer, at: 0)
     }
 
-    private func configChartView() {
+    private func configButtons() {
+        currencyButton.setTitle("USD", for: .normal)
+        currencyButton.setTitleColor(.white, for: UIControlState.normal)
+        currencyButton.titleLabel?.font = .systemFont(ofSize: 16)
+
+        timeTypeButtons.forEach {
+            $0.setTitleColor(.white, for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 16)
+            $0.setTitleColor(App.Color.bbGreenColor, for: .selected)
+            $0.setBackgroundImage(nil, for: .selected)
+            $0.isSelected = false
+        }
+    }
+
+    private func configViewModel() {
+        viewModel.delegate = self
+    }
+
+    func configChartView() {
         lineChartView.delegate = self
         lineChartView.chartDescription?.enabled = false
         lineChartView.dragEnabled = true
-        lineChartView.setScaleEnabled(true)
-        lineChartView.pinchZoomEnabled = true
+        lineChartView.setScaleEnabled(false)
+        lineChartView.pinchZoomEnabled = false
 
         let leftAxis = lineChartView.leftAxis
         leftAxis.removeAllLimitLines()
-        leftAxis.axisMaximum = 190
-        leftAxis.axisMinimum = -50
         leftAxis.drawLimitLinesBehindDataEnabled = true
-        leftAxis.enabled = true
         leftAxis.enabled = false
         lineChartView.rightAxis.enabled = false
 
@@ -85,28 +109,13 @@ final class DetailViewController: ViewController {
         lineChartView.minOffset = -20
         lineChartView.setExtraOffsets(left: 0, top: 4, right: 10, bottom: -17)
 
-        setDataCount()
-    }
-
-    // MARK: - Update view
-    private func updateView() {
-        guard isViewLoaded else { return }
-        volumeViews.forEach {
-            $0.viewModel = viewModel.volumeViewModel(withTag: $0.tag)
-        }
-    }
-
-    private func setDataCount() {
-        let values: [ChartDataEntry] = Dummy.vals.enumerated().map { (arg) -> ChartDataEntry in
-            let (index, value) = arg
-            return ChartDataEntry(x: Double(index), y: value, data: nil)
-        }
-        let set1 = LineChartDataSet(values: values, label: "")
+        let set1 = LineChartDataSet()
         set1.drawIconsEnabled = false
         set1.setColor(App.Color.bbGreenColor)
         set1.drawCirclesEnabled = false
         set1.lineWidth = 2
         set1.drawValuesEnabled = false
+        set1.label = nil
         set1.formLineWidth = 0
         set1.fillAlpha = 1.0
         set1.fillColor = Config.chartFillColor
@@ -117,26 +126,89 @@ final class DetailViewController: ViewController {
         lineChartView.data = data
     }
 
+    private func updateChartView() {
+        // Update y-axis
+        lineChartView.leftAxis.axisMaximum = viewModel.axisMaximum
+        lineChartView.leftAxis.axisMinimum = viewModel.axisMinimum
+
+        // Update date
+        guard let set1 = lineChartView.data?.dataSets.first as? LineChartDataSet else { return }
+        let values: [ChartDataEntry] = viewModel.prices.enumerated().map { (arg) -> ChartDataEntry in
+            let (index, price) = arg
+            return  ChartDataEntry(x: Double(index), y: price, data: nil)
+        }
+        set1.values = values
+
+        let data = LineChartData(dataSet: set1)
+        lineChartView.data = data
+
+        lineChartView.animate(xAxisDuration: 0.5)
+    }
+
+    // MARK: - Update view
+    private func updateView() {
+        guard isViewLoaded else { return }
+        volumeViews.forEach {
+            $0.viewModel = viewModel.volumeViewModel(withTag: $0.tag)
+        }
+
+        // Default call chart view
+        chooseTimeTypeButtonTouchUpInside(todayButton)
+    }
+
     // MARK: - IBAction
 
-    @IBAction private func addAlertButtonTouchUpInside(_ button: UIButton) {
-        // TODO: - Handle later
+    @IBAction private func addAlertButtonTouchUpInside(_ button: Button) {
+        let vc = CreateAlertViewController()
+        navigationController?.pushViewController(vc)
     }
 
-    @IBAction private func addToPortfolioButtonTouchUpInside(_ button: UIButton) {
-        // TODO: - Handle later
+    @IBAction private func addToPortfolioButtonTouchUpInside(_ button: Button) {
+        let vc = AddTransactionViewController()
+        navigationController?.pushViewController(vc)
     }
 
-    @IBAction private func backButtonTouchUpInside(_ button: UIButton) {
+    @IBAction private func chooseTimeTypeButtonTouchUpInside(_ button: Button) {
+        guard let value = button.titleLabel?.text, !isLoading else { return }
+        isLoading = true
+        timeTypeButtons.forEach { $0.isSelected = false }
+        button.isSelected = true
+        viewModel.notifyForGetCurrency(value: value) { [weak self] result in
+            guard let this = self else { return }
+            DispatchQueue.main.async {
+                this.isLoading = false
+                switch result {
+                case .success:
+                    this.updateChartView()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+
+    @IBAction private func backButtonTouchUpInside(_ button: Button) {
         navigationController?.popViewController()
     }
 }
 
 // MARK: - ChartViewDelegate
-extension ViewController: ChartViewDelegate {
+extension DetailViewController: ChartViewDelegate {
 
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        print("x: \(entry.x), y: \(entry.y)")
+        viewModel.notifyForDate(entryX: entry.x)
+        viewModel.notifyForCurrencyAt(entryY: entry.y)
+    }
+}
+
+extension DetailViewController: DetailViewModelDelegate {
+
+    func viewModelShouldUpdateDate(_ viewModel: DetailViewModel) {
+        dateCurrencyLabel.text = viewModel.dateString
+    }
+
+    func viewModelShouldUpdateCurrency(_ viewModel: DetailViewModel) {
+        currencyLabel.text = viewModel.price
     }
 }
 
@@ -150,18 +222,5 @@ extension DetailViewController {
         static let gradientColors: [CGColor] = [Config.bottomColor.cgColor, Config.topColor.cgColor]
         static let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
         static let statusBarFrame: CGRect = CGRect(x: 0, y: 0, width: 375, height: Config.statusBarHeight)
-    }
-}
-
-// MARK: - Dummy
-extension DetailViewController {
-
-    class Dummy {
-        static let vals: [Double] = [
-            31, 18, 29, 51, 41, 18, 20, 10, 48, 50, 46, 18, 20, 44, 35, 7, 6, 29, 11, 21, 34, 10, 16, 32, 41, 28,
-            24, 45, 37, 24, 48, 45, 3, 5, 42, 3, 14, 22, 45, 35, 28, 24, 25, 7, 13, 34, 35, 26, 6, 17, 39, 11, 30,
-            12, 38, 33, 14, 39, 13, 41, 23, 45, 4, 45, 27, 15, 23, 6, 15, 17, 101, 32, 92, 84, 122, 36, 59, 38, 75,
-            102, 121, 31, 59, 78, 41, 88, 71, 128, 33, 76, 115, 32, 50, 98, 109, 107, 111, 34, 81, 93
-        ]
     }
 }

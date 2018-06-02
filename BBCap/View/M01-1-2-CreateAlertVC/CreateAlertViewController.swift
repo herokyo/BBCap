@@ -44,12 +44,13 @@ final class CreateAlertViewController: ViewController {
 
     // MARK: - IBAction
     @IBAction private func changePriceButtonTouchUpInside(_ button: Button) {
-        // TODO: Handle price later
     }
 
     @IBAction private func saveAlertButtonTouchUpInside(_ button: UIButton) {
-        let vc = AddTransactionViewController()
-        navigationController?.pushViewController(vc)
+    }
+
+    @IBAction private func backButtonTouchUpInside(_ button: Button) {
+        navigationController?.popViewController()
     }
 }
 

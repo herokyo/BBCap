@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwifterSwift
 
 final class Api {
 
@@ -21,6 +22,10 @@ final class Api {
 
         static let v1 = "api" / "v1"
     }
+
+    struct CoinmarketCap {
+        static let path = "https://graphs2.coinmarketcap.com"
+    }
 }
 
 // User app
@@ -29,6 +34,27 @@ extension Api.Path {
     struct Users {
 
         static let path = baseURL / v1 / "users"
+    }
+}
+
+extension Api.CoinmarketCap {
+
+    struct Currencies {
+        static let path = Api.CoinmarketCap.path / "currencies"
+    }
+}
+
+extension Api.CoinmarketCap.Currencies {
+
+    struct Bitcoin {
+
+        var startDate: TimeInterval
+        var endDate: TimeInterval
+
+        var path: String {
+            return Api.CoinmarketCap.Currencies.path / "bitcoin" / startDate.int / endDate.int
+        }
+
     }
 }
 
@@ -45,6 +71,10 @@ extension URL: URLStringConvertible {
 }
 
 extension Int: URLStringConvertible {
+    var urlString: String { return String(describing: self) }
+}
+
+extension Double: URLStringConvertible {
     var urlString: String { return String(describing: self) }
 }
 

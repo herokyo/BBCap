@@ -16,17 +16,28 @@
             <connections>
                 <outlet property="addAlertButton" destination="2cF-6a-1nb" id="jiG-4A-btw"/>
                 <outlet property="addToPortfolioButton" destination="JWb-zg-Bbh" id="k25-8S-Wqe"/>
+                <outlet property="currencyButton" destination="fIU-El-HFN" id="pGd-YN-bbp"/>
+                <outlet property="currencyLabel" destination="smq-HZ-29h" id="ofg-vi-sXS"/>
                 <outlet property="currentCurrencyLabel" destination="apj-hQ-5s7" id="J1P-AU-cMJ"/>
+                <outlet property="dateCurrencyLabel" destination="VI0-lc-0Wn" id="54b-7h-v5n"/>
                 <outlet property="dayPercentLabel" destination="Elk-xB-pGd" id="Um0-Jw-ZRG"/>
                 <outlet property="hourPercentLabel" destination="mi6-RE-lUI" id="xvI-k2-QcJ"/>
                 <outlet property="lineChartView" destination="lSu-Ku-48l" id="idJ-bZ-bz4"/>
                 <outlet property="navigationView" destination="OBR-8g-0au" id="Uad-jZ-0MQ"/>
+                <outlet property="todayButton" destination="cPo-jh-Jvh" id="9lA-lQ-3ss"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weekPercentLabel" destination="CgL-ub-o38" id="JwW-bU-4re"/>
                 <outletCollection property="volumeViews" destination="1M8-Ag-WfZ" collectionClass="NSMutableArray" id="LLQ-Cx-N9t"/>
                 <outletCollection property="volumeViews" destination="oue-Wt-jBS" collectionClass="NSMutableArray" id="ao3-16-oos"/>
                 <outletCollection property="volumeViews" destination="Nvr-q2-dLk" collectionClass="NSMutableArray" id="Y3O-sa-5EK"/>
                 <outletCollection property="volumeViews" destination="9RO-S6-qKa" collectionClass="NSMutableArray" id="CXE-h0-pPG"/>
+                <outletCollection property="timeTypeButtons" destination="cPo-jh-Jvh" collectionClass="NSMutableArray" id="mdx-op-J9K"/>
+                <outletCollection property="timeTypeButtons" destination="QST-ly-Wch" collectionClass="NSMutableArray" id="Xie-Jn-Jr6"/>
+                <outletCollection property="timeTypeButtons" destination="oOO-Ue-wb2" collectionClass="NSMutableArray" id="Brh-m1-biN"/>
+                <outletCollection property="timeTypeButtons" destination="eyR-zc-6qM" collectionClass="NSMutableArray" id="QBV-La-7re"/>
+                <outletCollection property="timeTypeButtons" destination="Era-H5-bhy" collectionClass="NSMutableArray" id="xAd-Ee-R0B"/>
+                <outletCollection property="timeTypeButtons" destination="azH-1h-Ven" collectionClass="NSMutableArray" id="b9A-p3-rG5"/>
+                <outletCollection property="timeTypeButtons" destination="RfH-LK-b6v" collectionClass="NSMutableArray" id="jYF-gP-LAU"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -96,7 +107,7 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6X9-Us-1kX">
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6X9-Us-1kX">
                             <rect key="frame" x="317" y="0.0" width="33" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="33" id="RTJ-5R-Qc0"/>
@@ -106,6 +117,13 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIU-El-HFN" customClass="Button" customModule="BBCap" customModuleProvider="target">
+                            <rect key="frame" x="307" y="0.0" width="53" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="USD">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9m-3D-bKL">
                             <rect key="frame" x="350" y="0.0" width="25" height="22"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="12" maxY="5"/>
@@ -123,14 +141,18 @@
                         <constraint firstItem="fKO-u9-zPX" firstAttribute="width" secondItem="v9m-3D-bKL" secondAttribute="width" id="9Fi-dj-7xo"/>
                         <constraint firstItem="apj-hQ-5s7" firstAttribute="top" secondItem="cYT-Ue-chm" secondAttribute="top" id="K4T-b6-Z4X"/>
                         <constraint firstItem="6X9-Us-1kX" firstAttribute="leading" secondItem="apj-hQ-5s7" secondAttribute="trailing" constant="15" id="Oym-sv-yfp"/>
+                        <constraint firstItem="fIU-El-HFN" firstAttribute="leading" secondItem="6X9-Us-1kX" secondAttribute="leading" constant="-10" id="Rma-Iz-g1R"/>
                         <constraint firstAttribute="trailing" secondItem="v9m-3D-bKL" secondAttribute="trailing" id="Vtx-Vp-48z"/>
                         <constraint firstItem="6X9-Us-1kX" firstAttribute="leading" secondItem="fKO-u9-zPX" secondAttribute="trailing" id="WCs-S0-pF5"/>
                         <constraint firstItem="6X9-Us-1kX" firstAttribute="top" secondItem="cYT-Ue-chm" secondAttribute="top" id="XTx-Gy-fD8"/>
                         <constraint firstItem="fKO-u9-zPX" firstAttribute="top" secondItem="cYT-Ue-chm" secondAttribute="top" id="aEy-mV-ewR"/>
                         <constraint firstAttribute="height" priority="997" constant="32" id="i1I-L6-fgI"/>
                         <constraint firstItem="v9m-3D-bKL" firstAttribute="leading" secondItem="6X9-Us-1kX" secondAttribute="trailing" id="iB1-Tb-7Ve"/>
+                        <constraint firstItem="fIU-El-HFN" firstAttribute="bottom" secondItem="6X9-Us-1kX" secondAttribute="bottom" id="irn-Ha-UEb"/>
                         <constraint firstAttribute="trailing" secondItem="6X9-Us-1kX" secondAttribute="trailing" constant="25" id="jqx-Qi-J2B"/>
+                        <constraint firstItem="fIU-El-HFN" firstAttribute="top" secondItem="6X9-Us-1kX" secondAttribute="top" id="kaR-1u-Vah"/>
                         <constraint firstItem="ALD-L4-k90" firstAttribute="leading" secondItem="cYT-Ue-chm" secondAttribute="leading" constant="15" id="nke-cD-Nso"/>
+                        <constraint firstItem="fIU-El-HFN" firstAttribute="trailing" secondItem="6X9-Us-1kX" secondAttribute="trailing" constant="10" id="oZw-pz-zhH"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="ocy-cK-DqT"/>
                         <constraint firstItem="fKO-u9-zPX" firstAttribute="height" secondItem="v9m-3D-bKL" secondAttribute="height" id="puq-2d-WPd"/>
                         <constraint firstItem="ALD-L4-k90" firstAttribute="top" secondItem="cYT-Ue-chm" secondAttribute="top" id="sLh-QO-XZd"/>
@@ -292,16 +314,86 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPo-jh-Jvh" customClass="Button" customModule="BBCap" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="192" width="53.5" height="34"/>
+                            <state key="normal" title="Today"/>
+                            <connections>
+                                <action selector="chooseTimeTypeButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="Wz2-u7-MkZ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QST-ly-Wch" customClass="Button" customModule="BBCap" customModuleProvider="target">
+                            <rect key="frame" x="53.5" y="192" width="53.5" height="34"/>
+                            <state key="normal" title="1W"/>
+                            <connections>
+                                <action selector="chooseTimeTypeButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="CL7-SS-lUi"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOO-Ue-wb2" customClass="Button" customModule="BBCap" customModuleProvider="target">
+                            <rect key="frame" x="107" y="192" width="53.5" height="34"/>
+                            <state key="normal" title="1M"/>
+                            <connections>
+                                <action selector="chooseTimeTypeButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="4Wg-0T-Fqp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyR-zc-6qM" customClass="Button" customModule="BBCap" customModuleProvider="target">
+                            <rect key="frame" x="160.5" y="192" width="54" height="34"/>
+                            <state key="normal" title="3M"/>
+                            <connections>
+                                <action selector="chooseTimeTypeButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="9AO-vu-Aup"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Era-H5-bhy" customClass="Button" customModule="BBCap" customModuleProvider="target">
+                            <rect key="frame" x="214.5" y="192" width="53.5" height="34"/>
+                            <state key="normal" title="6M"/>
+                            <connections>
+                                <action selector="chooseTimeTypeButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="hWr-9M-g6N"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azH-1h-Ven" customClass="Button" customModule="BBCap" customModuleProvider="target">
+                            <rect key="frame" x="268" y="192" width="53.5" height="34"/>
+                            <state key="normal" title="1Y"/>
+                            <connections>
+                                <action selector="chooseTimeTypeButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="TvW-gb-rD5"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RfH-LK-b6v" customClass="Button" customModule="BBCap" customModuleProvider="target">
+                            <rect key="frame" x="321.5" y="192" width="53.5" height="34"/>
+                            <state key="normal" title="All"/>
+                            <connections>
+                                <action selector="chooseTimeTypeButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="fGa-Gj-p7N"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="cPo-jh-Jvh" secondAttribute="bottom" constant="8" id="1Ob-AG-eF2"/>
                         <constraint firstItem="smq-HZ-29h" firstAttribute="leading" secondItem="lSu-Ku-48l" secondAttribute="leading" id="1no-ON-k4I"/>
+                        <constraint firstItem="RfH-LK-b6v" firstAttribute="width" secondItem="cPo-jh-Jvh" secondAttribute="width" id="2wP-fn-aIf"/>
+                        <constraint firstItem="oOO-Ue-wb2" firstAttribute="bottom" secondItem="QST-ly-Wch" secondAttribute="bottom" id="34d-ho-mbP"/>
+                        <constraint firstItem="cPo-jh-Jvh" firstAttribute="leading" secondItem="lSu-Ku-48l" secondAttribute="leading" id="BZw-IP-Sdx"/>
+                        <constraint firstAttribute="trailing" secondItem="RfH-LK-b6v" secondAttribute="trailing" id="BbV-5F-LCQ"/>
+                        <constraint firstItem="Era-H5-bhy" firstAttribute="bottom" secondItem="eyR-zc-6qM" secondAttribute="bottom" id="F1C-Yt-Nec"/>
+                        <constraint firstItem="Era-H5-bhy" firstAttribute="leading" secondItem="eyR-zc-6qM" secondAttribute="trailing" id="F3u-0s-osX"/>
                         <constraint firstItem="VI0-lc-0Wn" firstAttribute="leading" secondItem="lSu-Ku-48l" secondAttribute="leading" id="FNo-0t-2xw"/>
+                        <constraint firstItem="eyR-zc-6qM" firstAttribute="width" secondItem="cPo-jh-Jvh" secondAttribute="width" id="H5a-O9-zbX"/>
                         <constraint firstItem="VI0-lc-0Wn" firstAttribute="centerX" secondItem="lSu-Ku-48l" secondAttribute="centerX" id="I2Y-Xh-bZI"/>
                         <constraint firstAttribute="width" secondItem="lSu-Ku-48l" secondAttribute="height" multiplier="125:78" id="Lu3-Zb-RLl"/>
+                        <constraint firstItem="RfH-LK-b6v" firstAttribute="bottom" secondItem="azH-1h-Ven" secondAttribute="bottom" id="O2P-gk-yUe"/>
                         <constraint firstItem="smq-HZ-29h" firstAttribute="top" secondItem="lSu-Ku-48l" secondAttribute="top" id="PNN-Kz-txP"/>
                         <constraint firstItem="VI0-lc-0Wn" firstAttribute="top" secondItem="smq-HZ-29h" secondAttribute="bottom" constant="2" id="Skx-8A-tNM"/>
+                        <constraint firstItem="azH-1h-Ven" firstAttribute="leading" secondItem="Era-H5-bhy" secondAttribute="trailing" id="TTV-Ws-Jtn"/>
                         <constraint firstItem="smq-HZ-29h" firstAttribute="centerX" secondItem="lSu-Ku-48l" secondAttribute="centerX" id="ac2-Gq-k6D"/>
+                        <constraint firstItem="RfH-LK-b6v" firstAttribute="leading" secondItem="azH-1h-Ven" secondAttribute="trailing" id="bdh-XO-g3k"/>
+                        <constraint firstItem="Era-H5-bhy" firstAttribute="width" secondItem="cPo-jh-Jvh" secondAttribute="width" id="g3E-1h-BH8"/>
+                        <constraint firstItem="QST-ly-Wch" firstAttribute="bottom" secondItem="cPo-jh-Jvh" secondAttribute="bottom" id="gjV-ho-d1X"/>
+                        <constraint firstItem="oOO-Ue-wb2" firstAttribute="width" secondItem="cPo-jh-Jvh" secondAttribute="width" id="hKS-FB-dxf"/>
+                        <constraint firstItem="azH-1h-Ven" firstAttribute="width" secondItem="cPo-jh-Jvh" secondAttribute="width" id="juK-zv-BGv"/>
+                        <constraint firstItem="oOO-Ue-wb2" firstAttribute="leading" secondItem="QST-ly-Wch" secondAttribute="trailing" id="nOt-5j-83m"/>
+                        <constraint firstItem="QST-ly-Wch" firstAttribute="leading" secondItem="cPo-jh-Jvh" secondAttribute="trailing" id="obw-TH-XdL"/>
+                        <constraint firstItem="eyR-zc-6qM" firstAttribute="leading" secondItem="oOO-Ue-wb2" secondAttribute="trailing" id="oh4-wa-gGU"/>
+                        <constraint firstItem="azH-1h-Ven" firstAttribute="bottom" secondItem="Era-H5-bhy" secondAttribute="bottom" id="xzo-xU-4Ty"/>
+                        <constraint firstItem="QST-ly-Wch" firstAttribute="width" secondItem="cPo-jh-Jvh" secondAttribute="width" id="zDq-qR-4gq"/>
+                        <constraint firstItem="eyR-zc-6qM" firstAttribute="bottom" secondItem="oOO-Ue-wb2" secondAttribute="bottom" id="zT7-Qa-ghf"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cF-6a-1nb">
