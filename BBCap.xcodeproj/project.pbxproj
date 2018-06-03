@@ -15,6 +15,7 @@
 		2253865620BFB53900B11E0B /* RawRepresentableExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2253865220BFB53900B11E0B /* RawRepresentableExt.swift */; };
 		2253865720BFB53900B11E0B /* UIStoryBoardExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2253865320BFB53900B11E0B /* UIStoryBoardExt.swift */; };
 		2253865820BFB53900B11E0B /* CustomStringConvertibleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2253865420BFB53900B11E0B /* CustomStringConvertibleExt.swift */; };
+		225EB11320C3A10E00FCF51F /* IntExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225EB11220C3A10E00FCF51F /* IntExt.swift */; };
 		22C3A0A620BFB97A00602CBC /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3A0A520BFB97A00602CBC /* SideMenuController.swift */; };
 		22C3A0A820BFB98400602CBC /* img_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C3A0A720BFB98400602CBC /* img_banner.png */; };
 		22C3A0AB20BFB9BA00602CBC /* BBTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3A0AA20BFB9BA00602CBC /* BBTabbarController.swift */; };
@@ -116,6 +117,7 @@
 		2253865220BFB53900B11E0B /* RawRepresentableExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableExt.swift; sourceTree = "<group>"; };
 		2253865320BFB53900B11E0B /* UIStoryBoardExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryBoardExt.swift; sourceTree = "<group>"; };
 		2253865420BFB53900B11E0B /* CustomStringConvertibleExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStringConvertibleExt.swift; sourceTree = "<group>"; };
+		225EB11220C3A10E00FCF51F /* IntExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExt.swift; sourceTree = "<group>"; };
 		22C3A0A520BFB97A00602CBC /* SideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
 		22C3A0A720BFB98400602CBC /* img_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_banner.png; sourceTree = "<group>"; };
 		22C3A0AA20BFB9BA00602CBC /* BBTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBTabbarController.swift; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 				2253865320BFB53900B11E0B /* UIStoryBoardExt.swift */,
 				FE3912CE20A5DD4500F31516 /* UITextFieldExt.swift */,
 				ECEC0C591ED44D4100F6760A /* UIViewControllerExt.swift */,
+				225EB11220C3A10E00FCF51F /* IntExt.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -972,6 +975,7 @@
 				FEAFDEE520A6E197007A3BA0 /* CreateAlertViewController.swift in Sources */,
 				ECEC0C581ED44C5D00F6760A /* String.swift in Sources */,
 				EC5337BE1EF78FEA00ACE038 /* Font.swift in Sources */,
+				225EB11320C3A10E00FCF51F /* IntExt.swift in Sources */,
 				ECF23ABB1E9B89B2008C23C1 /* ResponseSerializer.swift in Sources */,
 				ECF23ABE1E9B8A6A008C23C1 /* Error.swift in Sources */,
 				FE697220209F357A00C8EA68 /* CurrencyVolumeView.swift in Sources */,

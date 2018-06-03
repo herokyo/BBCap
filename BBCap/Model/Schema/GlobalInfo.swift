@@ -15,10 +15,10 @@ final class GlobalInfo: Mappable {
     var activeMarkets: Int = 0
     var bitcoinPercentageOfMarketCap: Float = 0
     var lastUpdated: Int = 1_514_764_800
-    var total24hVolumeUsd: Float = 0
-    var totalMarketCapUsd: Float = -1
+    var total24hVolumeUsd: Double = 0
+    var totalMarketCapUsd: Double = -1
 
-    var percent: Float {
+    var percent: Double {
         return (total24hVolumeUsd * 10_000 / totalMarketCapUsd).ceil / 100
     }
 

@@ -15,6 +15,7 @@
 
 import Foundation
 import ObjectMapper
+import SwifterSwift
 
 final class Ticket: Mappable {
 
@@ -33,6 +34,14 @@ final class Ticket: Mappable {
     var rank: String?
     var symbol: String?
     var totalSupply: String?
+
+    var marketCapUsdInt: Int {
+        return marketCapUsd.or("").doubleValue.int
+    }
+
+    var volume24hUsdInt: Int {
+        return volume24hUsd.or("").doubleValue.int
+    }
 
     class func newInstance(map: Map) -> Mappable? {
         return Ticket()
