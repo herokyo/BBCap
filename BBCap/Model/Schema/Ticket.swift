@@ -35,6 +35,18 @@ final class Ticket: Mappable {
     var symbol: String?
     var totalSupply: String?
 
+    var isNegativeChange1h: Bool {
+        return (percentChange1h?.doubleValue.isNegative).or(false)
+    }
+
+    var isNegativeChange24h: Bool {
+        return (percentChange24h?.doubleValue.isNegative).or(false)
+    }
+
+    var isNegativeChange7d: Bool {
+        return (percentChange7d?.doubleValue.isNegative).or(false)
+    }
+
     var marketCapUsdInt: Int {
         return marketCapUsd.or("").doubleValue.int
     }
@@ -46,6 +58,7 @@ final class Ticket: Mappable {
     class func newInstance(map: Map) -> Mappable? {
         return Ticket()
     }
+
     init?(map: Map) { }
 
     init() { }
@@ -61,6 +74,15 @@ final class Ticket: Mappable {
         percentChange1h <- map["percent_change_1h"]
         percentChange24h <- map["percent_change_24h"]
         percentChange7d <- map["percent_change_7d"]
+        if !isNegativeChange1h {
+            percentChange1h = "+" + percentChange1h.or("0")
+        }
+        if !isNegativeChange24h {
+            percentChange24h = "+" + percentChange24h.or("0")
+        }
+        if !isNegativeChange7d {
+            percentChange7d = "+" + percentChange7d.or("0")
+        }
         priceBtc <- map["price_btc"]
         priceUsd <- map["price_usd"]
         rank <- map["rank"]

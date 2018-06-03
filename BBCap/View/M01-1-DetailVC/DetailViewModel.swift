@@ -10,8 +10,11 @@ import Foundation
 import SwifterSwift
 import SwiftDate
 import Async
+import Font_Awesome_Swift
 
 protocol DetailViewModelDelegate: class {
+    func viewModelShouldUpdateVolumeViews(_ viewModel: DetailViewModel)
+    func viewModelShouldUpdateCurrentCurrency(_ viewModel: DetailViewModel)
     func viewModelShouldUpdatePriceTypeButton(_ viewModel: DetailViewModel)
     func viewModelShouldUpdateDate(_ viewModel: DetailViewModel)
     func viewModelShouldUpdateCurrency(_ viewModel: DetailViewModel)
@@ -26,39 +29,43 @@ final class DetailViewModel {
         }
     }
 
+    var priceType: PriceType = .usd {
+        didSet {
+            ud.setValue(priceType.rawValue, forKey: UserDefaultsKey.priceType)
+            delegate?.viewModelShouldUpdateVolumeViews(self)
+            delegate?.viewModelShouldUpdateCurrentCurrency(self)
+            notifyForCurrencyAt(entryX: prices.count - 1)
+            delegate?.viewModelShouldUpdatePriceTypeButton(self)
+        }
+    }
+
+    var timeIntervals: [Double] {
+        return currency.priceUSDs.map { $0[0] }
+    }
+
     var price = "" {
         didSet {
             delegate?.viewModelShouldUpdateCurrency(self)
         }
     }
 
-    var priceType: PriceType = .usd {
-        didSet {
-            ud.setValue(priceType.rawValue, forKey: UserDefaultsKey.priceType)
-            delegate?.viewModelShouldUpdatePriceTypeButton(self)
-            delegate?.viewModelShouldUpdateChartView(self)
-        }
-    }
-
-    var timeIntervals: [Double] {
-        switch priceType {
-        case .eth, .btc:
-            return []
-        case .usd:
-            return currency.priceUSDs.map { $0[0] }
-        }
+    var currentPrice: String {
+        return (prices[safe: prices.count - 1]?.formatDecimal(minimum: 0, maximum: 8)).or("")
     }
 
     var prices: [Double] {
         switch priceType {
-        case .eth, .btc:
-            return []
+        case .btc:
+            return currency.priceBTCs.map { $0[1] }
+        case .eth:
+            return currency.priceUSDs.map { $0[1] / (measurement?.ethToUsd).or(1) }
         case .usd:
             return currency.priceUSDs.map { $0[1] }
         }
     }
 
     var axisPrices: [Double] {
+        let prices = currency.priceUSDs.map { $0[1] }
         return prices.map { $0 - prices.min().unwrapped(or: 0) }
     }
 
@@ -70,14 +77,29 @@ final class DetailViewModel {
         return -axisMaximum * 0.1
     }
 
+    var isNegativeHourPercent: Bool {
+        return (data?.ticket.isNegativeChange1h).or(else: false)
+    }
+
+    var isNegativeDayPercent: Bool {
+        return (data?.ticket.isNegativeChange24h).or(else: false)
+    }
+
+    var isNegativePercentWeek: Bool {
+        return (data?.ticket.isNegativeChange7d).or(else: false)
+    }
+
     var currency = Currency()
 
     weak var delegate: DetailViewModelDelegate?
 
     let data: HomeCell.Data?
 
-    init(data: HomeCell.Data? = nil) {
+    let measurement: Measurement?
+
+    init(data: HomeCell.Data? = nil, measurement: Measurement? = nil) {
         self.data = data
+        self.measurement = measurement
         if let value = ud.value(forKey: UserDefaultsKey.priceType) as? String, let priceType = PriceType(rawValue: value) {
             self.priceType = priceType
         }
@@ -85,7 +107,7 @@ final class DetailViewModel {
 
     func volumeViewModel(withTag tag: Int) -> CurrencyVolumeViewModel {
         let volumeType = VolumeType(rawValue: tag)
-        return CurrencyVolumeViewModel(volumeType: volumeType, ticket: data?.ticket)
+        return CurrencyVolumeViewModel(volumeType: volumeType, ticket: data?.ticket, priceType: priceType, ethereum: measurement)
     }
 
     // Notiffy for date and currency
@@ -98,13 +120,13 @@ final class DetailViewModel {
     }
 
     func notifyForCurrencyAt(entryX: Int) {
-        guard let priceFormat = prices[safe: entryX]?.formatCurrency() else { return }
+        guard let priceFormat = prices[safe: entryX]?.formatDecimal(minimum: 0, maximum: 8) else { return }
         price = priceFormat
     }
 
     func notifyForGetCurrency(value: String, completion: @escaping ApiCompletion) {
         let timeType: TimeType! = TimeType(rawValue: value)
-        Api.CoinmarketCap.getCurrencyBitcoin(type: timeType) { [weak self] result in
+        Api.CoinmarketCap.getCurrencyBitcoin(type: timeType, currency: (data?.ticket.id).or("")) { [weak self] result in
             guard let this = self else { return }
             Async.main {
                 switch result {
@@ -112,6 +134,7 @@ final class DetailViewModel {
                     this.currency = value
                     this.notifyForDate(entryX: this.prices.count - 1)
                     this.notifyForCurrencyAt(entryX: this.prices.count - 1)
+                    this.delegate?.viewModelShouldUpdateCurrentCurrency(this)
                     completion(.success)
                 case .failure(let error):
                     completion(.failure(error))
@@ -133,6 +156,17 @@ extension DetailViewModel {
         case usd = "USD"
         case btc = "BTC"
         case eth = "ETH"
+
+        var faType: FAType {
+            switch self {
+            case .usd:
+                return FAType.FADollar
+            case .btc:
+                return FAType.FABitcoin
+            case .eth:
+                return FAType.FAGlass
+            }
+        }
 
         static func next(_ title: String?) throws -> PriceType {
             guard let title = title else { throw PriceTypeError.invalid }
@@ -217,20 +251,6 @@ extension DetailViewModel {
                 return "Available Supply:"
             case .totalSupply:
                 return "Total Supply:"
-            }
-        }
-
-        // Dummy
-        var currency: String {
-            switch self {
-            case .cap:
-                return 162_337_461.956.formatCurrency(fraction: 3)
-            case .volume24h:
-                return 10_449_900.000.formatCurrency(fraction: 3)
-            case .availableSupply:
-                return 16_997_637.formatDecimal() + " BTC"
-            case .totalSupply:
-                return 16_997_637.formatDecimal() + " BTC"
             }
         }
     }

@@ -121,7 +121,8 @@ extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailViewController()
         let data = HomeCell.Data(ticket: tickets[indexPath.row], index: indexPath.row + 1)
-        vc.viewModel = DetailViewModel(data: data)
+        let measurement = Measurement(tickets: tickets)
+        vc.viewModel = DetailViewModel(data: data, measurement: measurement)
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc)
     }

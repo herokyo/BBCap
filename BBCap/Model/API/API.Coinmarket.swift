@@ -44,8 +44,8 @@ extension Api.CoinmarketCap {
         }
     }
 
-    static func getCurrencyBitcoin(type: DetailViewModel.TimeType, completion: @escaping Completion<Currency>) {
-        let path = Api.CoinmarketCap.Currencies.Bitcoin(startDate: type.pastTimeInterval, endDate: type.currentTimeInterval).path
+    static func getCurrencyBitcoin(type: DetailViewModel.TimeType, currency: String, completion: @escaping Completion<Currency>) {
+        let path = Api.CoinmarketCap.Currencies.Bitcoin(startDate: type.pastTimeInterval, endDate: type.currentTimeInterval, currency: currency).path
         api.request(method: .get, urlString: path) { result in
             switch result {
             case .success(let value):

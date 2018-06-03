@@ -9,6 +9,7 @@
 import UIKit
 import SwifterSwift
 import Charts
+import Font_Awesome_Swift
 
 final class DetailViewController: ViewController {
 
@@ -23,11 +24,12 @@ final class DetailViewController: ViewController {
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var dateCurrencyLabel: UILabel!
     @IBOutlet weak var todayButton: Button!
-    @IBOutlet var volumeViews: [CurrencyVolumeView]!
-    @IBOutlet var timeTypeButtons: [Button]!
     @IBOutlet weak var priceTypeButton: Button!
     @IBOutlet weak var currencyImageView: UIImageView!
+    @IBOutlet weak var signCurrencyImageView: UIImageView!
     @IBOutlet weak var currencyTitleLabel: UILabel!
+    @IBOutlet var volumeViews: [CurrencyVolumeView]!
+    @IBOutlet var timeTypeButtons: [Button]!
 
     // Properties
     private var isLoading = false
@@ -115,7 +117,7 @@ final class DetailViewController: ViewController {
         set1.drawIconsEnabled = false
         set1.setColor(App.Color.bbGreenColor)
         set1.drawCirclesEnabled = false
-        set1.lineWidth = 2
+        set1.lineWidth = 1.5
         set1.drawValuesEnabled = false
         set1.label = nil
         set1.formLineWidth = 0
@@ -155,14 +157,18 @@ final class DetailViewController: ViewController {
         }
 
         // Update default
+        priceTypeButton.setTitle(viewModel.priceType.rawValue, for: .normal)
         chooseTimeTypeButtonTouchUpInside(todayButton)
         currencyImageView.setImage(urlString: viewModel.data?.iconPath)
         currencyTitleLabel.text = viewModel.data?.title
-        currentCurrencyLabel.text = viewModel.data?.value
+        currentCurrencyLabel.setFAText(prefixText: "", icon: viewModel.priceType.faType, postfixText: viewModel.currentPrice, size: 19)
         hourPercentLabel.text = viewModel.data?.percentChange1h
         dayPercentLabel.text = viewModel.data?.percentChange24h
         weekPercentLabel.text = viewModel.data?.percentChange7d
-        priceTypeButton.setTitle(viewModel.priceType.rawValue, for: .normal)
+
+        hourPercentLabel.textColor = viewModel.isNegativeHourPercent ? App.Color.bbRedColor : App.Color.bbLightGreenColor
+        dayPercentLabel.textColor = viewModel.isNegativeDayPercent ? App.Color.bbRedColor : App.Color.bbLightGreenColor
+        weekPercentLabel.textColor = viewModel.isNegativePercentWeek ? App.Color.bbRedColor : App.Color.bbLightGreenColor
     }
 
     // MARK: - IBAction
@@ -215,6 +221,16 @@ extension DetailViewController: ChartViewDelegate {
 
 extension DetailViewController: DetailViewModelDelegate {
 
+    func viewModelShouldUpdateVolumeViews(_ viewModel: DetailViewModel) {
+        volumeViews.forEach {
+            $0.viewModel = viewModel.volumeViewModel(withTag: $0.tag)
+        }
+    }
+
+    func viewModelShouldUpdateCurrentCurrency(_ viewModel: DetailViewModel) {
+        currentCurrencyLabel.setFAText(prefixText: "", icon: viewModel.priceType.faType, postfixText: viewModel.currentPrice, size: 19)
+    }
+
     func viewModelShouldUpdateChartView(_ viewModel: DetailViewModel) {
         updateChartView()
     }
@@ -228,7 +244,7 @@ extension DetailViewController: DetailViewModelDelegate {
     }
 
     func viewModelShouldUpdateCurrency(_ viewModel: DetailViewModel) {
-        currencyLabel.text = viewModel.price
+        currencyLabel.setFAText(prefixText: "", icon: viewModel.priceType.faType, postfixText: viewModel.price, size: 18)
     }
 }
 

@@ -58,9 +58,10 @@ extension Api.CoinmarketCap.Currencies {
 
         var startDate: TimeInterval
         var endDate: TimeInterval
+        var currency: String
 
         var path: String {
-            return Api.CoinmarketCap.Currencies.path / "bitcoin" / startDate.int64 / endDate.int64
+            return Api.CoinmarketCap.Currencies.path / currency / startDate.int64 / endDate.int64
         }
 
     }
