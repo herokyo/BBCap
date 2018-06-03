@@ -14,6 +14,7 @@ protocol DetailViewModelDelegate: class {
     func viewModelShouldUpdatePriceTypeButton(_ viewModel: DetailViewModel)
     func viewModelShouldUpdateDate(_ viewModel: DetailViewModel)
     func viewModelShouldUpdateCurrency(_ viewModel: DetailViewModel)
+    func viewModelShouldUpdateChartView(_ viewModel: DetailViewModel)
 }
 
 final class DetailViewModel {
@@ -33,7 +34,9 @@ final class DetailViewModel {
     // TODO: Use for later
     var priceType: PriceType = .usd {
         didSet {
+            ud.setValue(priceType.rawValue, forKey: UserDefaultsKey.priceType)
             delegate?.viewModelShouldUpdatePriceTypeButton(self)
+            delegate?.viewModelShouldUpdateChartView(self)
         }
     }
 
@@ -58,9 +61,18 @@ final class DetailViewModel {
 
     weak var delegate: DetailViewModelDelegate?
 
+    let data: HomeCell.Data?
+
+    init(data: HomeCell.Data? = nil) {
+        self.data = data
+        if let value = ud.value(forKey: UserDefaultsKey.priceType) as? String, let priceType = PriceType(rawValue: value) {
+            self.priceType = priceType
+        }
+    }
+
     func volumeViewModel(withTag tag: Int) -> CurrencyVolumeViewModel {
         let volumeType = VolumeType(rawValue: tag)
-        return CurrencyVolumeViewModel(volumeType: volumeType)
+        return CurrencyVolumeViewModel(volumeType: volumeType, ticket: data?.ticket)
     }
 
     // Notiffy for date and currency
@@ -98,21 +110,10 @@ extension DetailViewModel {
         case invalid
     }
 
-    enum PriceType {
-        case usd
-        case btc
-        case eth
-
-        var title: String {
-            switch self {
-            case .usd:
-                return "USD"
-            case .btc:
-                return "BTC"
-            case .eth:
-                return "ETH"
-            }
-        }
+    enum PriceType: String {
+        case usd = "USD"
+        case btc = "BTC"
+        case eth = "ETH"
 
         static func next(_ title: String?) throws -> PriceType {
             guard let title = title else { throw PriceTypeError.invalid }

@@ -16,8 +16,24 @@ class HomeCell: UITableViewCell {
         let title: String?
         let cap: String?
         let value: String?
-        let percent: String?
+        let percentChange1h: String?
+        let percentChange24h: String?
+        let percentChange7d: String?
         let volumn: String?
+        let ticket: Ticket
+
+        init(ticket: Ticket, index: Int) {
+            self.index = index
+            iconPath = "https://coinmarket.zone/images/64x64/\(ticket.id.or("")).png"
+            title = "\(ticket.name.or("")) - \(ticket.symbol.or(""))"
+            cap = "Cap: $\(ticket.marketCapUsd.or(""))"
+            value = "$\(ticket.priceUsd.or(""))"
+            percentChange1h = "\(ticket.percentChange1h.or(""))%"
+            percentChange24h = "\(ticket.percentChange24h.or(""))%"
+            percentChange7d = "\(ticket.percentChange7d.or(""))%"
+            volumn = "Volume 24h: $\(ticket.volume24hUsd.or(""))"
+            self.ticket = ticket
+        }
     }
 
     @IBOutlet private weak var iconImageView: UIImageView!
@@ -41,7 +57,7 @@ class HomeCell: UITableViewCell {
             titleLabel.text = data.title
             capLabel.text = data.cap
             valueLabel.text = data.value
-            increaseLabel.text = data.percent
+            increaseLabel.text = data.percentChange1h
             volumeLabel.text = data.volumn
         }
     }

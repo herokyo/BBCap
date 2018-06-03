@@ -9,6 +9,7 @@
 import Foundation
 
 extension CustomStringConvertible where Self: AnyObject {
+
     var description: String {
         var description: String = "\n***** \(type(of: self)) *****\(Unmanaged<Self>.passUnretained(self).toOpaque())\n"
         let selfMirror = Mirror(reflecting: self)
@@ -20,3 +21,5 @@ extension CustomStringConvertible where Self: AnyObject {
         return description
     }
 }
+
+extension Ticket: CustomStringConvertible {}
