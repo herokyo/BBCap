@@ -40,6 +40,15 @@ final class DetailViewModel {
         }
     }
 
+    var timeIntervals: [Double] {
+        switch priceType {
+        case .eth, .btc:
+            return []
+        case .usd:
+            return currency.priceUSDs.map { $0[0] }
+        }
+    }
+
     var prices: [Double] {
         switch priceType {
         case .eth, .btc:
@@ -49,12 +58,16 @@ final class DetailViewModel {
         }
     }
 
+    var axisPrices: [Double] {
+        return prices.map { $0 - prices.min().unwrapped(or: 0) }
+    }
+
     var axisMaximum: Double {
-        return prices.max().unwrapped(or: 0) * 1.05
+        return axisPrices.max().unwrapped(or: 0) * 1.1
     }
 
     var axisMinimum: Double {
-        return prices.min().unwrapped(or: 0) * 0.99
+        return -axisMaximum * 0.1
     }
 
     var currency = Currency()
@@ -77,14 +90,14 @@ final class DetailViewModel {
 
     // Notiffy for date and currency
 
-    func notifyForDate(entryX: Double) {
-        let timeInterval = currency.priceUSDs[entryX.int][0] / 1_000
+    func notifyForDate(entryX: Int) {
+        let timeInterval = timeIntervals[entryX] / 1_000
         let date = Date(timeIntervalSince1970: TimeInterval(timeInterval))
         dateString = date.string(format: DateFormat.custom(Config.dateFormat))
     }
 
-    func notifyForCurrencyAt(entryY: Double) {
-        price = entryY.formatCurrency(fraction: 2)
+    func notifyForCurrencyAt(entryX: Int) {
+        price = prices[entryX].formatCurrency(fraction: 2)
     }
 
     func notifyForGetCurrency(value: String, completion: @escaping ApiCompletion) {
@@ -95,8 +108,8 @@ final class DetailViewModel {
                 switch result {
                 case .success(let value):
                     this.currency = value
-                    this.notifyForDate(entryX: (this.prices.count - 1).double)
-                    this.notifyForCurrencyAt(entryY: this.prices.last.unwrapped(or: 0))
+                    this.notifyForDate(entryX: this.prices.count - 1)
+                    this.notifyForCurrencyAt(entryX: this.prices.count - 1)
                     completion(.success)
                 case .failure(let error):
                     completion(.failure(error))
