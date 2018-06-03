@@ -36,7 +36,7 @@ final class DetailViewModel {
     }
 
     var currentPrice: String {
-        return (data?.ticket.priceUsd?.doubleValue.formatDecimal()).or("")
+        return (data?.ticket.priceUsd?.doubleValue.formatDecimal(minimum: 0, maximum: 8)).or("")
     }
 
     var priceType: PriceType = .usd {
@@ -54,10 +54,18 @@ final class DetailViewModel {
     }
 
     var prices: [Double] {
-        return currency.priceUSDs.map { $0[1] }
+        switch priceType {
+        case .btc:
+            return currency.priceBTCs.map { $0[1] }
+        case .eth:
+            return currency.priceUSDs.map { $0[1] }
+        case .usd:
+            return currency.priceUSDs.map { $0[1] }
+        }
     }
 
     var axisPrices: [Double] {
+        let prices = currency.priceUSDs.map { $0[1] }
         return prices.map { $0 - prices.min().unwrapped(or: 0) }
     }
 
@@ -109,7 +117,7 @@ final class DetailViewModel {
     }
 
     func notifyForCurrencyAt(entryX: Int) {
-        guard let priceFormat = prices[safe: entryX]?.formatDecimal() else { return }
+        guard let priceFormat = prices[safe: entryX]?.formatDecimal(minimum: 0, maximum: 8) else { return }
         price = priceFormat
     }
 

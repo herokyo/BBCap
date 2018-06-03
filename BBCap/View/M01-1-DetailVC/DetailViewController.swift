@@ -117,7 +117,7 @@ final class DetailViewController: ViewController {
         set1.drawIconsEnabled = false
         set1.setColor(App.Color.bbGreenColor)
         set1.drawCirclesEnabled = false
-        set1.lineWidth = 2
+        set1.lineWidth = 1.5
         set1.drawValuesEnabled = false
         set1.label = nil
         set1.formLineWidth = 0

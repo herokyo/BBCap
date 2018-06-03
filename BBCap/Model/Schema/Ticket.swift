@@ -58,6 +58,7 @@ final class Ticket: Mappable {
     class func newInstance(map: Map) -> Mappable? {
         return Ticket()
     }
+
     init?(map: Map) { }
 
     init() { }
