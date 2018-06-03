@@ -26,12 +26,12 @@ class HomeCell: UITableViewCell {
             self.index = index
             iconPath = "https://coinmarket.zone/images/64x64/\(ticket.id.or("")).png"
             title = "\(ticket.name.or("")) - \(ticket.symbol.or(""))"
-            cap = "Cap: $\(ticket.marketCapUsd.or(""))"
+            cap = "Cap: $\(ticket.marketCapUsdInt.convertedResult)"
             value = "$\(ticket.priceUsd.or(""))"
             percentChange1h = "\(ticket.percentChange1h.or(""))%"
-            percentChange24h = "\(ticket.percentChange24h.or(""))%"
+            percentChange24h = "\(ticket.percentChange1h.or(""))%"
             percentChange7d = "\(ticket.percentChange7d.or(""))%"
-            volumn = "Volume 24h: $\(ticket.volume24hUsd.or(""))"
+            volumn = "Volume 24h: $\(ticket.volume24hUsdInt.convertedResult)"
             self.ticket = ticket
         }
     }

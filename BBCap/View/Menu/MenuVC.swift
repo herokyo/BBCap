@@ -20,10 +20,10 @@ final class MenuVC: UITableViewController, StoryboardIdentifiable {
 
         var icon: UIImage? {
             let size = App.Size.icon
-            return [UIImage(icon: FAType.FAHome, size: size, textColor: .white),
-                UIImage(icon: FAType.FAUserSecret, size: size, textColor: .white),
-                UIImage(icon: FAType.FABold, size: size, textColor: .white),
-                UIImage(icon: FAType.FAFeed, size: size, textColor: .white)][safe: hashValue]
+            return [UIImage(icon: FAType.FAShoppingCart, size: size, textColor: .white),
+                UIImage(icon: FAType.FACog, size: size, textColor: .white),
+                UIImage(icon: FAType.FAInfo, size: size, textColor: .white),
+                UIImage(icon: FAType.FARssSquare, size: size, textColor: .white)][safe: hashValue]
         }
     }
 

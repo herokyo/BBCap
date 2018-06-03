@@ -22,6 +22,12 @@ final class HomeVC: UIViewController, StoryboardIdentifiable {
 
     @IBOutlet var coinButtons: [UIButton]!
 
+    var sourceTickets: [Ticket] = [] {
+        didSet {
+            tickets = sourceTickets
+        }
+    }
+
     var tickets: [Ticket] = [] {
         didSet {
             Async.main {
@@ -67,7 +73,7 @@ final class HomeVC: UIViewController, StoryboardIdentifiable {
         Api.CoinmarketCap.getTickets { [weak self] (result) in
             switch result {
             case .success(let tickets):
-                self?.tickets = tickets
+                self?.sourceTickets = tickets
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -85,6 +91,7 @@ final class HomeVC: UIViewController, StoryboardIdentifiable {
 
     @IBAction private func searchButtonTouchUpInside(_ sender: Any?) {
         let isHidden = searchBar.isHidden
+        searchBar.text = ""
         searchBar.isHidden = !isHidden
         segmentedControl.isHidden = isHidden
         searchBar.becomeFirstResponder()
@@ -122,10 +129,16 @@ extension HomeVC: UITableViewDelegate {
 
 extension HomeVC: UISearchBarDelegate {
 
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, text.isNotEmpty else { return }
+        tickets = sourceTickets.filter { $0.name.or("").lowercased().contains(text.lowercased()) }
+        searchBar.isHidden = true
+        segmentedControl.isHidden = false
+        searchBar.resignFirstResponder()
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        tickets = sourceTickets
         searchBar.isHidden = true
         segmentedControl.isHidden = false
         searchBar.resignFirstResponder()
