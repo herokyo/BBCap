@@ -3,6 +3,7 @@ PODS:
   - AlamofireNetworkActivityIndicator (2.2.0):
     - Alamofire (~> 4.5)
   - AsyncSwift (2.0.4)
+  - AwesomeEnum (1.2.0)
   - Charts (3.1.0):
     - Charts/Core (= 3.1.0)
   - Charts/Core (3.1.0)
@@ -54,6 +55,7 @@ DEPENDENCIES:
   - Alamofire (= 4.6.0)
   - AlamofireNetworkActivityIndicator (= 2.2.0)
   - AsyncSwift (= 2.0.4)
+  - AwesomeEnum
   - Charts (= 3.1.0)
   - Font-Awesome-Swift (~> 1.7.2)
   - IQKeyboardManagerSwift
@@ -74,6 +76,7 @@ SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
   AsyncSwift: 65775a7b32e740609b24969ece3de58723b9dc3e
+  AwesomeEnum: fe633a08020f92ab57277956c1df4d52fbfa27e0
   Charts: 0b0c96f6118b6ce63f11adbcaa3b31045ee4d772
   Font-Awesome-Swift: 83ab9db365379ee6025167cec67bdc5d3226a811
   IQKeyboardManagerSwift: 59d4b0e140bc546c3c76ae5bb35b3dafd10b8172
@@ -89,6 +92,6 @@ SPEC CHECKSUMS:
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   SwiftUtils: b009d391fb2e285392f114238f8b55d2750b80f0
 
-PODFILE CHECKSUM: 3f565278ac29124094d238a1d5321708909bba08
+PODFILE CHECKSUM: 7b78681f05da06060d0965713a6d9780ccfecd95
 
 COCOAPODS: 1.4.0

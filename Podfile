@@ -16,6 +16,8 @@ target 'BBCap' do
     # Data
     pod 'LGSideMenuController'
     pod 'Font-Awesome-Swift', '~> 1.7.2'
+#    pod 'FontAwesome.swift'
+    pod 'AwesomeEnum'
 
     pod 'ObjectMapper', '3.1.0' # Simple JSON Object mapping written in Swift.    # Network
     pod 'Alamofire', '4.6.0' # Elegant HTTP Networking in Swift.

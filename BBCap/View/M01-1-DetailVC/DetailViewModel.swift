@@ -11,6 +11,7 @@ import SwifterSwift
 import SwiftDate
 import Async
 import Font_Awesome_Swift
+import AwesomeEnum
 
 protocol DetailViewModelDelegate: class {
     func viewModelShouldUpdateVolumeViews(_ viewModel: DetailViewModel)
