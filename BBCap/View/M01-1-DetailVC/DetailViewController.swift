@@ -24,11 +24,12 @@ final class DetailViewController: ViewController {
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var dateCurrencyLabel: UILabel!
     @IBOutlet weak var todayButton: Button!
-    @IBOutlet var volumeViews: [CurrencyVolumeView]!
-    @IBOutlet var timeTypeButtons: [Button]!
     @IBOutlet weak var priceTypeButton: Button!
     @IBOutlet weak var currencyImageView: UIImageView!
+    @IBOutlet weak var signCurrencyImageView: UIImageView!
     @IBOutlet weak var currencyTitleLabel: UILabel!
+    @IBOutlet var volumeViews: [CurrencyVolumeView]!
+    @IBOutlet var timeTypeButtons: [Button]!
 
     // Properties
     private var isLoading = false
@@ -160,8 +161,7 @@ final class DetailViewController: ViewController {
         chooseTimeTypeButtonTouchUpInside(todayButton)
         currencyImageView.setImage(urlString: viewModel.data?.iconPath)
         currencyTitleLabel.text = viewModel.data?.title
-        currentCurrencyLabel.text = viewModel.data?.value
-
+        currentCurrencyLabel.setFAText(prefixText: "", icon: viewModel.priceType.faType, postfixText: viewModel.currentPrice, size: 19)
         hourPercentLabel.text = viewModel.data?.percentChange1h
         dayPercentLabel.text = viewModel.data?.percentChange24h
         weekPercentLabel.text = viewModel.data?.percentChange7d
@@ -221,6 +221,16 @@ extension DetailViewController: ChartViewDelegate {
 
 extension DetailViewController: DetailViewModelDelegate {
 
+    func viewModelShouldUpdateVolumeViews(_ viewModel: DetailViewModel) {
+        volumeViews.forEach {
+            $0.viewModel = viewModel.volumeViewModel(withTag: $0.tag)
+        }
+    }
+
+    func viewModelShouldUpdateCurrentCurrency(_ viewModel: DetailViewModel) {
+        currentCurrencyLabel.setFAText(prefixText: "", icon: viewModel.priceType.faType, postfixText: viewModel.currentPrice, size: 19)
+    }
+
     func viewModelShouldUpdateChartView(_ viewModel: DetailViewModel) {
         updateChartView()
     }
@@ -234,7 +244,7 @@ extension DetailViewController: DetailViewModelDelegate {
     }
 
     func viewModelShouldUpdateCurrency(_ viewModel: DetailViewModel) {
-        currencyLabel.text = viewModel.price
+        currencyLabel.setFAText(prefixText: "", icon: viewModel.priceType.faType, postfixText: viewModel.price, size: 18)
     }
 }
 

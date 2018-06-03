@@ -15,13 +15,23 @@ class CurrencyVolumeView: BBView {
 
     var viewModel = CurrencyVolumeViewModel() {
         didSet {
-            titleLabel.text = viewModel.title
-            currencyLabel.text = viewModel.currency
+            updateView()
         }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .clear
+    }
+
+    func updateView() {
+        titleLabel.text = viewModel.title
+        guard let volumeType = viewModel.volumeType, let priceType = viewModel.priceType else { return }
+        switch volumeType {
+        case .cap, .volume24h:
+            currencyLabel.setFAText(prefixText: "", icon: priceType.faType, postfixText: viewModel.currency, size: 17)
+        case .totalSupply, .availableSupply:
+            currencyLabel.text = viewModel.currency
+        }
     }
 }

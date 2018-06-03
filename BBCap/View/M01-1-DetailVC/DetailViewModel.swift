@@ -10,8 +10,11 @@ import Foundation
 import SwifterSwift
 import SwiftDate
 import Async
+import Font_Awesome_Swift
 
 protocol DetailViewModelDelegate: class {
+    func viewModelShouldUpdateVolumeViews(_ viewModel: DetailViewModel)
+    func viewModelShouldUpdateCurrentCurrency(_ viewModel: DetailViewModel)
     func viewModelShouldUpdatePriceTypeButton(_ viewModel: DetailViewModel)
     func viewModelShouldUpdateDate(_ viewModel: DetailViewModel)
     func viewModelShouldUpdateCurrency(_ viewModel: DetailViewModel)
@@ -32,9 +35,16 @@ final class DetailViewModel {
         }
     }
 
+    var currentPrice: String {
+        return (data?.ticket.priceUsd?.doubleValue.formatDecimal()).or("")
+    }
+
     var priceType: PriceType = .usd {
         didSet {
             ud.setValue(priceType.rawValue, forKey: UserDefaultsKey.priceType)
+            delegate?.viewModelShouldUpdateVolumeViews(self)
+            delegate?.viewModelShouldUpdateCurrentCurrency(self)
+            delegate?.viewModelShouldUpdateCurrency(self)
             delegate?.viewModelShouldUpdatePriceTypeButton(self)
         }
     }
@@ -86,7 +96,7 @@ final class DetailViewModel {
 
     func volumeViewModel(withTag tag: Int) -> CurrencyVolumeViewModel {
         let volumeType = VolumeType(rawValue: tag)
-        return CurrencyVolumeViewModel(volumeType: volumeType, ticket: data?.ticket)
+        return CurrencyVolumeViewModel(volumeType: volumeType, ticket: data?.ticket, priceType: priceType)
     }
 
     // Notiffy for date and currency
@@ -99,7 +109,7 @@ final class DetailViewModel {
     }
 
     func notifyForCurrencyAt(entryX: Int) {
-        guard let priceFormat = prices[safe: entryX]?.formatCurrency() else { return }
+        guard let priceFormat = prices[safe: entryX]?.formatDecimal() else { return }
         price = priceFormat
     }
 
@@ -134,6 +144,17 @@ extension DetailViewModel {
         case usd = "USD"
         case btc = "BTC"
         case eth = "ETH"
+
+        var faType: FAType {
+            switch self {
+            case .usd:
+                return FAType.FADollar
+            case .btc:
+                return FAType.FABitcoin
+            case .eth:
+                return FAType.FABitcoin
+            }
+        }
 
         static func next(_ title: String?) throws -> PriceType {
             guard let title = title else { throw PriceTypeError.invalid }
@@ -218,20 +239,6 @@ extension DetailViewModel {
                 return "Available Supply:"
             case .totalSupply:
                 return "Total Supply:"
-            }
-        }
-
-        // Dummy
-        var currency: String {
-            switch self {
-            case .cap:
-                return 162_337_461.956.formatCurrency(fraction: 3)
-            case .volume24h:
-                return 10_449_900.000.formatCurrency(fraction: 3)
-            case .availableSupply:
-                return 16_997_637.formatDecimal() + " BTC"
-            case .totalSupply:
-                return 16_997_637.formatDecimal() + " BTC"
             }
         }
     }
