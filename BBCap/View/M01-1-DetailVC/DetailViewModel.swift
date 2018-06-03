@@ -9,6 +9,7 @@
 import Foundation
 import SwifterSwift
 import SwiftDate
+import Async
 
 protocol DetailViewModelDelegate: class {
     func viewModelShouldUpdatePriceTypeButton(_ viewModel: DetailViewModel)
@@ -31,7 +32,6 @@ final class DetailViewModel {
         }
     }
 
-    // TODO: Use for later
     var priceType: PriceType = .usd {
         didSet {
             ud.setValue(priceType.rawValue, forKey: UserDefaultsKey.priceType)
@@ -54,7 +54,7 @@ final class DetailViewModel {
     }
 
     var axisMinimum: Double {
-        return prices.min().unwrapped(or: 0) * 0.95
+        return prices.min().unwrapped(or: 0) * 0.99
     }
 
     var currency = Currency()
@@ -91,12 +91,16 @@ final class DetailViewModel {
         let timeType: TimeType! = TimeType(rawValue: value)
         Api.CoinmarketCap.getCurrencyBitcoin(type: timeType) { [weak self] result in
             guard let this = self else { return }
-            switch result {
-            case .success(let value):
-                this.currency = value
-                completion(.success)
-            case .failure(let error):
-                completion(.failure(error))
+            Async.main {
+                switch result {
+                case .success(let value):
+                    this.currency = value
+                    this.notifyForDate(entryX: (this.prices.count - 1).double)
+                    this.notifyForCurrencyAt(entryY: this.prices.last.unwrapped(or: 0))
+                    completion(.success)
+                case .failure(let error):
+                    completion(.failure(error))
+                }
             }
         }
     }

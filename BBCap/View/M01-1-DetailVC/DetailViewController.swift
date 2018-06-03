@@ -189,14 +189,12 @@ final class DetailViewController: ViewController {
         button.isSelected = true
         viewModel.notifyForGetCurrency(value: value) { [weak self] result in
             guard let this = self else { return }
-            DispatchQueue.main.async {
-                this.isLoading = false
-                switch result {
-                case .success:
-                    this.updateChartView()
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
+            this.isLoading = false
+            switch result {
+            case .success:
+                this.updateChartView()
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
