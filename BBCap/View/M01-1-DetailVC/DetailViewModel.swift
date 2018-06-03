@@ -238,6 +238,6 @@ extension DetailViewModel {
 
 extension DetailViewModel {
     struct Config {
-        static let dateFormat = "MMM dd yyyy HH:MM:ss"
+        static let dateFormat = "MMM dd yyyy HH:mm:ss"
     }
 }
