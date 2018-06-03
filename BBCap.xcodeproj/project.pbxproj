@@ -63,6 +63,7 @@
 		FE3912CF20A5DD4500F31516 /* UITextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3912CE20A5DD4500F31516 /* UITextFieldExt.swift */; };
 		FE452C5820A48AFB00FAD103 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE452C5620A48AFB00FAD103 /* AddTransactionViewController.swift */; };
 		FE452C5920A48AFB00FAD103 /* AddTransactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE452C5720A48AFB00FAD103 /* AddTransactionViewController.xib */; };
+		FE5EF28520C42A7300A9EE7D /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5EF28420C42A7300A9EE7D /* Measurement.swift */; };
 		FE69721C209F2A5C00C8EA68 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE69721A209F2A5C00C8EA68 /* DetailViewController.swift */; };
 		FE69721D209F2A5C00C8EA68 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE69721B209F2A5C00C8EA68 /* DetailViewController.xib */; };
 		FE697220209F357A00C8EA68 /* CurrencyVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE69721F209F357A00C8EA68 /* CurrencyVolumeView.swift */; };
@@ -175,6 +176,7 @@
 		FE3912CE20A5DD4500F31516 /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
 		FE452C5620A48AFB00FAD103 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		FE452C5720A48AFB00FAD103 /* AddTransactionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTransactionViewController.xib; sourceTree = "<group>"; };
+		FE5EF28420C42A7300A9EE7D /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
 		FE69721A209F2A5C00C8EA68 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FE69721B209F2A5C00C8EA68 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		FE69721F209F357A00C8EA68 /* CurrencyVolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyVolumeView.swift; sourceTree = "<group>"; };
@@ -449,10 +451,11 @@
 		ECF23AA31E9B8586008C23C1 /* Schema */ = {
 			isa = PBXGroup;
 			children = (
-				22C60B3220C2FBE300577688 /* Ticket.swift */,
-				22C60B3320C2FBE400577688 /* GlobalInfo.swift */,
 				FEB3887020C2DB5D00A46541 /* Currency.swift */,
+				22C60B3320C2FBE400577688 /* GlobalInfo.swift */,
+				FE5EF28420C42A7300A9EE7D /* Measurement.swift */,
 				FED62EF5209DE9C30070ABDE /* Ratio.swift */,
+				22C60B3220C2FBE300577688 /* Ticket.swift */,
 			);
 			path = Schema;
 			sourceTree = "<group>";
@@ -969,6 +972,7 @@
 				FE1F3DBD20BD35A60013D1C8 /* UserDefaultsKey.swift in Sources */,
 				22C60B3120C2FBC500577688 /* UIImageViewExt.swift in Sources */,
 				ECF23AB41E9B869B008C23C1 /* ApiManager.swift in Sources */,
+				FE5EF28520C42A7300A9EE7D /* Measurement.swift in Sources */,
 				2253865820BFB53900B11E0B /* CustomStringConvertibleExt.swift in Sources */,
 				22C60B3420C2FBE400577688 /* Ticket.swift in Sources */,
 				ECEC0C5A1ED44D4100F6760A /* UIViewControllerExt.swift in Sources */,

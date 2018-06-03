@@ -29,22 +29,12 @@ final class DetailViewModel {
         }
     }
 
-    var price = "" {
-        didSet {
-            delegate?.viewModelShouldUpdateCurrency(self)
-        }
-    }
-
-    var currentPrice: String {
-        return (data?.ticket.priceUsd?.doubleValue.formatDecimal(minimum: 0, maximum: 8)).or("")
-    }
-
     var priceType: PriceType = .usd {
         didSet {
             ud.setValue(priceType.rawValue, forKey: UserDefaultsKey.priceType)
             delegate?.viewModelShouldUpdateVolumeViews(self)
             delegate?.viewModelShouldUpdateCurrentCurrency(self)
-            delegate?.viewModelShouldUpdateCurrency(self)
+            notifyForCurrencyAt(entryX: prices.count - 1)
             delegate?.viewModelShouldUpdatePriceTypeButton(self)
         }
     }
@@ -53,12 +43,22 @@ final class DetailViewModel {
         return currency.priceUSDs.map { $0[0] }
     }
 
+    var price = "" {
+        didSet {
+            delegate?.viewModelShouldUpdateCurrency(self)
+        }
+    }
+
+    var currentPrice: String {
+        return (prices[safe: prices.count - 1]?.formatDecimal(minimum: 0, maximum: 8)).or("")
+    }
+
     var prices: [Double] {
         switch priceType {
         case .btc:
             return currency.priceBTCs.map { $0[1] }
         case .eth:
-            return currency.priceUSDs.map { $0[1] }
+            return currency.priceUSDs.map { $0[1] / (measurement?.ethToUsd).or(1) }
         case .usd:
             return currency.priceUSDs.map { $0[1] }
         }
@@ -95,8 +95,11 @@ final class DetailViewModel {
 
     let data: HomeCell.Data?
 
-    init(data: HomeCell.Data? = nil) {
+    let measurement: Measurement?
+
+    init(data: HomeCell.Data? = nil, measurement: Measurement? = nil) {
         self.data = data
+        self.measurement = measurement
         if let value = ud.value(forKey: UserDefaultsKey.priceType) as? String, let priceType = PriceType(rawValue: value) {
             self.priceType = priceType
         }
@@ -104,7 +107,7 @@ final class DetailViewModel {
 
     func volumeViewModel(withTag tag: Int) -> CurrencyVolumeViewModel {
         let volumeType = VolumeType(rawValue: tag)
-        return CurrencyVolumeViewModel(volumeType: volumeType, ticket: data?.ticket, priceType: priceType)
+        return CurrencyVolumeViewModel(volumeType: volumeType, ticket: data?.ticket, priceType: priceType, ethereum: measurement)
     }
 
     // Notiffy for date and currency
@@ -131,6 +134,7 @@ final class DetailViewModel {
                     this.currency = value
                     this.notifyForDate(entryX: this.prices.count - 1)
                     this.notifyForCurrencyAt(entryX: this.prices.count - 1)
+                    this.delegate?.viewModelShouldUpdateCurrentCurrency(this)
                     completion(.success)
                 case .failure(let error):
                     completion(.failure(error))
@@ -160,7 +164,7 @@ extension DetailViewModel {
             case .btc:
                 return FAType.FABitcoin
             case .eth:
-                return FAType.FABitcoin
+                return FAType.FAGlass
             }
         }
 
@@ -254,6 +258,6 @@ extension DetailViewModel {
 
 extension DetailViewModel {
     struct Config {
-        static let dateFormat = "MMM dd yyyy HH:MM:ss"
+        static let dateFormat = "MMM dd yyyy HH:mm:ss"
     }
 }
