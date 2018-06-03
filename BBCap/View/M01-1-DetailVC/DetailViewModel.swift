@@ -9,11 +9,13 @@
 import Foundation
 import SwifterSwift
 import SwiftDate
+import Async
 
 protocol DetailViewModelDelegate: class {
     func viewModelShouldUpdatePriceTypeButton(_ viewModel: DetailViewModel)
     func viewModelShouldUpdateDate(_ viewModel: DetailViewModel)
     func viewModelShouldUpdateCurrency(_ viewModel: DetailViewModel)
+    func viewModelShouldUpdateChartView(_ viewModel: DetailViewModel)
 }
 
 final class DetailViewModel {
@@ -30,10 +32,20 @@ final class DetailViewModel {
         }
     }
 
-    // TODO: Use for later
     var priceType: PriceType = .usd {
         didSet {
+            ud.setValue(priceType.rawValue, forKey: UserDefaultsKey.priceType)
             delegate?.viewModelShouldUpdatePriceTypeButton(self)
+            delegate?.viewModelShouldUpdateChartView(self)
+        }
+    }
+
+    var timeIntervals: [Double] {
+        switch priceType {
+        case .eth, .btc:
+            return []
+        case .usd:
+            return currency.priceUSDs.map { $0[0] }
         }
     }
 
@@ -46,45 +58,62 @@ final class DetailViewModel {
         }
     }
 
+    var axisPrices: [Double] {
+        return prices.map { $0 - prices.min().unwrapped(or: 0) }
+    }
+
     var axisMaximum: Double {
-        return prices.max().unwrapped(or: 0) * 1.05
+        return axisPrices.max().unwrapped(or: 0) * 1.1
     }
 
     var axisMinimum: Double {
-        return prices.min().unwrapped(or: 0) * 0.95
+        return -axisMaximum * 0.1
     }
 
     var currency = Currency()
 
     weak var delegate: DetailViewModelDelegate?
 
+    let data: HomeCell.Data?
+
+    init(data: HomeCell.Data? = nil) {
+        self.data = data
+        if let value = ud.value(forKey: UserDefaultsKey.priceType) as? String, let priceType = PriceType(rawValue: value) {
+            self.priceType = priceType
+        }
+    }
+
     func volumeViewModel(withTag tag: Int) -> CurrencyVolumeViewModel {
         let volumeType = VolumeType(rawValue: tag)
-        return CurrencyVolumeViewModel(volumeType: volumeType)
+        return CurrencyVolumeViewModel(volumeType: volumeType, ticket: data?.ticket)
     }
 
     // Notiffy for date and currency
 
-    func notifyForDate(entryX: Double) {
-        let timeInterval = currency.priceUSDs[entryX.int][0] / 1_000
+    func notifyForDate(entryX: Int) {
+        let timeInterval = timeIntervals[entryX] / 1_000
         let date = Date(timeIntervalSince1970: TimeInterval(timeInterval))
         dateString = date.string(format: DateFormat.custom(Config.dateFormat))
     }
 
-    func notifyForCurrencyAt(entryY: Double) {
-        price = entryY.formatCurrency(fraction: 2)
+    func notifyForCurrencyAt(entryX: Int) {
+        price = prices[entryX].formatCurrency(fraction: 2)
     }
 
     func notifyForGetCurrency(value: String, completion: @escaping ApiCompletion) {
         let timeType: TimeType! = TimeType(rawValue: value)
         Api.CoinmarketCap.getCurrencyBitcoin(type: timeType) { [weak self] result in
             guard let this = self else { return }
-            switch result {
-            case .success(let value):
-                this.currency = value
-                completion(.success)
-            case .failure(let error):
-                completion(.failure(error))
+            Async.main {
+                switch result {
+                case .success(let value):
+                    this.currency = value
+                    this.notifyForDate(entryX: this.prices.count - 1)
+                    this.notifyForCurrencyAt(entryX: this.prices.count - 1)
+                    completion(.success)
+                case .failure(let error):
+                    completion(.failure(error))
+                }
             }
         }
     }
@@ -98,21 +127,10 @@ extension DetailViewModel {
         case invalid
     }
 
-    enum PriceType {
-        case usd
-        case btc
-        case eth
-
-        var title: String {
-            switch self {
-            case .usd:
-                return "USD"
-            case .btc:
-                return "BTC"
-            case .eth:
-                return "ETH"
-            }
-        }
+    enum PriceType: String {
+        case usd = "USD"
+        case btc = "BTC"
+        case eth = "ETH"
 
         static func next(_ title: String?) throws -> PriceType {
             guard let title = title else { throw PriceTypeError.invalid }

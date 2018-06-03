@@ -26,6 +26,8 @@ final class DetailViewController: ViewController {
     @IBOutlet var volumeViews: [CurrencyVolumeView]!
     @IBOutlet var timeTypeButtons: [Button]!
     @IBOutlet weak var priceTypeButton: Button!
+    @IBOutlet weak var currencyImageView: UIImageView!
+    @IBOutlet weak var currencyTitleLabel: UILabel!
 
     // Properties
     private var isLoading = false
@@ -64,7 +66,6 @@ final class DetailViewController: ViewController {
     }
 
     private func configButtons() {
-        priceTypeButton.setTitle("USD", for: .normal)
         priceTypeButton.setTitleColor(.white, for: UIControlState.normal)
         priceTypeButton.titleLabel?.font = .systemFont(ofSize: 16)
 
@@ -134,7 +135,7 @@ final class DetailViewController: ViewController {
 
         // Update date
         guard let set1 = lineChartView.data?.dataSets.first as? LineChartDataSet else { return }
-        let values: [ChartDataEntry] = viewModel.prices.enumerated().map { (arg) -> ChartDataEntry in
+        let values: [ChartDataEntry] = viewModel.axisPrices.enumerated().map { (arg) -> ChartDataEntry in
             let (index, price) = arg
             return  ChartDataEntry(x: Double(index), y: price, data: nil)
         }
@@ -153,8 +154,15 @@ final class DetailViewController: ViewController {
             $0.viewModel = viewModel.volumeViewModel(withTag: $0.tag)
         }
 
-        // Default call chart view
+        // Update default
         chooseTimeTypeButtonTouchUpInside(todayButton)
+        currencyImageView.setImage(urlString: viewModel.data?.iconPath)
+        currencyTitleLabel.text = viewModel.data?.title
+        currentCurrencyLabel.text = viewModel.data?.value
+        hourPercentLabel.text = viewModel.data?.percentChange1h
+        dayPercentLabel.text = viewModel.data?.percentChange24h
+        weekPercentLabel.text = viewModel.data?.percentChange7d
+        priceTypeButton.setTitle(viewModel.priceType.rawValue, for: .normal)
     }
 
     // MARK: - IBAction
@@ -181,14 +189,12 @@ final class DetailViewController: ViewController {
         button.isSelected = true
         viewModel.notifyForGetCurrency(value: value) { [weak self] result in
             guard let this = self else { return }
-            DispatchQueue.main.async {
-                this.isLoading = false
-                switch result {
-                case .success:
-                    this.updateChartView()
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
+            this.isLoading = false
+            switch result {
+            case .success:
+                this.updateChartView()
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
@@ -202,15 +208,19 @@ final class DetailViewController: ViewController {
 extension DetailViewController: ChartViewDelegate {
 
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        viewModel.notifyForDate(entryX: entry.x)
-        viewModel.notifyForCurrencyAt(entryY: entry.y)
+        viewModel.notifyForDate(entryX: entry.x.int)
+        viewModel.notifyForCurrencyAt(entryX: entry.x.int)
     }
 }
 
 extension DetailViewController: DetailViewModelDelegate {
 
+    func viewModelShouldUpdateChartView(_ viewModel: DetailViewModel) {
+        updateChartView()
+    }
+
     func viewModelShouldUpdatePriceTypeButton(_ viewModel: DetailViewModel) {
-        priceTypeButton.setTitle(viewModel.priceType.title, for: .normal)
+        priceTypeButton.setTitle(viewModel.priceType.rawValue, for: .normal)
     }
 
     func viewModelShouldUpdateDate(_ viewModel: DetailViewModel) {

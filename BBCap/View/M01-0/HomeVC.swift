@@ -111,13 +111,7 @@ extension HomeVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell") as? HomeCell, let ticket = tickets[safe: indexPath.row] else { fatalError() }
-        cell.data = HomeCell.Data(index: indexPath.row + 1,
-                                  iconPath: "https://coinmarket.zone/images/64x64/\(ticket.id.or("")).png",
-                                  title: "\(ticket.name.or("")) - \(ticket.symbol.or(""))",
-                                  cap: "Cap: $\(ticket.marketCapUsdInt.convertedResult)",
-                                  value: "$\(ticket.priceUsd.or(""))",
-                                  percent: "\(ticket.percentChange1h.or(""))%",
-                                  volumn: "Volume 24h: $\(ticket.volume24hUsdInt.convertedResult)")
+        cell.data = HomeCell.Data(ticket: ticket, index: indexPath.row + 1)
         return cell
     }
 }
@@ -126,6 +120,8 @@ extension HomeVC: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailViewController()
+        let data = HomeCell.Data(ticket: tickets[indexPath.row], index: indexPath.row + 1)
+        vc.viewModel = DetailViewModel(data: data)
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc)
     }
