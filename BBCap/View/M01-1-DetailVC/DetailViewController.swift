@@ -135,7 +135,7 @@ final class DetailViewController: ViewController {
 
         // Update date
         guard let set1 = lineChartView.data?.dataSets.first as? LineChartDataSet else { return }
-        let values: [ChartDataEntry] = viewModel.prices.enumerated().map { (arg) -> ChartDataEntry in
+        let values: [ChartDataEntry] = viewModel.axisPrices.enumerated().map { (arg) -> ChartDataEntry in
             let (index, price) = arg
             return  ChartDataEntry(x: Double(index), y: price, data: nil)
         }
@@ -208,8 +208,8 @@ final class DetailViewController: ViewController {
 extension DetailViewController: ChartViewDelegate {
 
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        viewModel.notifyForDate(entryX: entry.x)
-        viewModel.notifyForCurrencyAt(entryY: entry.y)
+        viewModel.notifyForDate(entryX: entry.x.int)
+        viewModel.notifyForCurrencyAt(entryX: entry.x.int)
     }
 }
 
