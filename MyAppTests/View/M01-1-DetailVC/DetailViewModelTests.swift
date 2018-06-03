@@ -36,7 +36,7 @@ final class DetailViewModelTests: QuickSpec {
                 }
 
                 it("price") {
-                    viewModel.notifyForCurrencyAt(entryY: 9209.5799999999999)
+                    viewModel.notifyForCurrencyAt(entryX: 0)
                     expect(viewModel.price) == "$9,209.58"
                 }
             }

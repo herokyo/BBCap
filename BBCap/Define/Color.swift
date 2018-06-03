@@ -23,6 +23,8 @@ extension App {
         // BB color
         static let bbGreenColor: UIColor! = UIColor(red: 0, green: 224, blue: 151)
         static let bbBlackColor: UIColor! = UIColor(red: 24, green: 19, blue: 32)
+        static let bbRedColor: UIColor! = UIColor(red: 243, green: 0, blue: 113)
+        static let bbLightGreenColor: UIColor! = UIColor(red: 0, green: 215, blue: 145)
 
         static func button(state: UIControlState) -> UIColor {
             switch state {

@@ -91,13 +91,15 @@ final class DetailViewModel {
     // Notiffy for date and currency
 
     func notifyForDate(entryX: Int) {
-        let timeInterval = timeIntervals[entryX] / 1_000
+        guard let timeIntervalMiliseconds = timeIntervals[safe: entryX] else { return }
+        let timeInterval = timeIntervalMiliseconds / 1_000
         let date = Date(timeIntervalSince1970: TimeInterval(timeInterval))
         dateString = date.string(format: DateFormat.custom(Config.dateFormat))
     }
 
     func notifyForCurrencyAt(entryX: Int) {
-        price = prices[entryX].formatCurrency(fraction: 2)
+        guard let priceFormat = prices[safe: entryX]?.formatCurrency() else { return }
+        price = priceFormat
     }
 
     func notifyForGetCurrency(value: String, completion: @escaping ApiCompletion) {
