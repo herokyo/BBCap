@@ -11,4 +11,5 @@ import Foundation
 struct UserDefaultsKey {
     static let uuid = "uuid"
     static let accessToken = "accessToken"
+    static let priceType = "priceType"
 }

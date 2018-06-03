@@ -16,7 +16,9 @@
             <connections>
                 <outlet property="addAlertButton" destination="2cF-6a-1nb" id="jiG-4A-btw"/>
                 <outlet property="addToPortfolioButton" destination="JWb-zg-Bbh" id="k25-8S-Wqe"/>
+                <outlet property="currencyImageView" destination="KCA-Gc-Quy" id="qts-gM-LTq"/>
                 <outlet property="currencyLabel" destination="smq-HZ-29h" id="ofg-vi-sXS"/>
+                <outlet property="currencyTitleLabel" destination="kwB-iU-qZo" id="gtB-pu-Gwu"/>
                 <outlet property="currentCurrencyLabel" destination="apj-hQ-5s7" id="J1P-AU-cMJ"/>
                 <outlet property="dateCurrencyLabel" destination="VI0-lc-0Wn" id="54b-7h-v5n"/>
                 <outlet property="dayPercentLabel" destination="Elk-xB-pGd" id="Um0-Jw-ZRG"/>

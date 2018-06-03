@@ -26,6 +26,8 @@ final class DetailViewController: ViewController {
     @IBOutlet var volumeViews: [CurrencyVolumeView]!
     @IBOutlet var timeTypeButtons: [Button]!
     @IBOutlet weak var priceTypeButton: Button!
+    @IBOutlet weak var currencyImageView: UIImageView!
+    @IBOutlet weak var currencyTitleLabel: UILabel!
 
     // Properties
     private var isLoading = false
@@ -64,7 +66,6 @@ final class DetailViewController: ViewController {
     }
 
     private func configButtons() {
-        priceTypeButton.setTitle("USD", for: .normal)
         priceTypeButton.setTitleColor(.white, for: UIControlState.normal)
         priceTypeButton.titleLabel?.font = .systemFont(ofSize: 16)
 
@@ -153,8 +154,15 @@ final class DetailViewController: ViewController {
             $0.viewModel = viewModel.volumeViewModel(withTag: $0.tag)
         }
 
-        // Default call chart view
+        // Update default
         chooseTimeTypeButtonTouchUpInside(todayButton)
+        currencyImageView.setImage(urlString: viewModel.data?.iconPath)
+        currencyTitleLabel.text = viewModel.data?.title
+        currentCurrencyLabel.text = viewModel.data?.value
+        hourPercentLabel.text = viewModel.data?.percentChange1h
+        dayPercentLabel.text = viewModel.data?.percentChange24h
+        weekPercentLabel.text = viewModel.data?.percentChange7d
+        priceTypeButton.setTitle(viewModel.priceType.rawValue, for: .normal)
     }
 
     // MARK: - IBAction
@@ -209,8 +217,12 @@ extension DetailViewController: ChartViewDelegate {
 
 extension DetailViewController: DetailViewModelDelegate {
 
+    func viewModelShouldUpdateChartView(_ viewModel: DetailViewModel) {
+        updateChartView()
+    }
+
     func viewModelShouldUpdatePriceTypeButton(_ viewModel: DetailViewModel) {
-        priceTypeButton.setTitle(viewModel.priceType.title, for: .normal)
+        priceTypeButton.setTitle(viewModel.priceType.rawValue, for: .normal)
     }
 
     func viewModelShouldUpdateDate(_ viewModel: DetailViewModel) {
