@@ -29,7 +29,7 @@ class HomeCell: UITableViewCell {
             cap = "Cap: $\(ticket.marketCapUsdInt.convertedResult)"
             value = "$\(ticket.priceUsd.or(""))"
             percentChange1h = "\(ticket.percentChange1h.or(""))%"
-            percentChange24h = "\(ticket.percentChange1h.or(""))%"
+            percentChange24h = "\(ticket.percentChange24h.or(""))%"
             percentChange7d = "\(ticket.percentChange7d.or(""))%"
             volumn = "Volume 24h: $\(ticket.volume24hUsdInt.convertedResult)"
             self.ticket = ticket
@@ -58,6 +58,8 @@ class HomeCell: UITableViewCell {
             capLabel.text = data.cap
             valueLabel.text = data.value
             increaseLabel.text = data.percentChange1h
+            increaseLabel.textColor = data.ticket.isNegativeChange1h ? App.Color.bbRedColor : App.Color.bbLightGreenColor
+            increaseLabel.borderColor = data.ticket.isNegativeChange1h ? App.Color.bbRedColor : App.Color.bbLightGreenColor
             volumeLabel.text = data.volumn
         }
     }

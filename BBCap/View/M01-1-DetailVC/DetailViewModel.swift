@@ -36,26 +36,15 @@ final class DetailViewModel {
         didSet {
             ud.setValue(priceType.rawValue, forKey: UserDefaultsKey.priceType)
             delegate?.viewModelShouldUpdatePriceTypeButton(self)
-            delegate?.viewModelShouldUpdateChartView(self)
         }
     }
 
     var timeIntervals: [Double] {
-        switch priceType {
-        case .eth, .btc:
-            return []
-        case .usd:
-            return currency.priceUSDs.map { $0[0] }
-        }
+        return currency.priceUSDs.map { $0[0] }
     }
 
     var prices: [Double] {
-        switch priceType {
-        case .eth, .btc:
-            return []
-        case .usd:
-            return currency.priceUSDs.map { $0[1] }
-        }
+        return currency.priceUSDs.map { $0[1] }
     }
 
     var axisPrices: [Double] {
@@ -68,6 +57,18 @@ final class DetailViewModel {
 
     var axisMinimum: Double {
         return -axisMaximum * 0.1
+    }
+
+    var isNegativeHourPercent: Bool {
+        return (data?.ticket.isNegativeChange1h).or(else: false)
+    }
+
+    var isNegativeDayPercent: Bool {
+        return (data?.ticket.isNegativeChange24h).or(else: false)
+    }
+
+    var isNegativePercentWeek: Bool {
+        return (data?.ticket.isNegativeChange7d).or(else: false)
     }
 
     var currency = Currency()
@@ -104,7 +105,7 @@ final class DetailViewModel {
 
     func notifyForGetCurrency(value: String, completion: @escaping ApiCompletion) {
         let timeType: TimeType! = TimeType(rawValue: value)
-        Api.CoinmarketCap.getCurrencyBitcoin(type: timeType) { [weak self] result in
+        Api.CoinmarketCap.getCurrencyBitcoin(type: timeType, currency: (data?.ticket.id).or("")) { [weak self] result in
             guard let this = self else { return }
             Async.main {
                 switch result {

@@ -9,6 +9,7 @@
 import UIKit
 import SwifterSwift
 import Charts
+import Font_Awesome_Swift
 
 final class DetailViewController: ViewController {
 
@@ -155,14 +156,19 @@ final class DetailViewController: ViewController {
         }
 
         // Update default
+        priceTypeButton.setTitle(viewModel.priceType.rawValue, for: .normal)
         chooseTimeTypeButtonTouchUpInside(todayButton)
         currencyImageView.setImage(urlString: viewModel.data?.iconPath)
         currencyTitleLabel.text = viewModel.data?.title
         currentCurrencyLabel.text = viewModel.data?.value
+
         hourPercentLabel.text = viewModel.data?.percentChange1h
         dayPercentLabel.text = viewModel.data?.percentChange24h
         weekPercentLabel.text = viewModel.data?.percentChange7d
-        priceTypeButton.setTitle(viewModel.priceType.rawValue, for: .normal)
+
+        hourPercentLabel.textColor = viewModel.isNegativeHourPercent ? App.Color.bbRedColor : App.Color.bbLightGreenColor
+        dayPercentLabel.textColor = viewModel.isNegativeDayPercent ? App.Color.bbRedColor : App.Color.bbLightGreenColor
+        weekPercentLabel.textColor = viewModel.isNegativePercentWeek ? App.Color.bbRedColor : App.Color.bbLightGreenColor
     }
 
     // MARK: - IBAction
