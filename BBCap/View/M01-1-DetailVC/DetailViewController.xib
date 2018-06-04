@@ -101,9 +101,9 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$9,550.59" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apj-hQ-5s7">
-                            <rect key="frame" x="74.5" y="0.0" width="227.5" height="18"/>
+                            <rect key="frame" x="74.5" y="0.0" width="227.5" height="20"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="18" id="pDO-Ty-ARl"/>
+                                <constraint firstAttribute="height" constant="20" id="pDO-Ty-ARl"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

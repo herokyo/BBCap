@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import AwesomeEnum
+import SwifterSwift
 
-class CurrencyVolumeView: BBView {
+final class CurrencyVolumeView: BBView {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var currencyLabel: UILabel!
@@ -29,7 +31,14 @@ class CurrencyVolumeView: BBView {
         guard let volumeType = viewModel.volumeType, let priceType = viewModel.priceType else { return }
         switch volumeType {
         case .cap, .volume24h:
-            currencyLabel.setFAText(prefixText: "", icon: priceType.faType, postfixText: viewModel.currency, size: 17)
+            switch priceType {
+            case .eth:
+                let attributedText = Awesome.brand.ethereum.asAttributedText(fontSize: 17, color: .white, backgroundColor: .clear)
+                currencyLabel.attributedText = attributedText + viewModel.currency
+                currencyLabel.textAlignment = .right
+            case .usd, .btc:
+                currencyLabel.setFAText(prefixText: "", icon: priceType.faType, postfixText: viewModel.currency, size: 17)
+            }
         case .totalSupply, .availableSupply:
             currencyLabel.text = viewModel.currency
         }
