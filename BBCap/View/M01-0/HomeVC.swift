@@ -39,13 +39,15 @@ final class HomeVC: UIViewController, StoryboardIdentifiable {
     var globalInfo: GlobalInfo! {
         didSet {
             Async.main {
-                self.titleLabel.text = "$\(self.globalInfo.totalMarketCapUsd)  (\(self.globalInfo.percent)%)"
+                self.titleLabel.attributedText = NSMutableAttributedString(attributedString: NSAttributedString(string: "$\(self.globalInfo.totalMarketCapUsd.formatDecimal(minimum: 0, maximum: 8)) (\(self.globalInfo.percent)%)",
+                    attributes: TextAttributes.normal)).applying(attributes: TextAttributes.green, toRangesMatching: "(\(self.globalInfo.percent)%)")
             }
         }
     }
 
     private func configView() {
         searchBar.delegate = self
+        coinButtons.first?.isSelected = true
         menuButton.setImage(UIImage(icon: FAType.FANavicon, size: App.Size.icon, textColor: .white), for: .normal)
         searchButton.setImage(UIImage(icon: .FASearch, size: App.Size.icon, textColor: .white), for: .normal)
     }
@@ -140,6 +142,15 @@ extension HomeVC: UISearchBarDelegate {
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         tickets = sourceTickets
+        searchBar.isHidden = true
+        segmentedControl.isHidden = false
+        searchBar.resignFirstResponder()
+    }
+}
+
+extension HomeVC: UIScrollViewDelegate {
+
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         searchBar.isHidden = true
         segmentedControl.isHidden = false
         searchBar.resignFirstResponder()

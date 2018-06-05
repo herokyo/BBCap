@@ -422,7 +422,7 @@
                     <view key="view" contentMode="scaleToFill" id="s7n-F9-sR3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.13705343010000001" green="0.13247054820000001" blue="0.2026289403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="IG3-D7-1ks"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="mostViewed" id="lBT-yn-I4p"/>
