@@ -17,6 +17,7 @@
 		2253865820BFB53900B11E0B /* CustomStringConvertibleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2253865420BFB53900B11E0B /* CustomStringConvertibleExt.swift */; };
 		225EB11320C3A10E00FCF51F /* IntExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225EB11220C3A10E00FCF51F /* IntExt.swift */; };
 		225EB11520C532F600FCF51F /* TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225EB11420C532F600FCF51F /* TextAttributes.swift */; };
+		229F43B320C6485700E743A1 /* SortHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F43B220C6485700E743A1 /* SortHomeView.swift */; };
 		22C3A0A620BFB97A00602CBC /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3A0A520BFB97A00602CBC /* SideMenuController.swift */; };
 		22C3A0A820BFB98400602CBC /* img_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C3A0A720BFB98400602CBC /* img_banner.png */; };
 		22C3A0AB20BFB9BA00602CBC /* BBTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3A0AA20BFB9BA00602CBC /* BBTabbarController.swift */; };
@@ -121,6 +122,7 @@
 		2253865420BFB53900B11E0B /* CustomStringConvertibleExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStringConvertibleExt.swift; sourceTree = "<group>"; };
 		225EB11220C3A10E00FCF51F /* IntExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExt.swift; sourceTree = "<group>"; };
 		225EB11420C532F600FCF51F /* TextAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributes.swift; sourceTree = "<group>"; };
+		229F43B220C6485700E743A1 /* SortHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortHomeView.swift; sourceTree = "<group>"; };
 		22C3A0A520BFB97A00602CBC /* SideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
 		22C3A0A720BFB98400602CBC /* img_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_banner.png; sourceTree = "<group>"; };
 		22C3A0AA20BFB9BA00602CBC /* BBTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBTabbarController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			children = (
 				22C3A0B320C0751200602CBC /* Cell */,
 				22C3A0AD20BFBA2B00602CBC /* HomeVC.swift */,
+				229F43B220C6485700E743A1 /* SortHomeView.swift */,
 			);
 			path = "M01-0";
 			sourceTree = "<group>";
@@ -658,7 +661,8 @@
 				TargetAttributes = {
 					ECCCCB171E7A40D00073D923 = {
 						CreatedOnToolsVersion = 8.2;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = G72ZCJZ827;
+						ProvisioningStyle = Manual;
 					};
 					ECCCCB2B1E7A40D10073D923 = {
 						CreatedOnToolsVersion = 8.2;
@@ -958,6 +962,7 @@
 				FE697225209F3C0900C8EA68 /* BBView.swift in Sources */,
 				FE69722D209F4B7200C8EA68 /* CurrencyVolumeViewModel.swift in Sources */,
 				ECC5B2CD1EF906CA001A97BC /* ViewController.swift in Sources */,
+				229F43B320C6485700E743A1 /* SortHomeView.swift in Sources */,
 				FEB3887120C2DB5D00A46541 /* Currency.swift in Sources */,
 				FED62EF6209DE9C30070ABDE /* Ratio.swift in Sources */,
 				FE697229209F436A00C8EA68 /* DetailViewModel.swift in Sources */,
@@ -1144,12 +1149,17 @@
 			baseConfigurationReference = 75C26C3F00634F7753D874C5 /* Pods-BBCap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = G72ZCJZ827;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/BBCap/Supports/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.mvvm.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fr.circle.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "bb571207-d88e-422c-9669-a893c8979690";
+				PROVISIONING_PROFILE_SPECIFIER = "match InHouse com.fr.circle.debug";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -1159,12 +1169,15 @@
 			baseConfigurationReference = 74BCDA5E3E13E3D93995831F /* Pods-BBCap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/BBCap/Supports/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.mvvm.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fr.circle.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -1257,12 +1270,15 @@
 			baseConfigurationReference = EB741642CD7BB86408F91AAB /* Pods-BBCap.staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/BBCap/Supports/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.mvvm.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fr.circle.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Staging;

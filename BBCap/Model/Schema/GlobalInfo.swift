@@ -22,6 +22,10 @@ final class GlobalInfo: Mappable {
         return (total24hVolumeUsd * 10_000 / totalMarketCapUsd).ceil / 100
     }
 
+    var percentString: String {
+        return percent.isNegative ? "-\(percent)": "+\(percent)"
+    }
+
     class func newInstance(map: Map) -> Mappable? {
         return GlobalInfo()
     }

@@ -23,8 +23,10 @@ extension Collection {
 extension Array where Element: UIButton {
 
     func setSelected(isTrue: Bool) {
-        self.forEach { (button) in
+        self.forEach(where: { (button) -> Bool in
+            button.isSelected != isTrue
+        }, body: { (button) in
             button.isSelected = isTrue
-        }
+        })
     }
 }

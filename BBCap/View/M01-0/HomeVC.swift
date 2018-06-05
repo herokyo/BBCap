@@ -21,6 +21,7 @@ final class HomeVC: UIViewController, StoryboardIdentifiable {
     @IBOutlet private weak var segmentedControl: UISegmentedControl!
 
     @IBOutlet var coinButtons: [UIButton]!
+    @IBOutlet var timeButtons: [UIButton]!
 
     var sourceTickets: [Ticket] = [] {
         didSet {
@@ -39,8 +40,11 @@ final class HomeVC: UIViewController, StoryboardIdentifiable {
     var globalInfo: GlobalInfo! {
         didSet {
             Async.main {
-                self.titleLabel.attributedText = NSMutableAttributedString(attributedString: NSAttributedString(string: "$\(self.globalInfo.totalMarketCapUsd.formatDecimal(minimum: 0, maximum: 8)) (\(self.globalInfo.percent)%)",
-                    attributes: TextAttributes.normal)).applying(attributes: TextAttributes.green, toRangesMatching: "(\(self.globalInfo.percent)%)")
+                let valueString = "$\(self.globalInfo.totalMarketCapUsd.formatDecimal(minimum: 0, maximum: 8))"
+                let percentString = "(\(self.globalInfo.percentString)%)"
+                let att = NSMutableAttributedString(attributedString: NSAttributedString(string: "\(valueString) \(percentString)",
+                    attributes: TextAttributes.normal))
+                self.titleLabel.attributedText = att.applying(attributes: TextAttributes.green, toRangesMatching: percentString)
             }
         }
     }
@@ -48,6 +52,7 @@ final class HomeVC: UIViewController, StoryboardIdentifiable {
     private func configView() {
         searchBar.delegate = self
         coinButtons.first?.isSelected = true
+        timeButtons.first?.isSelected = true
         menuButton.setImage(UIImage(icon: FAType.FANavicon, size: App.Size.icon, textColor: .white), for: .normal)
         searchButton.setImage(UIImage(icon: .FASearch, size: App.Size.icon, textColor: .white), for: .normal)
     }
@@ -101,6 +106,11 @@ final class HomeVC: UIViewController, StoryboardIdentifiable {
 
     @IBAction private func coinButtonTouchUpInside(_ button: UIButton) {
         coinButtons.setSelected(isTrue: false)
+        button.isSelected = true
+    }
+
+    @IBAction private func timeButtonTouchUpInside(_ button: UIButton) {
+        timeButtons.setSelected(isTrue: false)
         button.isSelected = true
     }
 }
