@@ -10,6 +10,7 @@ import UIKit
 import SwifterSwift
 import Charts
 import Font_Awesome_Swift
+import AwesomeEnum
 
 final class DetailViewController: ViewController {
 
@@ -228,7 +229,13 @@ extension DetailViewController: DetailViewModelDelegate {
     }
 
     func viewModelShouldUpdateCurrentCurrency(_ viewModel: DetailViewModel) {
-        currentCurrencyLabel.setFAText(prefixText: "", icon: viewModel.priceType.faType, postfixText: viewModel.currentPrice, size: 19)
+        switch viewModel.priceType {
+        case .eth:
+            let attributedText = Awesome.brand.ethereum.asAttributedText(fontSize: 20, color: .white, backgroundColor: .clear)
+            currentCurrencyLabel.attributedText = attributedText + viewModel.currentPrice
+        case .btc, .usd:
+            currentCurrencyLabel.setFAText(prefixText: "", icon: viewModel.priceType.faType, postfixText: viewModel.currentPrice, size: 20)
+        }
     }
 
     func viewModelShouldUpdateChartView(_ viewModel: DetailViewModel) {
@@ -244,7 +251,13 @@ extension DetailViewController: DetailViewModelDelegate {
     }
 
     func viewModelShouldUpdateCurrency(_ viewModel: DetailViewModel) {
-        currencyLabel.setFAText(prefixText: "", icon: viewModel.priceType.faType, postfixText: viewModel.price, size: 18)
+        switch viewModel.priceType {
+        case .eth:
+            let attributedText = Awesome.brand.ethereum.asAttributedText(fontSize: 20, color: .white, backgroundColor: .clear)
+            currencyLabel.attributedText = attributedText + viewModel.price
+        case .btc, .usd:
+            currencyLabel.setFAText(prefixText: "", icon: viewModel.priceType.faType, postfixText: viewModel.price, size: 18)
+        }
     }
 }
 
