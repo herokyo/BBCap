@@ -31,13 +31,8 @@ final class DetailViewModelTests: QuickSpec {
                 }
 
                 it("dateString") {
-                    viewModel.notifyForDate(entryX: 0)
-                    expect(viewModel.dateString) == "May 31 2018 06:49:28"
-                }
-
-                it("price") {
-                    viewModel.notifyForCurrencyAt(entryX: 0)
-                    expect(viewModel.price) == "$9,209.58"
+                    viewModel.notifyForChart(entryX: 0)
+                    expect(viewModel.chartDateString) == "May 31 2018 06:49:28"
                 }
             }
 

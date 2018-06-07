@@ -32,6 +32,7 @@ final class HomeVC: UIViewController, StoryboardIdentifiable {
     var tickets: [Ticket] = [] {
         didSet {
             Async.main {
+                (self.tickets as [VirtualMoneyProtocol]).getUsdOverEth()
                 self.tableView.reloadData()
             }
         }
@@ -133,8 +134,7 @@ extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailViewController()
         let data = HomeCell.Data(ticket: tickets[indexPath.row], index: indexPath.row + 1)
-        let measurement = Measurement(tickets: tickets)
-        vc.viewModel = DetailViewModel(data: data, measurement: measurement)
+        vc.viewModel = DetailViewModel(data: data)
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc)
     }

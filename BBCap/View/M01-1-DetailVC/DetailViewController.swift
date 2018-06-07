@@ -158,14 +158,14 @@ final class DetailViewController: ViewController {
         }
 
         // Update default
-        priceTypeButton.setTitle(viewModel.priceType.rawValue, for: .normal)
+        priceTypeButton.setTitle(viewModel.priceTypeName, for: .normal)
         chooseTimeTypeButtonTouchUpInside(todayButton)
-        currencyImageView.setImage(urlString: viewModel.data?.iconPath)
-        currencyTitleLabel.text = viewModel.data?.title
-        currentCurrencyLabel.setFAText(prefixText: "", icon: viewModel.priceType.faType, postfixText: viewModel.currentPrice, size: 19)
-        hourPercentLabel.text = viewModel.data?.percentChange1h
-        dayPercentLabel.text = viewModel.data?.percentChange24h
-        weekPercentLabel.text = viewModel.data?.percentChange7d
+        currencyImageView.setImage(urlString: viewModel.iconPath)
+        currencyTitleLabel.text = viewModel.currencyName
+        currentCurrencyLabel.setText(type: viewModel.priceType, postfixText: viewModel.currentPrice)
+        hourPercentLabel.text = viewModel.percentHour
+        dayPercentLabel.text = viewModel.percentDay
+        weekPercentLabel.text = viewModel.percentWeek
 
         hourPercentLabel.textColor = viewModel.isNegativeHourPercent ? App.Color.bbRedColor : App.Color.bbLightGreenColor
         dayPercentLabel.textColor = viewModel.isNegativeDayPercent ? App.Color.bbRedColor : App.Color.bbLightGreenColor
@@ -175,7 +175,7 @@ final class DetailViewController: ViewController {
     // MARK: - IBAction
 
     @IBAction private func priceTypeButtonTouchUpInside(_ button: Button) {
-        guard let priceType = try? DetailViewModel.PriceType.next(button.titleForNormal) else { return }
+        guard let titleForNormal = button.titleForNormal, let priceType = viewModel.next(titleForNormal) else { return }
         viewModel.priceType = priceType
     }
 
@@ -221,6 +221,14 @@ extension DetailViewController: ChartViewDelegate {
 }
 
 extension DetailViewController: DetailViewModelDelegate {
+    
+    func viewModelShouldUpdateDate(_ viewModel: DetailViewModel) {
+        dateCurrencyLabel.text = viewModel.chartDateString
+    }
+
+    func viewModelShouldUpdateCurrency(_ viewModel: DetailViewModel) {
+        currencyLabel.setText(type: viewModel.priceType, postfixText: viewModel.chartCurrency)
+    }
 
     func viewModelShouldUpdateVolumeViews(_ viewModel: DetailViewModel) {
         volumeViews.forEach {
@@ -229,13 +237,7 @@ extension DetailViewController: DetailViewModelDelegate {
     }
 
     func viewModelShouldUpdateCurrentCurrency(_ viewModel: DetailViewModel) {
-        switch viewModel.priceType {
-        case .eth:
-            let attributedText = Awesome.brand.ethereum.asAttributedText(fontSize: 20, color: .white, backgroundColor: .clear)
-            currentCurrencyLabel.attributedText = attributedText + viewModel.currentPrice
-        case .btc, .usd:
-            currentCurrencyLabel.setFAText(prefixText: "", icon: viewModel.priceType.faType, postfixText: viewModel.currentPrice, size: 20)
-        }
+        currentCurrencyLabel.setText(type: viewModel.priceType, postfixText: viewModel.currentPrice)
     }
 
     func viewModelShouldUpdateChartView(_ viewModel: DetailViewModel) {
@@ -244,20 +246,6 @@ extension DetailViewController: DetailViewModelDelegate {
 
     func viewModelShouldUpdatePriceTypeButton(_ viewModel: DetailViewModel) {
         priceTypeButton.setTitle(viewModel.priceType.rawValue, for: .normal)
-    }
-
-    func viewModelShouldUpdateDate(_ viewModel: DetailViewModel) {
-        dateCurrencyLabel.text = viewModel.dateString
-    }
-
-    func viewModelShouldUpdateCurrency(_ viewModel: DetailViewModel) {
-        switch viewModel.priceType {
-        case .eth:
-            let attributedText = Awesome.brand.ethereum.asAttributedText(fontSize: 20, color: .white, backgroundColor: .clear)
-            currencyLabel.attributedText = attributedText + viewModel.price
-        case .btc, .usd:
-            currencyLabel.setFAText(prefixText: "", icon: viewModel.priceType.faType, postfixText: viewModel.price, size: 18)
-        }
     }
 }
 

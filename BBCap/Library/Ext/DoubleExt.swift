@@ -13,4 +13,8 @@ extension Double {
     var int64: Int64 {
         return Int64(self)
     }
+
+    var isInt: Bool {
+        return round == self
+    }
 }

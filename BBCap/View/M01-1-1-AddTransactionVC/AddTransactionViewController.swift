@@ -41,7 +41,6 @@ final class AddTransactionViewController: ViewController {
     }
 
     @IBAction private func saveTransactionButtonTouchUpInside(_ button: Button) {
-        // TODO: - Push to detail VC to testing
         let vc = DetailViewController()
         navigationController?.pushViewController(vc)
     }
