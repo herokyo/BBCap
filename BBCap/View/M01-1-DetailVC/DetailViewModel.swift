@@ -13,6 +13,19 @@ import Async
 import Font_Awesome_Swift
 import AwesomeEnum
 
+protocol DetailViewModelProtocol {
+    var iconPath: String? { get }
+    var currencyName: String? { get }
+    var isStarSelected: Bool { get set }
+    var currentPrice: String { get }
+    var priceTypeName: String? { get set }
+    var percentHour: String? { get }
+    var percentDay: String? { get }
+    var percentWeek: String? { get }
+    var chartCurrency: String { get }
+    var chartDateString: String { get }
+}
+
 protocol DetailViewModelDelegate: class {
     func viewModelShouldUpdateVolumeViews(_ viewModel: DetailViewModel)
     func viewModelShouldUpdateCurrentCurrency(_ viewModel: DetailViewModel)
@@ -22,9 +35,51 @@ protocol DetailViewModelDelegate: class {
     func viewModelShouldUpdateChartView(_ viewModel: DetailViewModel)
 }
 
-final class DetailViewModel {
+final class DetailViewModel: DetailViewModelProtocol {
 
-    var dateString = "" {
+    var isStarSelected: Bool = false
+
+    var iconPath: String? {
+        return data?.iconPath
+    }
+
+    var currencyName: String? {
+        return data?.title
+    }
+
+    var currentPrice: String {
+        return (prices[safe: prices.count - 1]?.formatDecimal(minimum: 0, maximum: 8)).or("")
+    }
+
+    var priceTypeName: String? {
+        get {
+            guard let name = ud.value(forKey: UserDefaultsKey.priceType) as? String else { return "USD" }
+            return name
+        }
+        set {
+            ud.setValue(newValue, forKey: UserDefaultsKey.priceType)
+        }
+    }
+
+    var percentHour: String? {
+        return data?.percentChange1h
+    }
+
+    var percentDay: String? {
+        return data?.percentChange24h
+    }
+
+    var percentWeek: String? {
+        return data?.percentChange7d
+    }
+
+    var chartCurrency: String = "" {
+        didSet {
+            delegate?.viewModelShouldUpdateCurrency(self)
+        }
+    }
+
+    var chartDateString: String = "" {
         didSet {
             delegate?.viewModelShouldUpdateDate(self)
         }
@@ -32,10 +87,10 @@ final class DetailViewModel {
 
     var priceType: PriceType = .usd {
         didSet {
-            ud.setValue(priceType.rawValue, forKey: UserDefaultsKey.priceType)
+            priceTypeName = priceType.rawValue
+            delegate?.viewModelShouldUpdateCurrency(self)
             delegate?.viewModelShouldUpdateVolumeViews(self)
             delegate?.viewModelShouldUpdateCurrentCurrency(self)
-            notifyForCurrencyAt(entryX: prices.count - 1)
             delegate?.viewModelShouldUpdatePriceTypeButton(self)
         }
     }
@@ -44,22 +99,12 @@ final class DetailViewModel {
         return currency.priceUSDs.map { $0[0] }
     }
 
-    var price = "" {
-        didSet {
-            delegate?.viewModelShouldUpdateCurrency(self)
-        }
-    }
-
-    var currentPrice: String {
-        return (prices[safe: prices.count - 1]?.formatDecimal(minimum: 0, maximum: 8)).or("")
-    }
-
     var prices: [Double] {
         switch priceType {
         case .btc:
             return currency.priceBTCs.map { $0[1] }
         case .eth:
-            return currency.priceUSDs.map { $0[1] / (measurement?.ethToUsd).or(1) }
+            return currency.priceUSDs.map { $0[1] / (data?.ticket.usdOverEth).or(1) }
         case .usd:
             return currency.priceUSDs.map { $0[1] }
         }
@@ -96,11 +141,8 @@ final class DetailViewModel {
 
     let data: HomeCell.Data?
 
-    let measurement: Measurement?
-
-    init(data: HomeCell.Data? = nil, measurement: Measurement? = nil) {
+    init(data: HomeCell.Data? = nil) {
         self.data = data
-        self.measurement = measurement
         if let value = ud.value(forKey: UserDefaultsKey.priceType) as? String, let priceType = PriceType(rawValue: value) {
             self.priceType = priceType
         }
@@ -108,7 +150,20 @@ final class DetailViewModel {
 
     func volumeViewModel(withTag tag: Int) -> CurrencyVolumeViewModel {
         let volumeType = VolumeType(rawValue: tag)
-        return CurrencyVolumeViewModel(volumeType: volumeType, ticket: data?.ticket, priceType: priceType, ethereum: measurement)
+        return CurrencyVolumeViewModel(volumeType: volumeType, ticket: data?.ticket, priceType: priceType)
+    }
+
+    func next(_ title: String) -> PriceType? {
+        switch title {
+        case "USD":
+            return .btc
+        case "BTC":
+            return .eth
+        case "ETH":
+            return .usd
+        default:
+            return nil
+        }
     }
 
     // Notiffy for date and currency
@@ -117,12 +172,12 @@ final class DetailViewModel {
         guard let timeIntervalMiliseconds = timeIntervals[safe: entryX] else { return }
         let timeInterval = timeIntervalMiliseconds / 1_000
         let date = Date(timeIntervalSince1970: TimeInterval(timeInterval))
-        dateString = date.string(format: DateFormat.custom(Config.dateFormat))
+        chartDateString = date.string(format: DateFormat.custom(Config.dateFormat))
     }
 
     func notifyForCurrencyAt(entryX: Int) {
         guard let priceFormat = prices[safe: entryX]?.formatDecimal(minimum: 0, maximum: 8) else { return }
-        price = priceFormat
+        chartCurrency = priceFormat
     }
 
     func notifyForGetCurrency(value: String, completion: @escaping ApiCompletion) {
@@ -140,46 +195,6 @@ final class DetailViewModel {
                 case .failure(let error):
                     completion(.failure(error))
                 }
-            }
-        }
-    }
-}
-
-// MARK: Currency Type
-
-extension DetailViewModel {
-
-    enum PriceTypeError: Error {
-        case invalid
-    }
-
-    enum PriceType: String {
-        case usd = "USD"
-        case btc = "BTC"
-        case eth = "ETH"
-
-        var faType: FAType {
-            switch self {
-            case .usd:
-                return FAType.FADollar
-            case .btc:
-                return FAType.FABitcoin
-            case .eth:
-                return FAType.FAGlass
-            }
-        }
-
-        static func next(_ title: String?) throws -> PriceType {
-            guard let title = title else { throw PriceTypeError.invalid }
-            switch title {
-            case "USD":
-                return .btc
-            case "BTC":
-                return .eth
-            case "ETH":
-                return .usd
-            default:
-                throw PriceTypeError.invalid
             }
         }
     }

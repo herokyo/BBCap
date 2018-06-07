@@ -29,7 +29,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         configNetwork()
         configIQKeyBoardManager()
         UIApplication.shared.isStatusBarHidden = true
-//        configWindow(type: .createNewAlertVC)
         return true
     }
 }
@@ -41,35 +40,7 @@ extension AppDelegate {
         networkIndicator.startDelay = 0
     }
 
-    // MARK: - Config window
-    private func configWindow(type: VCType = .detailVC) {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        guard let window = window else { return }
-        var vc: ViewController!
-        switch type {
-        case .addTransactionVC:
-            vc = AddTransactionViewController()
-        case .detailVC:
-            vc = DetailViewController()
-        case .createNewAlertVC:
-            vc = CreateAlertViewController()
-        }
-        let navigationController = UINavigationController(rootViewController: vc)
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
-    }
-
     private func configIQKeyBoardManager() {
         IQKeyboardManager.shared.enable = true
-    }
-}
-
-// TODO: - Will remove later
-extension AppDelegate {
-
-    enum VCType {
-        case detailVC
-        case addTransactionVC
-        case createNewAlertVC
     }
 }

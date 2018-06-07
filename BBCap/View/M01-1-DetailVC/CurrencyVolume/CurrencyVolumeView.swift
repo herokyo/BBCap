@@ -31,14 +31,8 @@ final class CurrencyVolumeView: BBView {
         guard let volumeType = viewModel.volumeType, let priceType = viewModel.priceType else { return }
         switch volumeType {
         case .cap, .volume24h:
-            switch priceType {
-            case .eth:
-                let attributedText = Awesome.brand.ethereum.asAttributedText(fontSize: 17, color: .white, backgroundColor: .clear)
-                currencyLabel.attributedText = attributedText + viewModel.currency
-                currencyLabel.textAlignment = .right
-            case .usd, .btc:
-                currencyLabel.setFAText(prefixText: "", icon: priceType.faType, postfixText: viewModel.currency, size: 17)
-            }
+            currencyLabel.setText(type: priceType, postfixText: viewModel.currency)
+            currencyLabel.textAlignment = .right
         case .totalSupply, .availableSupply:
             currencyLabel.text = viewModel.currency
         }

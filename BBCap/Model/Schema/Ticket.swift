@@ -1,12 +1,4 @@
 //
-//  Coin.swift
-//  BBCap
-//
-//  Created by Hai Phung N.T. on 6/2/18.
-//  Copyright © 2018 Asian Tech Co., Ltd. All rights reserved.
-//
-
-//
 //    Coin.swift
 //
 //    Create by Hai Phung Nguyen Thanh on 2/6/2018
