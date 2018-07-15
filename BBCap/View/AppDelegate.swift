@@ -28,8 +28,22 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         configNetwork()
         configIQKeyBoardManager()
+        register()
         UIApplication.shared.isStatusBarHidden = true
         return true
+    }
+
+    // TODO: register
+    private func register() {
+        guard Session.shared.token.isEmpty else { return }
+        Api.Register.token { result in
+            switch result {
+            case .success(let value):
+                Session.shared.token = value
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 

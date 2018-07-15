@@ -13,11 +13,11 @@ final class Api {
 
     struct Path {
         #if DEBUG
-        static let baseURL = "https://dev-asiantech.vn"
+        static let baseURL = "http://45.32.126.226"
         #elseif STG
-        static let baseURL = "https://stg-asiantech.vn"
+        static let baseURL = "http://45.32.126.226"
         #else
-        static let baseURL = "https://pro-asiantech.vn"
+        static let baseURL = "http://45.32.126.226"
         #endif
 
         static let v1 = "api" / "v1"
@@ -32,8 +32,11 @@ final class Api {
 extension Api.Path {
 
     struct Users {
-
         static let path = baseURL / v1 / "users"
+    }
+
+    struct Exchanges {
+        static let path = baseURL / v1 / "exchanges"
     }
 }
 

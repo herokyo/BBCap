@@ -15,6 +15,10 @@ enum Process {
 
 extension String {
 
+    var isNotEmpty: Bool {
+        return !isEmpty
+    }
+
     var trimmed: String {
         return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
