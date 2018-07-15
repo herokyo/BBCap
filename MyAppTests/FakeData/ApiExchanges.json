@@ -1,0 +1,15 @@
+
+{
+    "data": [
+             {
+             "id": "5b1336aa65d4403aaf1ca822",
+             "name": "BINANCE",
+             "position": 0,
+             "icon": "http://localhost/img/exchanges/binance.png",
+             "website": "https://www.binance.com",
+             "chat": "https://t.me/binanceexchange",
+             "twitter": "https://twitter.com/binance",
+             "symbol": "BINANCE"
+             }
+             ]
+}

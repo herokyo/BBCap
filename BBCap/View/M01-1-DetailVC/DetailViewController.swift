@@ -221,7 +221,7 @@ extension DetailViewController: ChartViewDelegate {
 }
 
 extension DetailViewController: DetailViewModelDelegate {
-    
+
     func viewModelShouldUpdateDate(_ viewModel: DetailViewModel) {
         dateCurrencyLabel.text = viewModel.chartDateString
     }

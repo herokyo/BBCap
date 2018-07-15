@@ -28,14 +28,20 @@ extension ApiManager {
             encoding = URLEncoding.default
         }
 
-        var _headers = api.defaultHTTPHeaders
-        _headers.updateValues(headers)
+        var newHeaders = api.defaultHTTPHeaders
+        newHeaders.updateValues(headers)
+
+        var newParams: [String: Any] = [:]
+        newParams.updateValues(parameters)
+        if urlString.urlString.hasPrefix(Api.Path.baseURL) && Session.shared.token.isNotEmpty {
+            newParams["api_token"] = Session.shared.token
+        }
 
         let request = Alamofire.request(urlString.urlString,
                                         method: method,
-                                        parameters: parameters,
+                                        parameters: newParams,
                                         encoding: encoding,
-                                        headers: _headers
+                                        headers: newHeaders
         ).responseJSON(completion: { (response) in
             completion?(response.result)
         })

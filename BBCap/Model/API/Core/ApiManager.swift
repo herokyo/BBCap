@@ -25,7 +25,9 @@ let api = ApiManager()
 final class ApiManager {
 
     var defaultHTTPHeaders: [String: String] {
-        let headers: [String: String] = [:]
+        var headers: [String: String] = [:]
+        headers["clientID"] = App.Key.clientID
+        headers["Content-Type"] = "application/json"
         return headers
     }
 }

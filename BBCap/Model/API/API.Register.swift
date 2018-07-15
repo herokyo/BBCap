@@ -13,7 +13,7 @@ protocol RegisterProtocol {
     var uuid: String { get }
     var deviceType: Int { get }
     var params: JSObject { get }
-    func token(completion: @escaping Completion<Element>)
+    static func token(completion: @escaping Completion<Element>)
 }
 
 extension Api {
@@ -39,8 +39,9 @@ extension Api.Register: RegisterProtocol {
         ]
     }
 
-    func token(completion: @escaping Completion<String>) {
+    static func token(completion: @escaping Completion<String>) {
         let path = Api.Path.Users.path
+        let params: [String: Any] = Api.Register().params
         api.request(method: .post, urlString: path, parameters: params) { result in
             switch result {
             case .success(let value):

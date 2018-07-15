@@ -31,7 +31,7 @@ final class DetailViewModelTests: QuickSpec {
                 }
 
                 it("dateString") {
-                    viewModel.notifyForChart(entryX: 0)
+                    viewModel.notifyForDate(entryX: 0)
                     expect(viewModel.chartDateString) == "May 31 2018 06:49:28"
                 }
             }
